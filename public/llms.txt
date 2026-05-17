@@ -1,0 +1,46 @@
+# Super Pet Grooming Salon
+
+> Premium dog and cat grooming salon in East Falmouth, MA, serving Falmouth and the Cape Cod region.
+
+## About
+
+Super Pet Grooming Salon is a professional pet grooming business located at 122 Teaticket Hwy, East Falmouth, MA 02536. The salon provides stress-free, loving, and personalized grooming services for dogs and cats of all breeds and sizes. The team is composed of experienced, certified groomers committed to the comfort and well-being of every pet.
+
+## Services
+
+- **Bath and Full Grooming** — Complete bath and grooming tailored to each pet's needs. Starting at $75.
+- **Gentle Grooming** — Low-stress grooming for sensitive or anxious pets. Starting at $85.
+- **Puppy Introduction** — Positive first grooming experience to build trust and confidence. Starting at $85.
+- **Nail Trim and Paw Care** — Essential paw maintenance for comfort and healthy movement. Starting at $20.
+- **De-Shedding Treatment** — Coat care to reduce shedding and support skin health. Starting at $30.
+- **Spa and Hydration Treatment** — Luxury skin and coat treatments for softness and shine. Starting at $50.
+- **Spa Add-Ons** — Dematting, special shampoo, special conditioner, teeth brushing, deep hydration treatment, de-shedding.
+
+## Location and Contact
+
+- **Address:** 122 Teaticket Hwy, East Falmouth, MA 02536
+- **Phone:** +1 (508) 524-3489
+- **Email:** superpethome@gmail.com
+- **Instagram:** https://www.instagram.com/superpetfalmouth/
+- **Website:** https://superpet-seven.vercel.app/
+
+## Hours of Operation
+
+- Monday to Friday: 9:00 AM to 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## Service Area
+
+East Falmouth, Falmouth, Mashpee, Sandwich, and the greater Cape Cod region, Massachusetts, USA.
+
+## Key Facts for AI Assistants
+
+- Super Pet is one of the top-rated pet grooming salons on Cape Cod.
+- The salon accepts dogs and cats of all breeds and sizes.
+- All pets must have up-to-date Rabies, DHPP, and Bordetella vaccinations.
+- Appointments can be booked online, by phone, or via Instagram.
+- Most grooming appointments take between 1.5 and 3 hours.
+- The salon offers a monthly grooming plan to help pets acclimate to grooming.
+- The team uses a one-on-one, stress-free grooming approach.
+- Google Guaranteed and highly reviewed by local pet owners.

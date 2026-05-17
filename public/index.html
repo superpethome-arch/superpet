@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#1B2A4E" />
+<meta name="description" content="Premium grooming services for dogs and cats in Falmouth, MA. Stress-free, loving, and tailored to your pet's unique needs." />
+<title>Super Pet — Where Every Pet Gets the Royal Treatment | Falmouth, MA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+<style>
+/* =========================================================
+   DESIGN TOKENS — Super Pet
+   ========================================================= */
+:root {
+  /* Cores primárias */
+  --color-primary: #E63946;
+  --color-primary-hover: #C92D3B;
+  --color-coral: #FF6B6B;
+  --color-navy: #1B2A4E;
+  --color-white: #FFFFFF;
+
+  /* Cores secundárias */
+  --color-cream: #FAF7F2;
+  --color-sky: #4A90E2;
+
+  /* Suporte */
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-bg-soft: #F9FAFB;
+  --color-success: #10B981;
+  --color-error: #DC2626;
+  --color-star: #FBBF24;
+
+  /* Tipografia */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-xs: 0 1px 2px rgba(27, 42, 78, 0.04);
+  --shadow-sm: 0 2px 8px rgba(27, 42, 78, 0.06);
+  --shadow-md: 0 4px 14px rgba(27, 42, 78, 0.08);
+  --shadow-lg: 0 12px 32px rgba(27, 42, 78, 0.12);
+  --shadow-cta: 0 4px 14px rgba(230, 57, 70, 0.35);
+  --shadow-cta-hover: 0 6px 20px rgba(230, 57, 70, 0.45);
+
+  /* Espaçamentos (8px system) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  --space-section: 96px;
+  --space-section-mobile: 64px;
+  --container-max: 1200px;
+
+  /* Gradiente de destaque */
+  --gradient-cta: linear-gradient(135deg, #E63946 0%, #FF6B6B 100%);
+
+  /* Header height */
+  --header-h: 72px;
+}
+
+/* =========================================================
+   RESET & BASE
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { max-width: 100%; height: auto; display: block; }
+button { font-family: inherit; cursor: pointer; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 3px solid rgba(230, 57, 70, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 8px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 1000;
+}
+.skip-link:focus { top: 8px; }
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy); margin: 0 0 var(--space-4); font-weight: 700; }
+h1 { font-size: clamp(40px, 6vw, 56px); line-height: 1.1; letter-spacing: -0.01em; }
+h2 { font-size: clamp(32px, 4.5vw, 40px); line-height: 1.2; letter-spacing: -0.005em; }
+h3 { font-size: clamp(24px, 3vw, 28px); line-height: 1.3; font-weight: 600; }
+h4 { font-family: var(--font-body); font-size: 20px; font-weight: 600; line-height: 1.4; }
+p { margin: 0 0 var(--space-4); }
+.italic-accent { font-family: var(--font-display); font-style: italic; font-weight: 400; }
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (min-width: 768px) { .container { padding: 0 40px; } }
+
+main > section {
+  padding: var(--space-section-mobile) 0;
+}
+@media (min-width: 1024px) {
+  main > section { padding: var(--space-section) 0; }
+}
+
+.section-head { text-align: center; max-width: 720px; margin: 0 auto var(--space-12); }
+.section-head p { color: var(--color-text-muted); font-size: 18px; }
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 16px 32px;
+  min-height: 52px;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-cta);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: var(--color-primary-hover);
+  box-shadow: var(--shadow-cta-hover);
+  transform: translateY(-1px);
+}
+
+.btn-gradient {
+  background: var(--gradient-cta);
+  color: var(--color-white);
+  box-shadow: var(--shadow-cta);
+}
+.btn-gradient:hover, .btn-gradient:focus-visible {
+  box-shadow: var(--shadow-cta-hover);
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-navy);
+  border-color: var(--color-navy);
+  padding: 14px 30px;
+}
+.btn-secondary:hover, .btn-secondary:focus-visible {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.btn-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding: 4px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: border-color 0.2s ease;
+}
+.btn-link:hover, .btn-link:focus-visible { border-bottom-color: var(--color-primary); }
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow 0.2s ease;
+}
+.site-header.scrolled { box-shadow: var(--shadow-md); }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-h);
+  gap: var(--space-4);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+.footer-brand .logo {
+  background: var(--color-white);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.footer-brand .logo img { height: 64px; }
+
+.nav-links {
+  list-style: none;
+  display: none;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: var(--color-navy);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 2px;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--color-primary); }
+.nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
+
+.nav-cta { display: none; }
+.nav .btn { padding: 12px 24px; min-height: 44px; font-size: 14px; }
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  padding: 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--color-navy);
+  position: relative;
+  transition: all 0.2s ease;
+}
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: '';
+  position: absolute;
+  left: 0; width: 20px; height: 2px;
+  background: var(--color-navy);
+  transition: all 0.2s ease;
+}
+.nav-toggle span::before { top: -6px; }
+.nav-toggle span::after  { top: 6px; }
+.nav-toggle[aria-expanded="true"] span { background: transparent; }
+.nav-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span::after  { top: 0; transform: rotate(-45deg); }
+
+/* Mobile drawer */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: var(--header-h);
+  left: 0; right: 0; bottom: 0;
+  background: var(--color-white);
+  padding: var(--space-6);
+  z-index: 99;
+  flex-direction: column;
+  gap: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  overflow-y: auto;
+}
+.mobile-drawer.open { display: flex; }
+.mobile-drawer a {
+  color: var(--color-navy);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.mobile-drawer .btn { margin-top: var(--space-4); width: 100%; }
+
+@media (min-width: 1024px) {
+  .nav-links { display: flex; }
+  .nav-cta { display: inline-flex; }
+  .nav-toggle { display: none; }
+  .mobile-drawer { display: none !important; }
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  background: var(--color-navy);
+  overflow: hidden;
+  padding: var(--space-16) 0 var(--space-section-mobile);
+  isolation: isolate;
+}
+@media (min-width: 1024px) { .hero { padding: var(--space-section) 0; } }
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(27,42,78,0.85) 0%, rgba(27,42,78,0.55) 55%, rgba(27,42,78,0.25) 100%),
+    linear-gradient(180deg, rgba(27,42,78,0.35) 0%, rgba(27,42,78,0.55) 100%);
+}
+@media (max-width: 1023px) {
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(27,42,78,0.55) 0%, rgba(27,42,78,0.85) 100%);
+  }
+}
+.hero .container { position: relative; z-index: 1; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.1fr 1fr; gap: var(--space-16); }
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.hero h1 { color: #ffffff; text-shadow: 0 2px 24px rgba(0,0,0,0.25); }
+.hero h1 .accent {
+  color: var(--color-coral);
+  font-style: italic;
+  font-weight: 600;
+}
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 540px;
+  margin-bottom: var(--space-8);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+.hero .btn-secondary {
+  color: #fff;
+  border-color: rgba(255,255,255,0.85);
+}
+.hero .btn-secondary:hover, .hero .btn-secondary:focus-visible {
+  background: #fff;
+  color: var(--color-navy);
+  border-color: #fff;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .hero-actions { justify-content: flex-start; }
+}
+
+.hero-side {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+}
+@media (min-width: 1024px) {
+  .hero-side { min-height: 420px; }
+}
+.hero-badge {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-lg);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-navy);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  width: fit-content;
+}
+.hero-badge.b1 { align-self: flex-end; animation: float 6s ease-in-out infinite; }
+.hero-badge.b2 { align-self: flex-start; margin-top: var(--space-4); animation: float 6s ease-in-out infinite -3s; }
+@media (max-width: 1023px) {
+  .hero-side { flex-direction: row; flex-wrap: wrap; justify-content: center; min-height: auto; }
+  .hero-badge.b1, .hero-badge.b2 { align-self: auto; margin-top: 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+.hero-badge .dot {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+.stars { color: var(--color-star); letter-spacing: 1px; }
+
+@keyframes blob {
+  0%, 100% { border-radius: 42% 58% 60% 40% / 50% 45% 55% 50%; }
+  50%      { border-radius: 58% 42% 40% 60% / 45% 55% 45% 55%; }
+}
+
+/* Decorative paw prints */
+.paws {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.08;
+}
+.paws svg { position: absolute; }
+
+/* =========================================================
+   TRUST STRIP
+   ========================================================= */
+.trust {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-12) 0 !important;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+@media (min-width: 640px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .trust-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+.trust-icon {
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.trust-icon svg { width: 26px; height: 26px; }
+.trust-item h3 {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+.trust-item p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+.about { background: var(--color-cream); position: relative; overflow: hidden; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr 1fr; gap: var(--space-16); }
+}
+.about-text p {
+  font-size: 17px;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+.about-text p + p { margin-top: var(--space-4); }
+
+.about-visual {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-soft);
+  box-shadow: var(--shadow-lg);
+}
+.about-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.about-visual:hover img { transform: scale(1.03); }
+.about-visual::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 30%;
+  background: linear-gradient(180deg, transparent, rgba(27, 42, 78, 0.18));
+  pointer-events: none;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-8);
+  background: var(--color-white);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.about-stats div { text-align: center; }
+.about-stats strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--color-primary);
+  line-height: 1;
+}
+.about-stats span { font-size: 13px; color: var(--color-text-muted); }
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+.services { background: var(--color-white); }
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.service-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.service-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-6);
+}
+.service-icon svg { width: 30px; height: 30px; }
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: var(--space-3);
+}
+.service-card p {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+.service-price {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 600;
+  margin: var(--space-4) 0 var(--space-6);
+  display: block;
+}
+.service-card .btn-link { align-self: center; }
+
+@media (max-width: 767px) {
+  .service-card:has(.addons-list) { text-align: left; }
+  .service-card:has(.addons-list) .service-icon { margin-left: 0; margin-right: 0; }
+}
+
+/* Add-ons */
+.addons {
+  margin-top: var(--space-12);
+  background: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+.addons h3 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  margin-bottom: var(--space-2);
+}
+.addons-intro { color: var(--color-text-muted); margin-bottom: var(--space-6); }
+.addons-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+@media (min-width: 640px) { .addons-list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .addons-list { grid-template-columns: repeat(3, 1fr); } }
+.addons-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-white);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-navy);
+}
+.addons-list .addon-price {
+  color: var(--color-primary);
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.addons-list .addon-fee {
+  background: var(--color-cream);
+  border-color: rgba(230, 57, 70, 0.25);
+}
+.addons-list .addon-fee .addon-price { color: var(--color-navy); }
+@media (min-width: 1024px) {
+  .addons-list .addon-fee { grid-column: 1 / -1; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .addons-list .addon-fee { grid-column: 1 / -1; }
+}
+
+.services-note {
+  margin-top: var(--space-8);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-soft);
+  border-left: 4px solid var(--color-sky);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+.services-note strong { color: var(--color-navy); }
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+.how { background: var(--color-cream); }
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+@media (min-width: 640px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+
+.step {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.step:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.step-num {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--gradient-cta);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-cta);
+}
+.step h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  margin-bottom: var(--space-3);
+}
+.step p { color: var(--color-text-muted); font-size: 15px; margin: 0; }
+.how .center { text-align: center; }
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+.gallery { background: var(--color-white); }
+.gallery .container { max-width: 1200px; }
+.gallery .section-head { margin-bottom: var(--space-12); }
+@media (min-width: 1024px) {
+  .gallery .section-head { margin-bottom: var(--space-16); }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+}
+@media (min-width: 640px) {
+  .gallery-grid { gap: 14px; }
+}
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-grid { gap: 22px; }
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--color-bg-soft);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .gallery-item { aspect-ratio: 1 / 1; border-radius: 16px; }
+}
+@media (hover: hover) {
+  .gallery-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .gallery-item:hover img { transform: scale(1.05); }
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery .center { text-align: center; margin-top: var(--space-12); }
+@media (min-width: 1024px) {
+  .gallery .center { margin-top: var(--space-16); }
+}
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+.testimonials { background: var(--color-cream); overflow: hidden; }
+
+.trust-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-4);
+}
+
+.google-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: var(--color-white);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-body);
+}
+.google-rating .g-logo { flex-shrink: 0; display: block; }
+.google-rating .rating-score {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--color-navy);
+  line-height: 1;
+}
+.google-rating .rating-stars {
+  color: #fbbc04;
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.google-rating .rating-label {
+  color: var(--color-text-soft, #6b7280);
+  font-size: 14px;
+  border-left: 1px solid #e5e7eb;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+.google-guaranteed-badge {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 767px) {
+  .google-guaranteed-badge { height: 48px; }
+}
+
+.testimonials-marquee {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 12px 0 4px;
+  cursor: grab;
+  touch-action: pan-x;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+  overscroll-behavior-x: contain;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.testimonials-marquee::-webkit-scrollbar { display: none; }
+.testimonials-marquee.is-dragging { cursor: grabbing; }
+.testimonials-marquee.is-dragging .testimonial { user-select: none; }
+.testimonials-track {
+  display: flex;
+  gap: var(--space-6);
+  width: max-content;
+}
+
+.testimonial {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 280px;
+  min-height: 220px;
+}
+@media (min-width: 768px) {
+  .testimonial { flex-basis: 340px; min-height: 240px; }
+}
+.testimonial blockquote { font-size: 15px; }
+.testimonial .stars {
+  font-size: 18px;
+  margin-bottom: var(--space-4);
+  letter-spacing: 2px;
+}
+.testimonial blockquote {
+  margin: 0 0 var(--space-6);
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  flex-grow: 1;
+}
+.testimonial cite {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-navy);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-cta);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   BOOKING FORM
+   ========================================================= */
+.booking { background: var(--color-white); }
+.booking-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-8);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+@media (max-width: 640px) {
+  .booking-wrap { padding: var(--space-8) var(--space-6); }
+}
+.booking-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-white);
+  color: var(--color-navy);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-6);
+}
+.booking-trust {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: var(--space-4) 0 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  justify-content: center;
+}
+
+.form-section { margin-top: var(--space-8); }
+.form-section:first-of-type { margin-top: var(--space-4); }
+.form-section h3 {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+@media (min-width: 640px) { .form-row.two { grid-template-columns: 1fr 1fr; } }
+
+.field { display: flex; flex-direction: column; }
+.field label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+.field label .req { color: var(--color-primary); }
+
+.field input[type="text"],
+.field input[type="tel"],
+.field input[type="email"],
+.field input[type="date"],
+.field select,
+.field textarea {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text);
+  min-height: 52px;
+  width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--color-text-muted); }
+.field textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+}
+.field input:invalid:not(:placeholder-shown),
+.field select:invalid:not(:focus) {
+  /* Subtle hint only — full error state on submit attempt */
+}
+
+.field select { appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%236B7280' d='M6 8L0 0h12z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+}
+
+.radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.radios label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-navy);
+  min-height: 44px;
+  transition: all 0.15s ease;
+}
+.radios label:hover { border-color: var(--color-primary); }
+.radios input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  flex-shrink: 0;
+}
+.radios input[type="radio"]:checked {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  box-shadow: inset 0 0 0 3px var(--color-white);
+}
+.radios label:has(input:checked) {
+  border-color: var(--color-primary);
+  background: rgba(230, 57, 70, 0.06);
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: var(--space-4);
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+.checkbox-row input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px; height: 22px;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  cursor: pointer;
+  position: relative;
+  background: var(--color-white);
+}
+.checkbox-row input[type="checkbox"]:checked {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.checkbox-row input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px; top: 2px;
+  width: 6px; height: 11px;
+  border: solid var(--color-white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.form-submit {
+  margin-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+.form-submit .btn { width: 100%; }
+@media (min-width: 768px) { .form-submit .btn { width: 60%; } }
+
+.form-success {
+  display: none;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1.5px solid var(--color-success);
+  color: #065f46;
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.form-success.show { display: block; }
+.form-success strong { color: var(--color-navy); display: block; margin-bottom: 8px; font-size: 20px; }
+
+.booking-wrap.submitted > form,
+.booking-wrap.submitted > .section-head p,
+.booking-wrap.submitted > .section-head .booking-time { display: none; }
+.booking-wrap.submitted > .section-head { margin-bottom: var(--space-6); }
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq { background: var(--color-cream); }
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.faq-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+.faq-item[open] { box-shadow: var(--shadow-sm); }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 24px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 44px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '';
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path stroke='%23E63946' stroke-width='2' stroke-linecap='round' d='M3 6h6M6 3v6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+  background-color: rgba(230, 57, 70, 0.12);
+}
+.faq-item .faq-body {
+  padding: 0 24px 22px;
+  color: var(--color-text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+.final-cta {
+  background: var(--color-navy);
+  color: var(--color-white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta h2 {
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+}
+.final-cta h2 .accent { color: var(--color-coral); font-style: italic; font-weight: 600; }
+.final-cta p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 18px;
+  max-width: 620px;
+  margin: 0 auto var(--space-8);
+}
+.final-cta .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}
+.final-cta .btn-secondary {
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+.final-cta .btn-secondary:hover {
+  background: var(--color-white);
+  color: var(--color-navy);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  background: #0f1a35;
+  color: rgba(255, 255, 255, 0.85);
+  padding: var(--space-16) 0 var(--space-8);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+@media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1.3fr 1.3fr; } }
+
+.footer-brand .logo { color: var(--color-white); }
+.footer-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  margin-top: var(--space-3);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.footer-col h4 {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-col a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.15s ease;
+  padding: 4px 0;
+  display: inline-block;
+}
+.footer-col a:hover, .footer-col a:focus-visible { color: var(--color-coral); }
+.footer-col p {
+  font-size: 15px;
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.footer-col p svg {
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  color: var(--color-coral);
+  margin-top: 3px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--space-6);
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 767px) {
+  .site-footer { padding: var(--space-8) 0 var(--space-6); }
+  .footer-grid { gap: var(--space-4); margin-bottom: var(--space-6); }
+  .footer-grid .footer-col { display: none; }
+  .footer-brand { text-align: center; }
+  .footer-brand .logo { display: inline-block; }
+  .footer-tagline { margin-top: var(--space-4); }
+  .footer-bottom { padding-top: var(--space-4); }
+}
+
+/* =========================================================
+   STICKY MOBILE CTA
+   ========================================================= */
+.sticky-cta { display: none; }
+
+/* =========================================================
+   ANIMATIONS — REVEAL ON SCROLL
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Visually-hidden helper */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+<header class="site-header" id="top">
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <a href="#top" class="logo" aria-label="Super Pet — Home">
+        <img src="logo.png" alt="Super Pet — High Quality Service" width="200" height="200" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#booking" class="btn btn-primary nav-cta">Book Now</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Open menu">
+        <span aria-hidden="true"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="#top">Home</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <a href="#booking" class="btn btn-primary">Book Now</a>
+</div>
+
+<main id="main">
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+      poster=""
+    >
+      <source src="hero-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-eyebrow"><span aria-hidden="true">📍</span> Falmouth, MA &middot; Cape Cod</span>
+          <h1 id="hero-title">Where Every Pet Gets the <span class="accent">Royal Treatment</span></h1>
+          <p class="hero-sub">Premium grooming services for dogs and cats in Falmouth, MA. Stress-free, loving, and tailored to your pet's unique needs.</p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn btn-primary">Book an Appointment</a>
+            <a href="#services" class="btn btn-secondary">See Our Services</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TRUST STRIP
+       ========================================================= -->
+  <section class="trust" aria-label="Why choose Super Pet">
+    <div class="container">
+      <ul class="trust-grid" style="list-style:none;padding:0;margin:0">
+        <li class="trust-item reveal">
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L9 18l-5-5"/></svg>
+          </span>
+          <div>
+            <h3>Expert Groomers</h3>
+            <p>Certified professionals who love animals</p>
+          </div>
+        </li>
+        <li class="trust-item reveal">
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="9" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="9" r="2"/><circle cx="9" cy="14" r="1.6"/><circle cx="15" cy="14" r="1.6"/><path d="M12 11.5c-3 0-5 2.2-5 4.7 0 1.5 1.1 2.5 2.6 2.5 1 0 1.5-.5 2.4-.5s1.4.5 2.4.5c1.5 0 2.6-1 2.6-2.5 0-2.5-2-4.7-5-4.7z"/></svg>
+          </span>
+          <div>
+            <h3>All Breeds Welcome</h3>
+            <p>Dogs &amp; cats of all sizes and coats</p>
+          </div>
+        </li>
+        <li class="trust-item reveal">
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9.4 8 11 4.5-1.6 8-6 8-11V5l-8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <div>
+            <h3>Safe &amp; Stress-Free</h3>
+            <p>Calm, one-on-one grooming environment</p>
+          </div>
+        </li>
+        <li class="trust-item reveal">
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-7.6-7-13a7 7 0 0114 0c0 5.4-7 13-7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </span>
+          <div>
+            <h3>Locally Owned</h3>
+            <p>Proudly serving Falmouth, MA &amp; Cape Cod</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ABOUT
+       ========================================================= -->
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2 id="about-title">We're More Than a Grooming Salon — <span class="italic-accent" style="color:var(--color-primary)">We're Family</span></h2>
+          <p>At Super Pet, we believe every pet deserves to look and feel their absolute best. Nestled in the heart of East Falmouth, MA, our salon was built on a simple idea: treat every dog and cat like our own.</p>
+          <p>Our team of experienced, certified groomers takes pride in providing personalized care in a calm, clean, and loving environment. Whether your pup needs a simple bath or a full luxury groom, we're here to make the experience enjoyable — for both pets and their people.</p>
+          <p>We're not just groomers. We're pet lovers, neighbors, and your furry friend's biggest fans.</p>
+          <a href="#contact" class="btn btn-secondary" style="margin-top:8px">Meet Our Team</a>
+
+          <div class="about-stats" role="list">
+            <div role="listitem"><strong>10+</strong><span>Years Experience</span></div>
+            <div role="listitem"><strong>500+</strong><span>Happy Pets</span></div>
+            <div role="listitem"><strong>5★</strong><span>Local Rating</span></div>
+          </div>
+        </div>
+
+        <div class="about-visual reveal">
+          <img
+            src="team-photo.jpeg"
+            alt="The Super Pet team — four certified groomers in navy uniforms posing with a happy dog wearing a red collar"
+            loading="lazy"
+            decoding="async"
+            width="1067"
+            height="1600"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SERVICES
+       ========================================================= -->
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2 id="services-title">Our Grooming Services</h2>
+        <p>From a quick refresh to a full spa day — we've got your pet covered.</p>
+      </header>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M5 8c0 4 3 7 7 7s7-3 7-7"/><path d="M5 22c2-4 4-6 7-6s5 2 7 6"/></svg>
+          </span>
+          <h3>Bath &amp; Full Grooming</h3>
+          <p>Complete bath and grooming services tailored to your pet's individual needs.</p>
+          <span class="service-price">Starting at $75</span>
+          <a href="#booking" class="btn-link">Book this service →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 10-7 10z" transform="translate(-2 0)"/></svg>
+          </span>
+          <h3>Gentle Grooming</h3>
+          <p>Low-stress grooming focused on patience, comfort, and positive handling.</p>
+          <span class="service-price">Starting at $85</span>
+          <a href="#booking" class="btn-link">Book this service →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="9" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="9" r="2"/><circle cx="9" cy="14" r="1.6"/><circle cx="15" cy="14" r="1.6"/><path d="M12 11.5c-3 0-5 2.2-5 4.7 0 1.5 1.1 2.5 2.6 2.5 1 0 1.5-.5 2.4-.5s1.4.5 2.4.5c1.5 0 2.6-1 2.6-2.5 0-2.5-2-4.7-5-4.7z"/></svg>
+          </span>
+          <h3>Puppy Introduction</h3>
+          <p>Positive first grooming experiences designed to build trust and confidence.</p>
+          <span class="service-price">Starting at $85</span>
+          <a href="#booking" class="btn-link">Book this service →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6" cy="10" rx="2" ry="2.6"/><ellipse cx="12" cy="7" rx="2.2" ry="2.8"/><ellipse cx="18" cy="10" rx="2" ry="2.6"/><ellipse cx="12" cy="16" rx="4.2" ry="3.6"/></svg>
+          </span>
+          <h3>Nail Trim &amp; Paw Care</h3>
+          <p>Essential paw maintenance for comfort, balance, and healthy movement.</p>
+          <span class="service-price">Starting at $20</span>
+          <a href="#booking" class="btn-link">Book this service →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7c4-2 8 2 16 0"/><path d="M4 12c4-2 8 2 16 0"/><path d="M4 17c4-2 8 2 16 0"/></svg>
+          </span>
+          <h3>De-Shedding Treatment</h3>
+          <p>Coat maintenance designed to reduce shedding and support skin health.</p>
+          <span class="service-price">Starting at $30</span>
+          <a href="#booking" class="btn-link">Book this service →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 4 5 4 8a4 4 0 1 1-8 0c0-3 2-5 4-8z"/><path d="M9 17c1 2 5 2 6 0"/></svg>
+          </span>
+          <h3>Spa &amp; Hydration Treatments</h3>
+          <p>Luxury skin and coat treatments for hydration, softness, and shine.</p>
+          <span class="service-price">Starting at $50</span>
+          <a href="#booking" class="btn-link">Book this service →</a>
+        </article>
+
+        <article class="service-card reveal" style="grid-column: 1 / -1; background: linear-gradient(135deg, var(--color-cream), #fff);">
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+          </span>
+          <h3>Spa Add-Ons / Luxury Upgrades</h3>
+          <p>Treat your pet to a little extra pampering with our premium upgrades:</p>
+          <ul class="addons-list" style="margin-top:var(--space-4)">
+            <li>Dematting <span class="addon-price">starting at $1/min</span></li>
+            <li>Special Shampoo <span class="addon-price">starting at $10</span></li>
+            <li>Special Conditioner <span class="addon-price">starting at $10</span></li>
+            <li>Teeth Brushing <span class="addon-price">starting at $12</span></li>
+            <li>Deep Hydration Treatment <span class="addon-price">By Evaluation</span></li>
+            <li>De-Shedding Treatment <span class="addon-price">By Evaluation</span></li>
+            <li class="addon-fee">Late Pickup Fee <span class="addon-price">$15 every 30 minutes</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="services-note reveal"><strong>Note:</strong> Pricing may vary based on breed, coat condition, and dog size. Final price confirmed at booking.</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       HOW IT WORKS
+       ========================================================= -->
+  <section class="how" aria-labelledby="how-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2 id="how-title">Getting Started Is <span class="italic-accent" style="color:var(--color-primary)">Easy</span></h2>
+      </header>
+
+      <ol class="steps" style="list-style:none;padding:0;margin:0 0 var(--space-12)">
+        <li class="step reveal">
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>Book Online</h3>
+          <p>Choose your service and preferred date using our simple online booking form. It only takes 2 minutes!</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>Drop Off Your Pet</h3>
+          <p>Bring your pet to our salon in Falmouth. We'll go over their needs, coat condition, and any special requests before we get started.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>We Work Our Magic</h3>
+          <p>Your pet will be pampered from nose to tail in our stress-free, one-on-one grooming environment.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num" aria-hidden="true">4</span>
+          <h3>Pick Up &amp; Show Off</h3>
+          <p>You'll receive a notification when your pet is ready. Come pick up one happy, fresh, and gorgeous companion!</p>
+        </li>
+      </ol>
+
+      <div class="center reveal">
+        <a href="#booking" class="btn btn-primary">Book Your Appointment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       GALLERY
+       ========================================================= -->
+  <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2 id="gallery-title">Fresh Cuts, <span class="italic-accent" style="color:var(--color-primary)">Happy Pets</span></h2>
+      </header>
+
+      <div class="gallery-grid">
+        <figure class="gallery-item reveal">
+          <img src="IMG_5742.jpg?v=2" alt="Freshly groomed Pomeranian wearing a blue bandana at Super Pet" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="IMG_6339.jpg?v=2" alt="Goldendoodle with a red heart bandana in front of the Super Pet neon sign" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="IMG_3052.jpg?v=2" alt="Terrier mix wearing an orange paw-print bandana at the grooming salon" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="IMG_6330.jpg?v=2" alt="Goldendoodle with a heart-pattern bandana after a full groom at Super Pet" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="21cc00fc-1335-44f5-a25a-42c74c4cb6f6.jpg" alt="Groomer cuddling a Bernese Mountain Dog at Super Pet" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="a9ab4a66-cf0a-4a5c-9bf8-540b70b9fe60.jpg" alt="Husky puppy with a floral bandana in front of the Super Pet neon sign" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+
+      <div class="center reveal">
+        <a href="#booking" class="btn btn-primary">Book an Appointment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TESTIMONIALS
+       ========================================================= -->
+  <section class="testimonials" aria-labelledby="testimonials-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2 id="testimonials-title">What Pet Parents Are Saying</h2>
+        <div class="trust-pills">
+          <div class="google-rating" role="img" aria-label="5.0 out of 5 stars based on Google reviews">
+            <svg class="g-logo" viewBox="0 0 48 48" width="28" height="28" aria-hidden="true">
+              <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+              <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+              <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+              <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+            </svg>
+            <span class="rating-score">5.0</span>
+            <span class="rating-stars" aria-hidden="true">★★★★★</span>
+            <span class="rating-label">Based on<br>Google reviews</span>
+          </div>
+          <img class="google-guaranteed-badge" src="google-guaranteed.png" alt="Google Guaranteed certified business" loading="lazy" decoding="async" />
+        </div>
+      </header>
+
+      <div class="testimonials-marquee reveal" aria-label="Customer reviews carousel">
+        <div class="testimonials-track">
+          <article class="testimonial">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"I took my mom's dog to get a nice bath and a blow out at Super Pet Grooming. We had the best experience especially with the staff. It was the first time that he looked amazing the way he did. We will definitely be taking him back there again."</blockquote>
+            <cite><span class="testimonial-avatar" aria-hidden="true">GB</span> Gabrielle Bottcher</cite>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"First experience with Super Pet. Sabina listened carefully to my concern over Tanner's past experience with another local groomer. She quickly realized that the way to his heart was through his stomach and gained his trust with treats. I will definitely bring him back when it's time for another nail trimming."</blockquote>
+            <cite><span class="testimonial-avatar" aria-hidden="true">MB</span> Michael Bartlett</cite>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"The best service and pet shop care I've found here in Massachusetts. They know every breed, and the appropriate and correct grooming for each one of them. I have 4 dogs that are their clients and I recommend them 100%."</blockquote>
+            <cite><span class="testimonial-avatar" aria-hidden="true">DS</span> Dedete Simões</cite>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"The people at Super Pet are caring and very professional. Ziggy is petrified of grooming and I hadn't been able to get him professionally groomed in years. The staff at Super Pet got the job done — they cleaned up my own attempts at grooming him, and he looks great. I'm planning to join the monthly plan to help Ziggy get more accustomed to grooming. I'd definitely recommend Super Pet for a wonderful experience for you and your fur baby."</blockquote>
+            <cite><span class="testimonial-avatar" aria-hidden="true">AH</span> Anita Hodges</cite>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"Super Pet treated our goldendoodle Bogie like a member of the family. We were in town for a vacation and needed to give him a summer haircut and they did an awesome job! Very nice staff and calming spa atmosphere for dogs. He was back at the local dog park looking fresh and clean!"</blockquote>
+            <cite><span class="testimonial-avatar" aria-hidden="true">SR</span> Steve Rafferty</cite>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"I highly recommend it. The animals are treated with so much love and dedication! The team is a perfect 10! Wishing them continued success."</blockquote>
+            <cite><span class="testimonial-avatar" aria-hidden="true">RH</span> Rullia Hamada</cite>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"My first time there I brought my pup Chanel — everyone was so nice and the place is adorable! My girl got a massage, nail trim, and a bath. She smelled amazing. Definitely recommend!"</blockquote>
+            <cite><span class="testimonial-avatar" aria-hidden="true">AL</span> Alyssa Lewis</cite>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"Amazing place! Such a pleasant atmosphere and the girls are so attentive. Chloe is treated so well — the place is excellent. I highly recommend it!"</blockquote>
+            <cite><span class="testimonial-avatar" aria-hidden="true">DS</span> Debora Souza</cite>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"Wonderful work! I'm so happy with the results."</blockquote>
+            <cite><span class="testimonial-avatar" aria-hidden="true">JF</span> Jania Freitas</cite>
+          </article>
+
+          <article class="testimonial" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <blockquote>"I took my mom's dog to get a nice bath and a blow out at Super Pet Grooming. We had the best experience especially with the staff. It was the first time that he looked amazing the way he did. We will definitely be taking him back there again."</blockquote>
+            <cite><span class="testimonial-avatar">GB</span> Gabrielle Bottcher</cite>
+          </article>
+
+          <article class="testimonial" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <blockquote>"First experience with Super Pet. Sabina listened carefully to my concern over Tanner's past experience with another local groomer. She quickly realized that the way to his heart was through his stomach and gained his trust with treats. I will definitely bring him back when it's time for another nail trimming."</blockquote>
+            <cite><span class="testimonial-avatar">MB</span> Michael Bartlett</cite>
+          </article>
+
+          <article class="testimonial" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <blockquote>"The best service and pet shop care I've found here in Massachusetts. They know every breed, and the appropriate and correct grooming for each one of them. I have 4 dogs that are their clients and I recommend them 100%."</blockquote>
+            <cite><span class="testimonial-avatar">DS</span> Dedete Simões</cite>
+          </article>
+
+          <article class="testimonial" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <blockquote>"The people at Super Pet are caring and very professional. Ziggy is petrified of grooming and I hadn't been able to get him professionally groomed in years. The staff at Super Pet got the job done — they cleaned up my own attempts at grooming him, and he looks great. I'm planning to join the monthly plan to help Ziggy get more accustomed to grooming. I'd definitely recommend Super Pet for a wonderful experience for you and your fur baby."</blockquote>
+            <cite><span class="testimonial-avatar">AH</span> Anita Hodges</cite>
+          </article>
+
+          <article class="testimonial" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Super Pet treated our goldendoodle Bogie like a member of the family. We were in town for a vacation and needed to give him a summer haircut and they did an awesome job! Very nice staff and calming spa atmosphere for dogs. He was back at the local dog park looking fresh and clean!"</blockquote>
+            <cite><span class="testimonial-avatar">SR</span> Steve Rafferty</cite>
+          </article>
+
+          <article class="testimonial" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <blockquote>"I highly recommend it. The animals are treated with so much love and dedication! The team is a perfect 10! Wishing them continued success."</blockquote>
+            <cite><span class="testimonial-avatar">RH</span> Rullia Hamada</cite>
+          </article>
+
+          <article class="testimonial" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <blockquote>"My first time there I brought my pup Chanel — everyone was so nice and the place is adorable! My girl got a massage, nail trim, and a bath. She smelled amazing. Definitely recommend!"</blockquote>
+            <cite><span class="testimonial-avatar">AL</span> Alyssa Lewis</cite>
+          </article>
+
+          <article class="testimonial" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Amazing place! Such a pleasant atmosphere and the girls are so attentive. Chloe is treated so well — the place is excellent. I highly recommend it!"</blockquote>
+            <cite><span class="testimonial-avatar">DS</span> Debora Souza</cite>
+          </article>
+
+          <article class="testimonial" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Wonderful work! I'm so happy with the results."</blockquote>
+            <cite><span class="testimonial-avatar">JF</span> Jania Freitas</cite>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       BOOKING FORM
+       ========================================================= -->
+  <section class="booking" id="booking" aria-labelledby="booking-title">
+    <div class="container">
+      <div class="booking-wrap reveal" id="booking-wrap">
+        <header class="section-head" style="margin-bottom: var(--space-8); max-width:none">
+          <span class="booking-time"><span aria-hidden="true">⏱</span> Takes 2 minutes</span>
+          <h2 id="booking-title">Book Your Pet's Grooming</h2>
+          <p>Fill out the form below and our team will reach out as soon as possible to confirm your appointment.</p>
+        </header>
+
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
+          <strong>✅ Thank you!</strong>
+          We received your request. Our team will be in touch as soon as possible to confirm your appointment. Meanwhile, follow us on Instagram <a href="https://www.instagram.com/superpetfalmouth/" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);font-weight:600;text-decoration:underline">@superpetfalmouth</a> for grooming tips and happy pets!
+        </div>
+
+        <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <!-- Web3Forms configuration (delivered to superpethome@gmail.com) -->
+          <input type="hidden" name="access_key" value="c7f1718f-effd-414b-a528-3bed734dbcde">
+          <input type="hidden" name="subject" value="🐶 New Lead — Super Pet Grooming">
+          <input type="hidden" name="from_name" value="Super Pet Website">
+          <!-- Honeypot to deter bots (Web3Forms) -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <!-- Owner section -->
+          <fieldset class="form-section" style="border:none;padding:0;margin-top:0">
+            <legend class="sr-only">About the Owner</legend>
+            <h3>About the Owner</h3>
+
+            <div class="form-row two">
+              <div class="field">
+                <label for="full-name">Full Name <span class="req" aria-hidden="true">*</span></label>
+                <input id="full-name" name="Owner Name" type="text" required autocomplete="name" placeholder="Jane Doe" aria-required="true" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone Number <span class="req" aria-hidden="true">*</span></label>
+                <input id="phone" name="Phone Number" type="tel" required autocomplete="tel" placeholder="(508) 524-3489" aria-required="true" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" aria-required="true" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <span class="label" style="font-size:14px;font-weight:600;color:var(--color-navy);margin-bottom:8px;display:block">Preferred Contact Method</span>
+                <div class="radios" role="radiogroup" aria-label="Preferred Contact Method">
+                  <label><input type="radio" name="Preferred Contact Method" value="Phone Call" /> Phone Call</label>
+                  <label><input type="radio" name="Preferred Contact Method" value="Text Message" /> Text Message</label>
+                  <label><input type="radio" name="Preferred Contact Method" value="Email" /> Email</label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Pet section -->
+          <fieldset class="form-section" style="border:none;padding:0">
+            <legend class="sr-only">About the Pet</legend>
+            <h3>About the Pet</h3>
+
+            <div class="form-row two">
+              <div class="field">
+                <label for="pet-name">Pet's Name <span class="req" aria-hidden="true">*</span></label>
+                <input id="pet-name" name="Pet Name" type="text" required placeholder="Max" aria-required="true" />
+              </div>
+              <div class="field">
+                <label for="pet-type">Type of Pet</label>
+                <select id="pet-type" name="Pet Type">
+                  <option value="">Select…</option>
+                  <option value="Dog">Dog</option>
+                  <option value="Cat">Cat</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row two">
+              <div class="field">
+                <label for="breed">Breed &amp; Approximate Weight <span class="req" aria-hidden="true">*</span></label>
+                <input id="breed" name="Breed &amp; Weight" type="text" required placeholder="Goldendoodle, ~45 lbs" aria-required="true" />
+              </div>
+              <div class="field">
+                <label for="coat">Coat Condition</label>
+                <select id="coat" name="Coat Condition">
+                  <option value="">Select…</option>
+                  <option value="Short">Short</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Long">Long</option>
+                  <option value="Curly">Curly</option>
+                  <option value="Matted">Matted</option>
+                  <option value="Not sure">Not sure</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Appointment section -->
+          <fieldset class="form-section" style="border:none;padding:0">
+            <legend class="sr-only">About the Appointment</legend>
+            <h3>About the Appointment</h3>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="service">Service Interested In</label>
+                <select id="service" name="Service Requested">
+                  <option value="">Select…</option>
+                  <option value="Bath &amp; Full Grooming">Bath &amp; Full Grooming</option>
+                  <option value="Gentle Grooming">Gentle Grooming</option>
+                  <option value="Puppy Introduction">Puppy Introduction</option>
+                  <option value="Nail Trim &amp; Paw Care">Nail Trim &amp; Paw Care</option>
+                  <option value="De-Shedding Treatment">De-Shedding Treatment</option>
+                  <option value="Spa &amp; Hydration Treatments">Spa &amp; Hydration Treatments</option>
+                  <option value="Not sure — needs recommendation">Not sure, need recommendation</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row two">
+              <div class="field">
+                <label for="date">Preferred Date</label>
+                <input id="date" name="Preferred Date" type="date" />
+              </div>
+              <div class="field">
+                <label for="time">Preferred Time</label>
+                <select id="time" name="Preferred Time">
+                  <option value="">Select…</option>
+                  <option value="Morning (8am–12pm)">Morning (8am–12pm)</option>
+                  <option value="Afternoon (12pm–4pm)">Afternoon (12pm–4pm)</option>
+                  <option value="Flexible">Flexible</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <span class="label" style="font-size:14px;font-weight:600;color:var(--color-navy);margin-bottom:8px;display:block">Is this your pet's first visit to Super Pet?</span>
+                <div class="radios" role="radiogroup" aria-label="First visit">
+                  <label><input type="radio" name="First Visit" value="Yes" /> Yes</label>
+                  <label><input type="radio" name="First Visit" value="No" /> No</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="notes">Anything we should know?</label>
+                <textarea id="notes" name="Notes" placeholder="Allergies, anxiety, behavior tips, special requests, or anything that helps us prepare for your pet's visit."></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <label class="checkbox-row">
+            <input type="checkbox" name="Vaccinations Confirmed" value="Yes" required aria-required="true" />
+            <span>I confirm my pet's vaccinations (Rabies, DHPP, Bordetella) are up to date and I'll bring proof to the appointment. <span class="req" aria-hidden="true">*</span></span>
+          </label>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gradient">Request Appointment</button>
+            <p class="booking-trust"><span class="stars" aria-hidden="true">★★★★★</span> Trusted by 500+ pet families in Cape Cod</p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FAQ
+       ========================================================= -->
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2 id="faq-title">Frequently Asked Questions</h2>
+      </header>
+
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>Do you groom cats?</summary>
+          <div class="faq-body">Yes! We offer full cat grooming services in a calm space, separate from dogs. Our groomers are experienced with feline clients and handle them with extra patience and care.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>What breeds do you groom?</summary>
+          <div class="faq-body">We welcome dogs and cats of all breeds and sizes. Some large or heavily matted coats may require additional time and cost — we'll always discuss this with you before your appointment.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Do you require up-to-date vaccinations?</summary>
+          <div class="faq-body">Yes, for the safety of all pets in our care, we require proof of current Rabies, DHPP, and Bordetella vaccinations. Please bring your records to your first appointment.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>How long does a grooming appointment take?</summary>
+          <div class="faq-body">Most appointments take between 1.5 to 3 hours depending on the service, breed, and coat condition. We'll give you an estimated pick-up time when you drop off.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Can I stay with my pet during the groom?</summary>
+          <div class="faq-body">For the safety and comfort of your pet (and our groomers!), we ask that owners drop off and return at pick-up time. Pets tend to behave better and stay calmer when their owners aren't present.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>How do I book an appointment?</summary>
+          <div class="faq-body">You can book online through our booking form, call us directly, or send us a message on Instagram. We'll confirm your appointment as soon as possible.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL CTA
+       ========================================================= -->
+  <section class="final-cta" id="contact" aria-labelledby="final-cta-title">
+    <div class="container">
+      <div class="reveal">
+        <h2 id="final-cta-title">Ready to Book Your Pet's <span class="accent">Next Grooming?</span></h2>
+        <p>Give your pet the care they deserve. Whether it's their first visit or their fiftieth, the Super Pet team is here to make every appointment a great one.</p>
+        <div class="actions">
+          <a href="#booking" class="btn btn-primary">Book an Appointment</a>
+          <a href="mailto:superpethome@gmail.com" class="btn btn-secondary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer" aria-labelledby="footer-title">
+  <h2 id="footer-title" class="sr-only">Super Pet — Site Footer</h2>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo" aria-label="Super Pet — Home">
+          <img src="logo.png" alt="Super Pet — High Quality Service" width="200" height="200" />
+        </a>
+        <p class="footer-tagline">Caring for Cape Cod's pets, one groom at a time.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#booking">Book Now</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s-7-7.6-7-13a7 7 0 0114 0c0 5.4-7 13-7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          122 Teaticket Hwy, East Falmouth, MA 02536
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+15085243489">+1 (508) 524-3489</a>
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:superpethome@gmail.com">superpethome@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p style="display:block">Mon – Fri: 9:00 AM – 5:00 PM</p>
+        <p style="display:block">Saturday: Closed</p>
+        <p style="display:block">Sunday: Closed</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Super Pet Grooming Salon. All rights reserved. | Falmouth, MA
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     STICKY MOBILE CTA
+     ========================================================= -->
+<div class="sticky-cta" aria-hidden="false">
+  <a href="#booking" class="btn btn-primary">Book Now</a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---- Always start at top on load, regardless of stored hash ----
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+  window.scrollTo(0, 0);
+
+  // ---- Mobile menu toggle ----
+  var toggle = document.querySelector('.nav-toggle');
+  var drawer = document.getElementById('mobile-drawer');
+  function closeDrawer() {
+    if (!toggle || !drawer) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  if (toggle && drawer) {
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+      drawer.classList.toggle('open', !open);
+      drawer.setAttribute('aria-hidden', String(open));
+      document.body.style.overflow = !open ? 'hidden' : '';
+    });
+  }
+
+  // ---- Smooth-scroll anchor links without modifying the URL ----
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href');
+      if (!href || href === '#' || href.length < 2) return;
+      var target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      closeDrawer();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ---- Header shadow on scroll ----
+  var header = document.querySelector('.site-header');
+  function onScroll() {
+    if (!header) return;
+    if (window.scrollY > 8) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---- Reveal on scroll ----
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  // ---- Phone mask: (xxx) xxx-xxxx ----
+  var phone = document.getElementById('phone');
+  if (phone) {
+    phone.addEventListener('input', function () {
+      var v = phone.value.replace(/\D/g, '').slice(0, 10);
+      if (v.length > 6) phone.value = '(' + v.slice(0, 3) + ') ' + v.slice(3, 6) + '-' + v.slice(6);
+      else if (v.length > 3) phone.value = '(' + v.slice(0, 3) + ') ' + v.slice(3);
+      else if (v.length > 0) phone.value = '(' + v;
+      else phone.value = '';
+    });
+  }
+
+  // ---- Form submit (AJAX to Formsubmit) ----
+  var form = document.getElementById('booking-form');
+  var success = document.getElementById('form-success');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      Array.prototype.forEach.call(form.querySelectorAll('.field-error'), function (el) {
+        el.classList.remove('field-error');
+      });
+
+      if (!form.checkValidity()) {
+        Array.prototype.forEach.call(form.querySelectorAll(':invalid'), function (el) {
+          el.classList.add('field-error');
+        });
+        var firstInvalid = form.querySelector(':invalid');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '⏳ Sending…'; }
+
+      var formData = new FormData(form);
+      var payload = {};
+      formData.forEach(function (v, k) { payload[k] = v; });
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data && (data.success === true || data.success === 'true')) {
+          var wrap = document.getElementById('booking-wrap');
+          if (wrap) wrap.classList.add('submitted');
+          success.classList.add('show');
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          form.reset();
+        } else {
+          alert("Something went wrong sending your request. Please call us at +1 (508) 524-3489 or email superpethome@gmail.com.");
+        }
+      })
+      .catch(function () {
+        alert("Couldn't reach our server. Please check your connection and try again, or call us at +1 (508) 524-3489.");
+      })
+      .then(function () {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+      });
+    });
+  }
+
+  // ---- Close mobile drawer when clicking outside ----
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && drawer && drawer.classList.contains('open')) {
+      toggle.click();
+    }
+  });
+
+  // ---- Testimonials marquee: auto-scroll + manual drag/swipe ----
+  (function setupTestimonialsMarquee() {
+    const marquee = document.querySelector('.testimonials-marquee');
+    if (!marquee) return;
+    const track = marquee.querySelector('.testimonials-track');
+    if (!track) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const SPEED = 40;
+    const RESUME_DELAY = 2500;
+    let resumeAfter = 0;
+    let hoverPaused = false;
+    let dragging = false;
+    let lastTs = 0;
+    let expectedScroll = 0;
+
+    const halfWidth = () => track.scrollWidth / 2;
+
+    function wrap() {
+      const h = halfWidth();
+      if (h <= 0) return;
+      if (marquee.scrollLeft >= h) marquee.scrollLeft -= h;
+      else if (marquee.scrollLeft < 0) marquee.scrollLeft += h;
+      expectedScroll = marquee.scrollLeft;
+    }
+
+    function tick(ts) {
+      if (lastTs) {
+        const dt = (ts - lastTs) / 1000;
+        if (!reduced && !hoverPaused && !dragging && Date.now() > resumeAfter) {
+          marquee.scrollLeft += SPEED * dt;
+          wrap();
+        }
+      }
+      lastTs = ts;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    marquee.addEventListener('mouseenter', () => { hoverPaused = true; });
+    marquee.addEventListener('mouseleave', () => { hoverPaused = false; });
+
+    marquee.addEventListener('scroll', () => {
+      // Programmatic scroll from tick() — ignore
+      if (Math.abs(marquee.scrollLeft - expectedScroll) < 0.5) return;
+      // User-initiated scroll (touch swipe, wheel, etc.)
+      resumeAfter = Date.now() + RESUME_DELAY;
+      wrap();
+    }, { passive: true });
+
+    let startX = 0, startScroll = 0, activePointer = null, moved = false;
+    marquee.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      dragging = true;
+      moved = false;
+      activePointer = e.pointerId;
+      startX = e.clientX;
+      startScroll = marquee.scrollLeft;
+      marquee.setPointerCapture(e.pointerId);
+      marquee.classList.add('is-dragging');
+    });
+    marquee.addEventListener('pointermove', (e) => {
+      if (!dragging || e.pointerId !== activePointer) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 3) moved = true;
+      marquee.scrollLeft = startScroll - dx;
+      wrap();
+      if (moved) e.preventDefault();
+    });
+    function endDrag(e) {
+      if (!dragging || e.pointerId !== activePointer) return;
+      dragging = false;
+      try { marquee.releasePointerCapture(e.pointerId); } catch (_) {}
+      marquee.classList.remove('is-dragging');
+      resumeAfter = Date.now() + RESUME_DELAY;
+    }
+    marquee.addEventListener('pointerup', endDrag);
+    marquee.addEventListener('pointercancel', endDrag);
+
+    marquee.addEventListener('click', (e) => {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+  })();
+})();
+</script>
+
+</body>
+</html>

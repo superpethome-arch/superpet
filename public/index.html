@@ -2494,6 +2494,33 @@ main > section {
         el.classList.remove('field-error');
       });
 
+      // ---- Anti-spam: reject bots and suspicious content ----
+      var botField = form.querySelector('[name="botcheck"]');
+      if (botField && botField.checked) { return; } // honeypot triggered
+
+      var spamPatterns = [
+        /https?:\/\//i,           // URLs with protocol
+        /www\.[a-z0-9-]+\.[a-z]/i, // URLs with www
+        /[а-яёА-ЯЁ]/,             // Cyrillic characters
+        /[一-鿿]/,         // Chinese
+        /[؀-ۿ]/,         // Arabic
+        /\b(casino|poker|1win|bet|slots|crypto|bitcoin|BTC|loan|viagra|cialis|SEO|backlink)\b/i
+      ];
+      var textFields = form.querySelectorAll('input[type="text"], input[type="email"], textarea');
+      var isSpam = false;
+      textFields.forEach(function (field) {
+        spamPatterns.forEach(function (pattern) {
+          if (pattern.test(field.value)) { isSpam = true; }
+        });
+      });
+      if (isSpam) {
+        // Silently reject — do not alert the bot
+        var submitBtn2 = form.querySelector('button[type="submit"]');
+        if (submitBtn2) { submitBtn2.disabled = false; }
+        return;
+      }
+      // ---- End anti-spam ----
+
       if (!form.checkValidity()) {
         Array.prototype.forEach.call(form.querySelectorAll(':invalid'), function (el) {
           el.classList.add('field-error');

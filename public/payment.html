@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Secure Your Spot — Super Pet Grooming</title>
+<meta name="description" content="Confirm your appointment by securing your spot with a $25 deposit." />
+<meta name="robots" content="noindex,nofollow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --color-primary: #E63946;
+  --color-primary-hover: #C92D3B;
+  --color-navy: #1B2A4E;
+  --color-cream: #FBF7F1;
+  --color-white: #ffffff;
+  --color-bg-soft: #F6F4F0;
+  --color-border: #E5E0D8;
+  --color-text: #2A3147;
+  --color-text-muted: #6b7280;
+  --color-success: #1E9E5E;
+  --color-error: #B42318;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 1px 3px rgba(15, 26, 53, 0.08);
+  --shadow-md: 0 6px 20px rgba(15, 26, 53, 0.10);
+
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg-soft);
+  color: var(--color-text);
+  line-height: 1.55;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a { color: var(--color-primary); }
+
+.checkout-header {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  padding: 16px 24px;
+}
+.checkout-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.checkout-header .logo img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+.secure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+.secure-badge svg { width: 16px; height: 16px; color: var(--color-success); }
+.secure-badge strong { color: var(--color-navy); }
+
+main.checkout {
+  flex: 1;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+@media (min-width: 768px) {
+  main.checkout { padding: 48px 24px 80px; }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--color-navy); }
+
+h1.checkout-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 6vw, 38px);
+  line-height: 1.15;
+  color: var(--color-navy);
+  margin: 0 0 var(--space-3);
+}
+.checkout-subtitle {
+  color: var(--color-text-muted);
+  font-size: 16px;
+  margin: 0 0 var(--space-8);
+}
+
+.summary-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+.summary-card h2 {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 14px;
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-bg-soft);
+  font-size: 15px;
+}
+.summary-row:last-child { border-bottom: none; }
+.summary-row .key { color: var(--color-text-muted); }
+.summary-row .val { color: var(--color-navy); font-weight: 600; text-align: right; }
+
+.deposit-explainer {
+  background: linear-gradient(135deg, var(--color-cream), #FFFDF9);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: var(--space-8);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.deposit-explainer .icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 16px;
+}
+.deposit-explainer p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+.deposit-explainer strong { color: var(--color-navy); }
+
+.card-form-wrap {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+.card-form-wrap label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 10px;
+}
+#card-container {
+  min-height: 90px;
+}
+#card-container:empty::before {
+  content: 'Loading secure card form…';
+  display: block;
+  padding: 32px 14px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  text-align: center;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+}
+#card-errors {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--color-error);
+  min-height: 18px;
+}
+
+.pay-button {
+  width: 100%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 999px;
+  padding: 16px 28px;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 4px 14px rgba(230, 57, 70, 0.25);
+}
+.pay-button:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+.pay-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.pay-button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.cancel-policy {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: 16px 4px 0;
+  line-height: 1.5;
+}
+
+.success-state {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+.success-state .check {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  background: var(--color-success);
+  border-radius: 50%;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-state .check svg { width: 40px; height: 40px; }
+.success-state h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-navy);
+  margin: 0 0 12px;
+}
+.success-state p { color: var(--color-text); margin: 0 0 8px; }
+.success-state .receipt-info {
+  background: var(--color-cream);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin: 24px 0;
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+  text-align: left;
+}
+.success-state .receipt-info div { margin: 4px 0; }
+.success-state .receipt-info strong { color: var(--color-navy); }
+.success-state .home-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.success-state .home-link:hover { text-decoration: underline; }
+
+.loading-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--color-text-muted);
+}
+.loading-state .spinner {
+  width: 32px; height: 32px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.fatal-error {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: var(--color-error);
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  margin: 20px 0;
+  font-size: 14.5px;
+}
+.fatal-error a { color: var(--color-error); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header class="checkout-header">
+  <div class="checkout-header-inner">
+    <a href="/" class="logo" aria-label="Super Pet — Home">
+      <img src="logo.png" alt="Super Pet" />
+    </a>
+    <span class="secure-badge" title="Payments processed by Square">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      <span><strong>Secure</strong> checkout · Square</span>
+    </span>
+  </div>
+</header>
+
+<main class="checkout">
+  <a href="/#booking" class="back-link">← Back to booking form</a>
+
+  <section id="loading-state" class="loading-state">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>Loading secure payment form…</p>
+  </section>
+
+  <section id="payment-state" hidden>
+    <h1 class="checkout-title">One last step to secure your spot</h1>
+    <p class="checkout-subtitle">A small $25 deposit confirms your appointment. It's applied to your final bill on the day of grooming.</p>
+
+    <div class="summary-card" aria-labelledby="summary-heading">
+      <h2 id="summary-heading">Your appointment</h2>
+      <div id="summary-rows"></div>
+    </div>
+
+    <div class="deposit-explainer">
+      <span class="icon" aria-hidden="true">$</span>
+      <p><strong>$25 deposit</strong> secures your spot and will be <strong>applied to your total</strong> on the day of your appointment. You'll pay only the remaining balance after grooming.</p>
+    </div>
+
+    <div class="card-form-wrap">
+      <label for="card-container">Card details</label>
+      <div id="card-container"></div>
+      <div id="card-errors" role="alert" aria-live="polite"></div>
+    </div>
+
+    <button type="button" id="pay-button" class="pay-button">Secure My Spot — $25</button>
+
+    <p class="cancel-policy">
+      Cancellations with 24+ hours notice: refundable or reschedulable.
+      No-shows without notice: deposit non-refundable.
+    </p>
+  </section>
+
+  <section id="success-state" class="success-state" hidden>
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 id="success-title">You're all set!</h2>
+    <p id="success-msg">Your spot is confirmed. We'll be in touch soon to finalize the details.</p>
+
+    <div class="receipt-info">
+      <div><strong>Amount charged:</strong> $25.00 USD</div>
+      <div><strong>Payment ID:</strong> <span id="success-payment-id">—</span></div>
+      <div id="success-receipt-row"><strong>Receipt:</strong> <a id="success-receipt-link" href="#" target="_blank" rel="noopener noreferrer">View on Square</a></div>
+    </div>
+
+    <a href="/" class="home-link">← Back to Super Pet home</a>
+  </section>
+
+  <div id="fatal-error" class="fatal-error" hidden>
+    <strong>Something went wrong.</strong>
+    <p id="fatal-error-msg" style="margin:6px 0 0">Please try again, or call us at <a href="tel:+15085243489">+1 (508) 524-3489</a>.</p>
+  </div>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  const STORAGE_KEY = 'superpet:booking';
+
+  const $loading = document.getElementById('loading-state');
+  const $payment = document.getElementById('payment-state');
+  const $success = document.getElementById('success-state');
+  const $fatal = document.getElementById('fatal-error');
+  const $fatalMsg = document.getElementById('fatal-error-msg');
+  const $summaryRows = document.getElementById('summary-rows');
+  const $cardErrors = document.getElementById('card-errors');
+  const $payButton = document.getElementById('pay-button');
+
+  // ---- Booking data ----
+  let booking;
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    booking = raw ? JSON.parse(raw) : null;
+  } catch (e) {
+    booking = null;
+  }
+
+  if (!booking || !booking['Owner Name']) {
+    // No booking data — send user back to fill the form.
+    showFatal("We couldn't find your booking details. Please fill the form again.");
+    setTimeout(function () { window.location.href = '/#booking'; }, 2500);
+    return;
+  }
+
+  renderSummary(booking);
+
+  // ---- Square SDK init ----
+  let card; // the Square Card payment method
+  let payButtonLabel = 'Secure My Spot — $25';
+
+  initSquare().catch(function (err) {
+    console.error('Square init failed:', err);
+    showFatal('We could not load the payment form. Please try again in a moment or call us directly.');
+  });
+
+  async function initSquare() {
+    // 1. Get config from backend (which doesn't expose the Access Token)
+    const cfgResp = await fetch('/api/config', { cache: 'no-store' });
+    if (!cfgResp.ok) throw new Error('config endpoint failed: ' + cfgResp.status);
+    const cfg = await cfgResp.json();
+
+    if (!cfg.applicationId || !cfg.locationId) {
+      throw new Error('Square is not configured on the server');
+    }
+
+    // 2. Load the right Square SDK (sandbox vs production)
+    const sdkUrl = cfg.env === 'production'
+      ? 'https://web.squarecdn.com/v1/square.js'
+      : 'https://sandbox.web.squarecdn.com/v1/square.js';
+    await loadScript(sdkUrl);
+
+    if (!window.Square) throw new Error('Square SDK did not load');
+
+    // 3. Initialize the Payments object + Card form
+    const payments = window.Square.payments(cfg.applicationId, cfg.locationId);
+    // NOTE: Square's SDK only allows a narrow whitelist of fontFamily values,
+    // so we let it pick its default (a clean system sans-serif) and only
+    // override colors and border radius to match the site palette.
+    card = await payments.card({
+      style: {
+        input: {
+          fontSize: '16px',
+          color: '#1B2A4E',
+        },
+        '.input-container': {
+          borderRadius: '8px',
+          borderColor: '#E5E0D8',
+        },
+        '.input-container.is-focus': {
+          borderColor: '#E63946',
+        },
+        '.input-container.is-error': {
+          borderColor: '#B42318',
+        },
+      },
+    });
+    await card.attach('#card-container');
+
+    // Reveal the form
+    $loading.hidden = true;
+    $payment.hidden = false;
+  }
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      const s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+      document.head.appendChild(s);
+    });
+  }
+
+  // ---- Pay button ----
+  $payButton.addEventListener('click', async function () {
+    if (!card) return;
+    $cardErrors.textContent = '';
+    $payButton.disabled = true;
+    $payButton.textContent = 'Processing…';
+
+    let tokenResult;
+    try {
+      tokenResult = await card.tokenize();
+    } catch (err) {
+      console.error('tokenize threw:', err);
+      $cardErrors.textContent = 'Could not process your card details. Please try again.';
+      resetPayButton();
+      return;
+    }
+
+    if (tokenResult.status !== 'OK') {
+      const msg = (tokenResult.errors && tokenResult.errors[0] && tokenResult.errors[0].message)
+        || 'Please check your card details and try again.';
+      $cardErrors.textContent = msg;
+      resetPayButton();
+      return;
+    }
+
+    // Send to backend
+    let chargeResp, chargeData;
+    try {
+      chargeResp = await fetch('/api/charge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          sourceId: tokenResult.token,
+          customerName: booking['Owner Name'],
+          petName: booking['Pet Name'],
+          customerEmail: booking.email || '',
+          customerPhone: booking['Phone Number'] || '',
+          appointmentSummary: booking,
+        }),
+      });
+      chargeData = await chargeResp.json();
+    } catch (err) {
+      console.error('charge fetch failed:', err);
+      $cardErrors.textContent = "Couldn't reach our server. Please try again or call +1 (508) 524-3489.";
+      resetPayButton();
+      return;
+    }
+
+    if (chargeData && chargeData.success) {
+      // Clear the booking so a reload doesn't show the form again
+      try { sessionStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+      showSuccess(chargeData);
+    } else {
+      const msg = (chargeData && chargeData.error) || 'Payment was declined. Please try a different card or call us.';
+      $cardErrors.textContent = msg;
+      resetPayButton();
+    }
+  });
+
+  function resetPayButton() {
+    $payButton.disabled = false;
+    $payButton.textContent = payButtonLabel;
+  }
+
+  // ---- Render helpers ----
+  function renderSummary(b) {
+    const rows = [
+      ['Owner', b['Owner Name']],
+      ['Pet', b['Pet Name'] + (b['Pet Type'] ? ' · ' + b['Pet Type'] : '')],
+      ['Service', b['Service Requested']],
+      ['Date', b['Preferred Date']],
+      ['Time', b['Preferred Time']],
+    ];
+    const html = rows
+      .filter(function (r) { return r[1]; })
+      .map(function (r) {
+        return '<div class="summary-row"><span class="key">' + escapeHtml(r[0])
+          + '</span><span class="val">' + escapeHtml(r[1]) + '</span></div>';
+      })
+      .join('');
+    $summaryRows.innerHTML = html || '<div class="summary-row"><span class="key">Pending appointment details</span></div>';
+  }
+
+  function showSuccess(data) {
+    $payment.hidden = true;
+    $loading.hidden = true;
+
+    document.getElementById('success-title').textContent = "You're all set, " + (booking['Owner Name'] || '') + '!';
+    const petLine = booking['Pet Name']
+      ? "We can't wait to see " + booking['Pet Name'] + '. '
+      : '';
+    document.getElementById('success-msg').textContent = petLine + "We'll be in touch soon to confirm the details.";
+    document.getElementById('success-payment-id').textContent = data.paymentId || '—';
+
+    const receiptRow = document.getElementById('success-receipt-row');
+    const receiptLink = document.getElementById('success-receipt-link');
+    if (data.receiptUrl) {
+      receiptLink.href = data.receiptUrl;
+      receiptRow.hidden = false;
+    } else {
+      receiptRow.hidden = true;
+    }
+
+    $success.hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showFatal(msg) {
+    $loading.hidden = true;
+    $payment.hidden = true;
+    $fatalMsg.firstChild ? ($fatalMsg.childNodes[0].nodeValue = msg + ' ') : ($fatalMsg.textContent = msg);
+    $fatal.hidden = false;
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+})();
+</script>
+
+</body>
+</html>

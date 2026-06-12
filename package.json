@@ -2,8 +2,11 @@
   "name": "super-pet-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Super Pet Grooming Salon — Falmouth, MA",
+  "description": "Super Pet Grooming Salon - Falmouth, MA",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "resend": "^3.5.0"
   }
 }

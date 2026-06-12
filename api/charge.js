@@ -4,10 +4,11 @@
 // running in the browser, and uses the server-only SQUARE_ACCESS_TOKEN to
 // create a real payment via the Square Payments API.
 //
-// On success, also notifies Web3Forms so the team gets a lead email tagged
-// [PAID] with the Square payment ID and receipt URL.
+// On success, sends a booking notification email via Resend tagged [PAID]
+// with the Square payment ID and receipt URL.
 
 import crypto from 'crypto';
+import { Resend } from 'resend';
 
 const SANDBOX_BASE    = 'https://connect.squareupsandbox.com';
 const PRODUCTION_BASE = 'https://connect.squareup.com';
@@ -103,29 +104,44 @@ export default async function handler(req, res) {
 
   const payment = squareData.payment;
 
-  // Notify Web3Forms (best-effort — do not block success on this)
-  const web3formsKey = process.env.WEB3FORMS_KEY;
-  if (web3formsKey) {
-    const notification = {
-      access_key:   web3formsKey,
-      subject:      `New Lead [PAID] - ${customerName}${petName ? ` (${petName})` : ''}`,
-      from_name:    'Super Pet Website',
-      ...(customerEmail ? { email: customerEmail } : {}),
-      ...(appointmentSummary && typeof appointmentSummary === 'object' ? appointmentSummary : {}),
-      'Payment Status': 'Paid',
-      'Payment Amount': '$25.00 USD',
-      'Square Payment ID':  payment.id,
-      'Square Receipt':     payment.receipt_url || 'n/a',
-      'Square Environment': squareEnv,
-    };
+  // Notify via Resend (best-effort — do not block success on this)
+  const resendKey = process.env.RESEND_API_KEY;
+  if (resendKey) {
     try {
-      await fetch('https://api.web3forms.com/submit', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body:    JSON.stringify(notification),
+      const resend = new Resend(resendKey);
+      const summary = appointmentSummary && typeof appointmentSummary === 'object' ? appointmentSummary : {};
+      const rows = Object.entries(summary)
+        .map(([k, v]) => `<tr><td style="padding:6px 12px;color:#6b7280;font-size:13px">${k}</td><td style="padding:6px 12px;font-size:13px;font-weight:500">${v || 'N/A'}</td></tr>`)
+        .join('');
+
+      await resend.emails.send({
+        from: 'Super Pet <onboarding@resend.dev>',
+        to:   'superpethome@gmail.com',
+        subject: `[PAID] New Booking - ${customerName}${petName ? ` (${petName})` : ''}`,
+        html: `
+          <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px">
+            <div style="background:#1B2A4E;padding:20px 24px;border-radius:10px 10px 0 0">
+              <h1 style="color:#fff;margin:0;font-size:20px">New Paid Booking</h1>
+              <p style="color:#a5b4fc;margin:4px 0 0;font-size:14px">Super Pet Grooming Salon</p>
+            </div>
+            <div style="background:#f9fafb;padding:20px 24px;border:1px solid #e5e7eb;border-top:none">
+              <div style="background:#dcfce7;border:1px solid #86efac;border-radius:8px;padding:12px 16px;margin-bottom:20px">
+                <strong style="color:#166534">Deposit of $25.00 received</strong><br/>
+                <span style="color:#166534;font-size:13px">Payment ID: ${payment.id}</span><br/>
+                ${payment.receipt_url ? `<a href="${payment.receipt_url}" style="color:#166534;font-size:13px">View Square Receipt</a>` : ''}
+              </div>
+              <table style="width:100%;border-collapse:collapse">
+                <tr style="background:#e5e7eb"><td colspan="2" style="padding:8px 12px;font-weight:600;font-size:12px;text-transform:uppercase;color:#374151">Booking Details</td></tr>
+                ${rows}
+              </table>
+            </div>
+            <div style="background:#fff;padding:12px 24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;text-align:center">
+              <p style="color:#9ca3af;font-size:12px;margin:0">Super Pet Grooming Salon &middot; 122 Teaticket Hwy, East Falmouth, MA</p>
+            </div>
+          </div>`,
       });
     } catch (err) {
-      console.error('Web3Forms notification failed (non-fatal):', err);
+      console.error('Resend notification failed (non-fatal):', err);
     }
   }
 

@@ -10,6 +10,42 @@
 import crypto from 'crypto';
 import { Resend } from 'resend';
 
+async function sendErrorEmail(resendKey, { customerName, petName, customerEmail, reason }) {
+  try {
+    const resend = new Resend(resendKey);
+    await resend.emails.send({
+      from: 'Super Pet <onboarding@resend.dev>',
+      to:   'superpethome@gmail.com',
+      subject: `[PAYMENT FAILED] ${customerName}${petName ? ` (${petName})` : ''}`,
+      html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px">
+          <div style="background:#7f1d1d;padding:20px 24px;border-radius:10px 10px 0 0">
+            <h1 style="color:#fff;margin:0;font-size:20px">Payment Failed</h1>
+            <p style="color:#fca5a5;margin:4px 0 0;font-size:14px">Super Pet Grooming Salon</p>
+          </div>
+          <div style="background:#f9fafb;padding:20px 24px;border:1px solid #e5e7eb;border-top:none">
+            <div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:12px 16px;margin-bottom:20px">
+              <strong style="color:#7f1d1d">Deposit of $25.00 was not processed</strong><br/>
+              <span style="color:#7f1d1d;font-size:13px">Reason: ${reason}</span>
+            </div>
+            <table style="width:100%;border-collapse:collapse">
+              <tr style="background:#e5e7eb"><td colspan="2" style="padding:8px 12px;font-weight:600;font-size:12px;text-transform:uppercase;color:#374151">Customer Info</td></tr>
+              <tr><td style="padding:6px 12px;color:#6b7280;font-size:13px">Name</td><td style="padding:6px 12px;font-size:13px;font-weight:500">${customerName}</td></tr>
+              ${petName ? `<tr><td style="padding:6px 12px;color:#6b7280;font-size:13px">Pet</td><td style="padding:6px 12px;font-size:13px;font-weight:500">${petName}</td></tr>` : ''}
+              ${customerEmail ? `<tr><td style="padding:6px 12px;color:#6b7280;font-size:13px">Email</td><td style="padding:6px 12px;font-size:13px;font-weight:500">${customerEmail}</td></tr>` : ''}
+            </table>
+            <p style="margin:16px 0 0;font-size:13px;color:#6b7280">Entre em contato com o cliente para tentar outro cartão ou forma de pagamento.</p>
+          </div>
+          <div style="background:#fff;padding:12px 24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;text-align:center">
+            <p style="color:#9ca3af;font-size:12px;margin:0">Super Pet Grooming Salon &middot; 122 Teaticket Hwy, East Falmouth, MA</p>
+          </div>
+        </div>`,
+    });
+  } catch (err) {
+    console.error('Resend error notification failed:', err);
+  }
+}
+
 const SANDBOX_BASE    = 'https://connect.squareupsandbox.com';
 const PRODUCTION_BASE = 'https://connect.squareup.com';
 const SQUARE_API_VERSION   = '2024-10-17';
@@ -95,10 +131,14 @@ export default async function handler(req, res) {
     if (!resp.ok || !squareData.payment || squareData.errors?.length) {
       const detail = squareData.errors?.[0]?.detail || squareData.errors?.[0]?.code || `HTTP ${resp.status}`;
       console.error('Square API error:', JSON.stringify(squareData));
+      const resendKey = process.env.RESEND_API_KEY;
+      if (resendKey) await sendErrorEmail(resendKey, { customerName, petName, customerEmail, reason: detail });
       return jsonError(res, 400, detail);
     }
   } catch (err) {
     console.error('Square fetch failed:', err);
+    const resendKey = process.env.RESEND_API_KEY;
+    if (resendKey) await sendErrorEmail(resendKey, { customerName, petName, customerEmail, reason: "Couldn't reach payment processor" });
     return jsonError(res, 502, "Couldn't reach payment processor");
   }
 

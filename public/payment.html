@@ -433,6 +433,13 @@ h1.checkout-title {
 
   renderSummary(booking);
 
+  // ---- Notify team of pending lead (fire-and-forget) ----
+  fetch('/api/lead', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(booking),
+  }).catch(function () { /* non-fatal */ });
+
   // ---- Square SDK init ----
   let card; // the Square Card payment method
   let payButtonLabel = 'Secure My Spot — $25';

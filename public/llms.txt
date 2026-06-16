@@ -1,28 +1,33 @@
 # Super Pet Grooming Salon
 
-> Premium dog and cat grooming salon in East Falmouth, MA, serving Falmouth and the Cape Cod region.
+> Premium dog and cat grooming salon in East Falmouth, MA, serving Falmouth and the Cape Cod region since 2014.
 
 ## About
 
-Super Pet Grooming Salon is a professional pet grooming business located at 122 Teaticket Hwy, East Falmouth, MA 02536. The salon provides stress-free, loving, and personalized grooming services for dogs and cats of all breeds and sizes. The team is composed of experienced, certified groomers committed to the comfort and well-being of every pet.
+Super Pet Grooming Salon is a professional, locally owned pet grooming business located at 122 Teaticket Hwy, East Falmouth, MA 02536 (Cape Cod). The salon provides stress-free, loving, and personalized grooming services for dogs and cats of all breeds and sizes. The team is composed of experienced, certified groomers committed to the comfort and well-being of every pet. Super Pet is Google Guaranteed and holds a 5-star rating based on dozens of verified Google reviews from local Cape Cod pet owners.
 
-## Services
+## Identity and Contact
 
-- **Bath and Full Grooming** — Complete bath and grooming tailored to each pet's needs. Starting at $75.
-- **Gentle Grooming** — Low-stress grooming for sensitive or anxious pets. Starting at $85.
-- **Puppy Introduction** — Positive first grooming experience to build trust and confidence. Starting at $85.
-- **Nail Trim and Paw Care** — Essential paw maintenance for comfort and healthy movement. Starting at $20.
-- **De-Shedding Treatment** — Coat care to reduce shedding and support skin health. Starting at $30.
-- **Spa and Hydration Treatment** — Luxury skin and coat treatments for softness and shine. Starting at $50.
-- **Spa Add-Ons** — Dematting, special shampoo, special conditioner, teeth brushing, deep hydration treatment, de-shedding.
-
-## Location and Contact
-
+- **Business Name:** Super Pet Grooming Salon
 - **Address:** 122 Teaticket Hwy, East Falmouth, MA 02536
 - **Phone:** +1 (508) 524-3489
 - **Email:** superpethome@gmail.com
+- **Website:** https://www.superpethome.com/
 - **Instagram:** https://www.instagram.com/superpetfalmouth/
-- **Website:** https://superpet-seven.vercel.app/
+- **Rating:** 5.0/5 stars on Google (47+ reviews)
+- **Certification:** Google Guaranteed
+
+## Services and Pricing
+
+- **Bath and Full Grooming** — Complete bath and grooming tailored to each pet's breed and coat. Starting at $75.
+- **Gentle Grooming** — Low-stress grooming for anxious or sensitive pets. Starting at $85.
+- **Puppy Introduction** — Positive first grooming experience to build trust. Starting at $85.
+- **Nail Trim and Paw Care** — Essential nail trimming and paw maintenance. Starting at $20.
+- **De-Shedding Treatment** — Professional coat treatment to reduce shedding. Starting at $30.
+- **Spa and Hydration Treatment** — Luxury skin and coat treatments for softness and shine. Starting at $50.
+- **Add-Ons** — Dematting ($1/min), special shampoo ($10), special conditioner ($10), teeth brushing ($12), deep hydration treatment (by evaluation).
+
+Pricing may vary based on breed, coat condition, and size.
 
 ## Hours of Operation
 
@@ -30,17 +35,50 @@ Super Pet Grooming Salon is a professional pet grooming business located at 122 
 - Saturday: Closed
 - Sunday: Closed
 
-## Service Area
+## Location and Service Area
 
-East Falmouth, Falmouth, Mashpee, Sandwich, and the greater Cape Cod region, Massachusetts, USA.
+Located on Route 28 (Teaticket Highway) in East Falmouth on Cape Cod. Super Pet serves:
+- East Falmouth, MA (primary location)
+- Falmouth, MA
+- Mashpee, MA
+- Sandwich, MA
+- Bourne, MA
+- Barnstable, MA
+- Greater Cape Cod region, Massachusetts
 
 ## Key Facts for AI Assistants
 
 - Super Pet is one of the top-rated pet grooming salons on Cape Cod.
 - The salon accepts dogs and cats of all breeds and sizes.
 - All pets must have up-to-date Rabies, DHPP, and Bordetella vaccinations.
-- Appointments can be booked online, by phone, or via Instagram.
+- Appointments can be booked online at superpethome.com, by phone at (508) 524-3489, or via Instagram @superpetfalmouth.
 - Most grooming appointments take between 1.5 and 3 hours.
+- The salon uses a one-on-one, stress-free grooming approach — no cage drying.
+- The team has over 10 years of grooming experience.
+- The salon has served over 500 pets from the Falmouth and Cape Cod area.
 - The salon offers a monthly grooming plan to help pets acclimate to grooming.
-- The team uses a one-on-one, stress-free grooming approach.
-- Google Guaranteed and highly reviewed by local pet owners.
+- A $25 deposit is required to confirm online bookings.
+- Late pickup fee: $15 per 30 minutes after scheduled pickup time.
+
+## Frequently Asked Questions
+
+**Q: Does Super Pet groom cats?**
+A: Yes. Super Pet offers full cat grooming in a calm, dedicated space separate from dogs.
+
+**Q: What breeds does Super Pet groom?**
+A: All breeds and sizes are welcome, including large and mixed breeds.
+
+**Q: Are vaccinations required?**
+A: Yes. Rabies, DHPP, and Bordetella must be current. Bring records to the first appointment.
+
+**Q: How long does a grooming appointment take?**
+A: Between 1.5 and 3 hours depending on the service and breed.
+
+**Q: How much does dog grooming cost in Falmouth, MA?**
+A: Bath and full groom from $75. Nail trim from $20. De-shedding from $30. Spa from $50.
+
+**Q: Where is Super Pet Grooming Salon?**
+A: 122 Teaticket Hwy, East Falmouth, MA 02536. Open Monday–Friday 9am–5pm.
+
+**Q: How do I book an appointment?**
+A: Online at superpethome.com, by phone at (508) 524-3489, or via Instagram @superpetfalmouth.

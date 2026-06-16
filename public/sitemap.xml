@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
   <url>
-    <loc>https://superpet-seven.vercel.app/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.superpethome.com/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.superpethome.com/team-photo.jpeg</image:loc>
+      <image:title>Super Pet Grooming Salon team with a happy dog in East Falmouth, MA</image:title>
+      <image:caption>Super Pet certified grooming team in East Falmouth, Cape Cod, Massachusetts</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.superpethome.com/IMG_5742.jpg</image:loc>
+      <image:title>Freshly groomed Pomeranian wearing a blue bandana at Super Pet</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.superpethome.com/IMG_6339.jpg</image:loc>
+      <image:title>Goldendoodle with a red heart bandana in front of the Super Pet neon sign</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.superpethome.com/IMG_3052.jpg</image:loc>
+      <image:title>Terrier mix wearing an orange paw-print bandana at the grooming salon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.superpethome.com/IMG_6330.jpg</image:loc>
+      <image:title>Goldendoodle with a heart-pattern bandana after a full groom at Super Pet</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.superpethome.com/21cc00fc-1335-44f5-a25a-42c74c4cb6f6.jpg</image:loc>
+      <image:title>Groomer cuddling a Bernese Mountain Dog at Super Pet Falmouth</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.superpethome.com/a9ab4a66-cf0a-4a5c-9bf8-540b70b9fe60.jpg</image:loc>
+      <image:title>Husky puppy with a floral bandana in front of the Super Pet neon sign</image:title>
+    </image:image>
   </url>
+
 </urlset>

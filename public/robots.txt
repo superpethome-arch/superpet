@@ -1,11 +1,24 @@
 # robots.txt — Super Pet Grooming Salon
-# https://superpet-seven.vercel.app/
+# https://www.superpethome.com/
 
 # Allow all crawlers (Google, Bing, AI assistants, etc.)
 User-agent: *
 Allow: /
+Disallow: /api/
 
-# AI crawlers — explicitly allowed
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# AI crawlers — explicitly allowed for GEO (Generative Engine Optimization)
 User-agent: GPTBot
 Allow: /
 
@@ -33,5 +46,23 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
 # Sitemap
-Sitemap: https://superpet-seven.vercel.app/sitemap.xml
+Sitemap: https://www.superpethome.com/sitemap.xml

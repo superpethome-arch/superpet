@@ -2331,13 +2331,15 @@ main > section {
           We received your request. Our team will be in touch as soon as possible to confirm your appointment. Meanwhile, follow us on Instagram <a href="https://www.instagram.com/superpetfalmouth/" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);font-weight:600;text-decoration:underline">@superpetfalmouth</a> for grooming tips and happy pets!
         </div>
 
-        <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-          <!-- Web3Forms configuration (delivered to superpethome@gmail.com) -->
-          <input type="hidden" name="access_key" value="c7f1718f-effd-414b-a528-3bed734dbcde">
-          <input type="hidden" name="subject" value="🐶 New Lead Super Pet Grooming">
-          <input type="hidden" name="from_name" value="Super Pet Website">
-          <!-- Honeypot to deter bots (Web3Forms) -->
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <form id="booking-form" action="#" method="POST" novalidate>
+          <!-- Honeypots: hidden from humans, attractive to bots -->
+          <div class="hp-wrap" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none">
+            <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" value="" /></label>
+            <label>Email confirm <input type="email" name="email_confirm" tabindex="-1" autocomplete="off" value="" /></label>
+            <label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" value="" /></label>
+          </div>
+          <!-- Time token: set by JS on load; absent = direct POST bot -->
+          <input type="hidden" name="_t" id="form-time-token" value="" />
 
           <!-- Owner section -->
           <fieldset class="form-section" style="border:none;padding:0;margin-top:0">
@@ -2616,6 +2618,10 @@ main > section {
   }
   window.scrollTo(0, 0);
 
+  // ---- Anti-spam time token: stamp page-load time ----
+  var timeTokenEl = document.getElementById('form-time-token');
+  if (timeTokenEl) { timeTokenEl.value = Date.now(); }
+
   // ---- Mobile menu toggle ----
   var toggle = document.querySelector('.nav-toggle');
   var drawer = document.getElementById('mobile-drawer');
@@ -2702,26 +2708,75 @@ main > section {
         el.classList.remove('field-error');
       });
 
-      // ---- Anti-spam: reject bots and suspicious content ----
-      var botField = form.querySelector('[name="botcheck"]');
-      if (botField && botField.checked) { return; }
+      // ---- Anti-spam: multi-layer bot and content filter ----
 
+      // 1. Honeypot fields — must stay empty (bots fill them, humans don't)
+      var hp1 = form.querySelector('[name="website"]');
+      var hp2 = form.querySelector('[name="email_confirm"]');
+      var hp3 = form.querySelector('[name="company"]');
+      if ((hp1 && hp1.value.trim()) || (hp2 && hp2.value.trim()) || (hp3 && hp3.value.trim())) { return; }
+
+      // 2. Time check — page must have been open at least 4 seconds
+      var timeToken = form.querySelector('[name="_t"]');
+      var loadedAt = timeToken ? parseInt(timeToken.value, 10) : 0;
+      if (!loadedAt || (Date.now() - loadedAt) < 4000) { return; }
+
+      // 3. Content pattern filter on all text/email/textarea fields
       var spamPatterns = [
+        // URLs and domains
         /https?:\/\//i,
         /www\.[a-z0-9-]+\.[a-z]/i,
+        /\.[a-z]{2,4}\/[^\s]/i,
+
+        // Cyrillic, CJK, Arabic scripts
         /[а-яёА-ЯЁ]/,
         /[一-鿿]/,
         /[؀-ۿ]/,
-        /\b(casino|poker|1win|bet|slots|crypto|bitcoin|BTC|loan|viagra|cialis|SEO|backlink)\b/i
+        /[ঀ-৿]/,   // Bengali
+        /[ਁ-੿]/,   // Gurmukhi
+        /[א-ת]/,    // Hebrew
+
+        // Gambling — brands and generic terms (EN, PT, FR, AZ, ES, RO)
+        /\b(casino|casinos|casin0|c4sino)\b/i,
+        /\b(poker|p0ker|p[o0]ker)\b/i,
+        /\b(slot|slots|s[l1]ot)\b/i,
+        /\b(bet|bets|bett[io]ng|apostas|aposta|bettings)\b/i,
+        /\b(jackpot|jackpots)\b/i,
+        /\b(gambling|gamble|jogo[s]?\s+online|jeux?\s+en\s+ligne)\b/i,
+        /\b(wager|wagering)\b/i,
+        /\b(sportsbook|sport[s]?\s*bet)\b/i,
+        /\b(free\s*spins?|bonus\s*spins?|spin[s]?\s*gratis)\b/i,
+        /\b(roleta|rolette|roulette|blackjack|bacará|baccarat)\b/i,
+        /\b(ganhar\s+dinheiro|gagner\s+de\s+l.argent|make\s+money\s+fast)\b/i,
+
+        // Casino brand names observed in spam
+        /\b(magius|pinco|1win|mostbet|1xbet|betano|melbet|fairspin|vavada|r7\s*casino|gg\s*bet|pin[\-\s]?up|stake|rolletto|vulkan|joycasino|slottica|fresh\s*casino|wazamba|nomini|casumo|rizk|speedy\s*casino|fastpay|cryptowild|kingbilly|katsubet|bitstarz)\b/i,
+
+        // Crypto / finance spam
+        /\b(crypto|bitcoin|btc|ethereum|eth|nft|defi|airdrop|token\s+sale|ico)\b/i,
+        /\b(loan|loans|empréstimo|crédit\s+rapide|forex|trading\s+signal)\b/i,
+
+        // Pharma / adult
+        /\b(viagra|cialis|levitra|sildenafil|tadalafil|porn|xxx|escort)\b/i,
+
+        // SEO / link spam
+        /\b(backlink|link\s+building|guest\s+post|buy.*traffic|buy.*followers|seo\s+service)\b/i,
+
+        // Promo language common in casino spam
+        /\b(recommand[eé]|recommando|absolument|offre\s+exclusive|bonus\s+exclus|promoção\s+exclus|oferta\s+especial)\b/i
       ];
-      var textFields = form.querySelectorAll('input[type="text"], input[type="email"], textarea');
+
+      var allTextFields = form.querySelectorAll('input[type="text"], input[type="email"], textarea');
       var isSpam = false;
-      textFields.forEach(function (field) {
-        spamPatterns.forEach(function (pattern) {
-          if (pattern.test(field.value)) { isSpam = true; }
+      allTextFields.forEach(function (field) {
+        // Skip honeypot fields (already checked above)
+        if (['website','email_confirm','company'].indexOf(field.name) !== -1) return;
+        spamPatterns.forEach(function (pat) {
+          if (pat.test(field.value)) { isSpam = true; }
         });
       });
       if (isSpam) { return; }
+
       // ---- End anti-spam ----
 
       if (!form.checkValidity()) {

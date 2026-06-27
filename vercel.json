@@ -85,6 +85,8 @@
   ],
   "rewrites": [
     { "source": "/about", "destination": "/about.html" },
-    { "source": "/faq", "destination": "/faq.html" }
+    { "source": "/faq", "destination": "/faq.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
   ]
 }

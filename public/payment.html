@@ -383,7 +383,7 @@ h1.checkout-title {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
     <h2 id="success-title">You're all set!</h2>
-    <p id="success-msg">Your spot is confirmed. We'll be in touch soon to finalize the details.</p>
+    <p id="success-msg">Payment confirmed! Our team will contact you within 24 hours to confirm the date and time of your appointment.</p>
 
     <div class="receipt-info">
       <div><strong>Amount charged:</strong> $25.00 USD</div>
@@ -599,7 +599,7 @@ h1.checkout-title {
     const petLine = booking['Pet Name']
       ? "We can't wait to see " + booking['Pet Name'] + '. '
       : '';
-    document.getElementById('success-msg').textContent = petLine + "We'll be in touch soon to confirm the details.";
+    document.getElementById('success-msg').textContent = petLine + "Payment confirmed! Our team will contact you within 24 hours to confirm the date and time of your appointment.";
     document.getElementById('success-payment-id').textContent = data.paymentId || '—';
 
     const receiptRow = document.getElementById('success-receipt-row');

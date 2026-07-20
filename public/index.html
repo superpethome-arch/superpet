@@ -1158,6 +1158,18 @@ main > section {
 .field select:invalid:not(:focus) {
   /* Subtle hint only full error state on submit attempt */
 }
+.field-error {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(230,57,70,.15) !important;
+}
+.field-msg {
+  display: block;
+  font-size: 13px;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-top: 6px;
+}
+.field-msg:empty { display: none; }
 
 .field select { appearance: none; -webkit-appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%236B7280' d='M6 8L0 0h12z'/></svg>");
@@ -2363,18 +2375,21 @@ main > section {
             <div class="form-row two">
               <div class="field">
                 <label for="full-name">Full Name <span class="req" aria-hidden="true">*</span></label>
-                <input id="full-name" name="Owner Name" type="text" required autocomplete="name" placeholder="Jane Doe" aria-required="true" />
+                <input id="full-name" name="Owner Name" type="text" required autocomplete="name" placeholder="Jane Doe" aria-required="true" aria-describedby="err-full-name" />
+                <span class="field-msg" id="err-full-name" role="alert"></span>
               </div>
               <div class="field">
                 <label for="phone">Phone Number <span class="req" aria-hidden="true">*</span></label>
-                <input id="phone" name="Phone Number" type="tel" required autocomplete="tel" placeholder="(508) 524-3489" aria-required="true" />
+                <input id="phone" name="Phone Number" type="tel" required autocomplete="tel" placeholder="(508) 524-3489" aria-required="true" aria-describedby="err-phone" />
+                <span class="field-msg" id="err-phone" role="alert"></span>
               </div>
             </div>
 
             <div class="form-row">
               <div class="field">
                 <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-                <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" aria-required="true" />
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" aria-required="true" aria-describedby="err-email" />
+                <span class="field-msg" id="err-email" role="alert"></span>
               </div>
             </div>
 
@@ -2398,7 +2413,8 @@ main > section {
             <div class="form-row two">
               <div class="field">
                 <label for="pet-name">Pet's Name <span class="req" aria-hidden="true">*</span></label>
-                <input id="pet-name" name="Pet Name" type="text" required placeholder="Max" aria-required="true" />
+                <input id="pet-name" name="Pet Name" type="text" required placeholder="Max" aria-required="true" aria-describedby="err-pet-name" />
+                <span class="field-msg" id="err-pet-name" role="alert"></span>
               </div>
               <div class="field">
                 <label for="pet-type">Type of Pet</label>
@@ -2413,7 +2429,8 @@ main > section {
             <div class="form-row two">
               <div class="field">
                 <label for="breed">Breed &amp; Approximate Weight <span class="req" aria-hidden="true">*</span></label>
-                <input id="breed" name="Breed &amp; Weight" type="text" required placeholder="Goldendoodle, ~45 lbs" aria-required="true" />
+                <input id="breed" name="Breed &amp; Weight" type="text" required placeholder="Goldendoodle, ~45 lbs" aria-required="true" aria-describedby="err-breed" />
+                <span class="field-msg" id="err-breed" role="alert"></span>
               </div>
               <div class="field">
                 <label for="coat">Coat Condition</label>
@@ -2486,9 +2503,10 @@ main > section {
           </fieldset>
 
           <label class="checkbox-row">
-            <input type="checkbox" name="Vaccinations Confirmed" value="Yes" required aria-required="true" />
+            <input type="checkbox" name="Vaccinations Confirmed" value="Yes" required aria-required="true" aria-describedby="err-vaccinations" />
             <span>I confirm my pet's vaccinations (Rabies, DHPP, Bordetella) are up to date and I'll bring proof to the appointment. <span class="req" aria-hidden="true">*</span></span>
           </label>
+          <span class="field-msg" id="err-vaccinations" role="alert"></span>
 
           <div class="form-submit">
             <button type="submit" class="btn btn-gradient">Request Appointment</button>
@@ -2717,10 +2735,33 @@ main > section {
   // function notifies Web3Forms once the payment succeeds.
   var form = document.getElementById('booking-form');
   if (form) {
+    // Clear individual field errors as user types
+    ['full-name','phone','email','pet-name','breed'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', function () {
+        el.classList.remove('field-error');
+        var span = document.getElementById('err-' + id);
+        if (span) span.textContent = '';
+      });
+    });
+    var vacCheckEl = form.querySelector('[name="Vaccinations Confirmed"]');
+    if (vacCheckEl) {
+      vacCheckEl.addEventListener('change', function () {
+        vacCheckEl.classList.remove('field-error');
+        var span = document.getElementById('err-vaccinations');
+        if (span) span.textContent = '';
+      });
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      // Clear previous errors
       Array.prototype.forEach.call(form.querySelectorAll('.field-error'), function (el) {
         el.classList.remove('field-error');
+      });
+      Array.prototype.forEach.call(form.querySelectorAll('.field-msg'), function (el) {
+        el.textContent = '';
       });
 
       // ---- Anti-spam: multi-layer bot and content filter ----
@@ -2794,12 +2835,36 @@ main > section {
 
       // ---- End anti-spam ----
 
-      if (!form.checkValidity()) {
-        Array.prototype.forEach.call(form.querySelectorAll(':invalid'), function (el) {
+      // Validate required fields with friendly inline messages
+      var formErrors = [];
+      var fieldRules = [
+        { id: 'full-name', errId: 'err-full-name', msg: 'Please enter your full name.' },
+        { id: 'phone',     errId: 'err-phone',     msg: 'Please enter your phone number.' },
+        { id: 'email',     errId: 'err-email',     msg: 'Please enter a valid email address.' },
+        { id: 'pet-name',  errId: 'err-pet-name',  msg: "Please enter your pet's name." },
+        { id: 'breed',     errId: 'err-breed',     msg: "Please enter your pet's breed and approximate weight." }
+      ];
+      fieldRules.forEach(function (rule) {
+        var el = document.getElementById(rule.id);
+        if (!el) return;
+        if (!el.validity.valid || !el.value.trim()) {
           el.classList.add('field-error');
-        });
-        var firstInvalid = form.querySelector(':invalid');
-        if (firstInvalid) firstInvalid.focus();
+          var span = document.getElementById(rule.errId);
+          if (span) span.textContent = rule.msg;
+          formErrors.push(el);
+        }
+      });
+      // Vaccination checkbox
+      var vacCheck = form.querySelector('[name="Vaccinations Confirmed"]');
+      if (vacCheck && !vacCheck.checked) {
+        vacCheck.classList.add('field-error');
+        var vacErr = document.getElementById('err-vaccinations');
+        if (vacErr) vacErr.textContent = "Please confirm your pet's vaccinations are up to date.";
+        formErrors.push(vacCheck);
+      }
+      if (formErrors.length > 0) {
+        formErrors[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        formErrors[0].focus();
         return;
       }
 

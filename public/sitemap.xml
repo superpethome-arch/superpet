@@ -7,7 +7,7 @@
 
   <url>
     <loc>https://www.superpethome.com/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -61,7 +61,7 @@
 
   <url>
     <loc>https://www.superpethome.com/blog</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -146,6 +146,27 @@
   <url>
     <loc>https://www.superpethome.com/blog/dog-coat-maintenance-between-grooms</loc>
     <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.superpethome.com/blog/how-long-does-dog-grooming-take</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.superpethome.com/blog/what-to-bring-dog-grooming-appointment</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.superpethome.com/blog/dog-grooming-bourne-ma</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

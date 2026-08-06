@@ -83,6 +83,8 @@
     { "source": "/about", "destination": "/about.html" },
     { "source": "/faq", "destination": "/faq.html" },
     { "source": "/blog", "destination": "/blog.html" },
-    { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+    { "source": "/event", "destination": "/event.html" },
+    { "source": "/national-dog-day", "destination": "/event.html" }
   ]
 }

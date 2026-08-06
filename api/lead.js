@@ -41,7 +41,7 @@ export default async function handler(req, res) {
   try {
     const resend = new Resend(resendKey);
     await resend.emails.send({
-      from: 'Super Pet <onboarding@resend.dev>',
+      from: 'Super Pet <booking@superpethome.com>',
       to:   'superpethome@gmail.com',
       subject: `[PENDING] New Lead - ${customerName}${petName ? ` (${petName})` : ''}`,
       html: `

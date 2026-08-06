@@ -14,7 +14,7 @@ async function sendErrorEmail(resendKey, { customerName, petName, customerEmail,
   try {
     const resend = new Resend(resendKey);
     await resend.emails.send({
-      from: 'Super Pet <onboarding@resend.dev>',
+      from: 'Super Pet <booking@superpethome.com>',
       to:   'superpethome@gmail.com',
       subject: `[PAYMENT FAILED] ${customerName}${petName ? ` (${petName})` : ''}`,
       html: `
@@ -155,7 +155,7 @@ export default async function handler(req, res) {
         .join('');
 
       await resend.emails.send({
-        from: 'Super Pet <onboarding@resend.dev>',
+        from: 'Super Pet <booking@superpethome.com>',
         to:   'superpethome@gmail.com',
         subject: `[PAID] New Booking - ${customerName}${petName ? ` (${petName})` : ''}`,
         html: `

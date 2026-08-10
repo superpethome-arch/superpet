@@ -24,7 +24,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
 
 <!-- JSON-LD Event schema -->
 <script type="application/ld+json">
@@ -68,57 +68,52 @@
 
 <style>
 /* =========================================================
-   DESIGN TOKENS - Super Pet
+   TOKENS
    ========================================================= */
 :root {
-  --color-primary: #E63946;
-  --color-primary-hover: #C92D3B;
-  --color-coral: #FF6B6B;
-  --color-navy: #1B2A4E;
-  --color-white: #FFFFFF;
-  --color-cream: #FAF7F2;
-  --color-sky: #4A90E2;
-  --color-text: #1A1A1A;
-  --color-text-muted: #6B7280;
-  --color-border: #E5E7EB;
-  --color-bg-soft: #F9FAFB;
-  --color-success: #10B981;
-  --color-error: #DC2626;
-  --color-star: #FBBF24;
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
-  --radius-xl: 24px;
-  --radius-pill: 999px;
-  --shadow-xs: 0 1px 2px rgba(27,42,78,0.04);
-  --shadow-sm: 0 2px 8px rgba(27,42,78,0.06);
-  --shadow-md: 0 4px 14px rgba(27,42,78,0.08);
-  --shadow-lg: 0 12px 32px rgba(27,42,78,0.12);
-  --shadow-cta: 0 4px 14px rgba(230,57,70,0.35);
-  --shadow-cta-hover: 0 6px 20px rgba(230,57,70,0.45);
-  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
-  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px; --space-24: 96px;
-  --space-section: 96px;
-  --space-section-mobile: 64px;
-  --container-max: 1200px;
-  --gradient-cta: linear-gradient(135deg, #E63946 0%, #FF6B6B 100%);
+  --c-navy:        #1B2A4E;
+  --c-navy-dark:   #111d36;
+  --c-red:         #E63946;
+  --c-red-hover:   #C92D3B;
+  --c-amber:       #F4A535;
+  --c-amber-dark:  #d6901e;
+  --c-amber-lt:    #FFF8EC;
+  --c-cream:       #FAF7F2;
+  --c-white:       #FFFFFF;
+  --c-text:        #1A1A1A;
+  --c-muted:       #6B7280;
+  --c-border:      #E5E7EB;
+  --c-border-warm: #DDD8D0;
+  --c-success:     #10B981;
+  --c-error:       #DC2626;
+  --f-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --f-body:    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --r-sm:  10px;
+  --r-md:  14px;
+  --r-lg:  18px;
+  --r-xl:  24px;
+  --r-pill: 999px;
+  --sh-sm:  0 2px 8px rgba(27,42,78,0.06);
+  --sh-md:  0 4px 14px rgba(27,42,78,0.08);
+  --sh-lg:  0 12px 40px rgba(27,42,78,0.14);
+  --sh-cta: 0 4px 14px rgba(230,57,70,0.35);
+  --sh-cta-hover: 0 6px 20px rgba(230,57,70,0.45);
   --header-h: 72px;
+  --max-w: 1200px;
 }
 
 /* =========================================================
-   RESET AND BASE
+   RESET + BASE
    ========================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  font-family: var(--font-body);
+  font-family: var(--f-body);
   font-size: 16px;
   line-height: 1.6;
-  color: var(--color-text);
-  background: #f8f5f0;
+  color: var(--c-text);
+  background: var(--c-cream);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -131,13 +126,13 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   outline-offset: 2px;
   border-radius: 4px;
 }
-p { margin: 0 0 var(--space-4); }
+p { margin: 0 0 16px; }
 
 /* Skip link */
 .skip-link {
   position: absolute; top: -100px; left: 8px;
-  background: var(--color-navy); color: var(--color-white);
-  padding: 12px 18px; border-radius: var(--radius-sm);
+  background: var(--c-navy); color: #fff;
+  padding: 12px 18px; border-radius: var(--r-sm);
   text-decoration: none; font-weight: 600; z-index: 1000;
 }
 .skip-link:focus { top: 8px; }
@@ -154,7 +149,7 @@ p { margin: 0 0 var(--space-4); }
    ========================================================= */
 .container {
   width: 100%;
-  max-width: var(--container-max);
+  max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -165,79 +160,93 @@ p { margin: 0 0 var(--space-4); }
    ========================================================= */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
-  gap: var(--space-2); font-family: var(--font-body);
-  font-size: 16px; font-weight: 600; line-height: 1;
+  gap: 8px; font-family: var(--f-body);
+  font-size: 16px; font-weight: 700; line-height: 1;
   padding: 16px 32px; min-height: 52px;
-  border-radius: var(--radius-pill); border: 2px solid transparent;
+  border-radius: var(--r-pill); border: none;
   text-decoration: none; cursor: pointer;
   transition: all 0.2s ease; white-space: nowrap; text-align: center;
 }
-.btn-primary { background: var(--color-primary); color: var(--color-white); box-shadow: var(--shadow-cta); }
-.btn-primary:hover, .btn-primary:focus-visible {
-  background: var(--color-primary-hover); box-shadow: var(--shadow-cta-hover); transform: translateY(-1px);
+.btn-primary {
+  background: var(--c-red); color: #fff;
+  box-shadow: var(--sh-cta);
 }
-.btn-white { background: #fff; color: var(--color-primary); }
-.btn-white:hover, .btn-white:focus-visible { background: #f1f5f9; transform: translateY(-1px); }
-.btn-large { padding: 18px 40px; font-size: 17px; }
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: var(--c-red-hover);
+  box-shadow: var(--sh-cta-hover);
+  transform: translateY(-1px);
+}
+.btn-amber {
+  background: var(--c-amber); color: var(--c-navy);
+  box-shadow: 0 4px 16px rgba(244,165,53,0.4);
+}
+.btn-amber:hover, .btn-amber:focus-visible {
+  background: var(--c-amber-dark);
+  box-shadow: 0 6px 22px rgba(244,165,53,0.5);
+  transform: translateY(-2px);
+}
+.btn-white { background: #fff; color: var(--c-red); }
+.btn-white:hover, .btn-white:focus-visible {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+.btn-lg { padding: 18px 42px; font-size: 17px; }
 
 /* =========================================================
    HEADER / NAV
    ========================================================= */
 .site-header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.96);
   backdrop-filter: saturate(180%) blur(10px);
   -webkit-backdrop-filter: saturate(180%) blur(10px);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--c-border);
   transition: box-shadow 0.2s ease;
 }
-.site-header.scrolled { box-shadow: var(--shadow-md); }
+.site-header.scrolled { box-shadow: var(--sh-md); }
 .nav {
   display: flex; align-items: center;
   justify-content: space-between;
-  min-height: var(--header-h); gap: var(--space-4);
+  min-height: var(--header-h); gap: 16px;
 }
-.logo {
-  display: inline-flex; align-items: center;
-  text-decoration: none; flex-shrink: 0;
-}
+.logo { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
 .logo img { height: 56px; width: auto; display: block; }
 .nav-links {
   list-style: none; display: none;
-  gap: var(--space-8); margin: 0; padding: 0;
+  gap: 32px; margin: 0; padding: 0;
 }
 .nav-links a {
-  color: var(--color-navy); text-decoration: none;
+  color: var(--c-navy); text-decoration: none;
   font-weight: 500; font-size: 15px;
   padding: 8px 0; position: relative; transition: color 0.2s ease;
 }
 .nav-links a::after {
   content: ''; position: absolute; left: 0; right: 0; bottom: 2px;
-  height: 2px; background: var(--color-primary);
+  height: 2px; background: var(--c-red);
   transform: scaleX(0); transform-origin: center; transition: transform 0.2s ease;
 }
-.nav-links a:hover, .nav-links a:focus-visible { color: var(--color-primary); }
-.nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
-.nav-links a[aria-current="page"] { color: var(--color-primary); }
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--c-red); }
+.nav-links a:hover::after, .nav-links a:focus-visible::after,
 .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+.nav-links a[aria-current="page"] { color: var(--c-red); }
 .nav-cta { display: none; }
 .nav .btn { padding: 12px 24px; min-height: 44px; font-size: 14px; }
 .nav-toggle {
   display: inline-flex; align-items: center; justify-content: center;
   width: 44px; height: 44px;
-  border: 1.5px solid var(--color-border);
-  background: var(--color-white); border-radius: var(--radius-sm); padding: 0;
+  border: 1.5px solid var(--c-border);
+  background: #fff; border-radius: var(--r-sm); padding: 0;
 }
 .nav-toggle span {
   display: block; width: 20px; height: 2px;
-  background: var(--color-navy); position: relative; transition: all 0.2s ease;
+  background: var(--c-navy); position: relative; transition: all 0.2s ease;
 }
 .nav-toggle span::before, .nav-toggle span::after {
   content: ''; position: absolute; left: 0;
-  width: 20px; height: 2px; background: var(--color-navy); transition: all 0.2s ease;
+  width: 20px; height: 2px; background: var(--c-navy); transition: all 0.2s ease;
 }
 .nav-toggle span::before { top: -6px; }
-.nav-toggle span::after  { top: 6px; }
+.nav-toggle span::after { top: 6px; }
 .nav-toggle[aria-expanded="true"] span { background: transparent; }
 .nav-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span::after  { top: 0; transform: rotate(-45deg); }
@@ -246,18 +255,18 @@ p { margin: 0 0 var(--space-4); }
 .mobile-drawer {
   display: none; position: fixed;
   top: var(--header-h); left: 0; right: 0; bottom: 0;
-  background: var(--color-white); padding: var(--space-6);
-  z-index: 99; flex-direction: column; gap: var(--space-4);
-  border-top: 1px solid var(--color-border); overflow-y: auto;
+  background: #fff; padding: 24px;
+  z-index: 99; flex-direction: column; gap: 16px;
+  border-top: 1px solid var(--c-border); overflow-y: auto;
 }
 .mobile-drawer.open { display: flex; }
 .mobile-drawer a {
-  color: var(--color-navy); text-decoration: none;
+  color: var(--c-navy); text-decoration: none;
   font-weight: 600; font-size: 18px; padding: 16px 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--c-border);
   min-height: 44px; display: flex; align-items: center;
 }
-.mobile-drawer .btn { margin-top: var(--space-4); width: 100%; }
+.mobile-drawer .btn { margin-top: 16px; width: 100%; }
 
 @media (min-width: 1024px) {
   .nav-links { display: flex; }
@@ -270,270 +279,423 @@ p { margin: 0 0 var(--space-4); }
    BREADCRUMB
    ========================================================= */
 .breadcrumb {
-  background: #f1ede8; border-bottom: 1px solid #e0d8d0;
+  background: #ece8e2; border-bottom: 1px solid #dad3c9;
   padding: 10px 0; font-size: 13px; color: #6b7280;
 }
 .breadcrumb nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.15s; }
-.breadcrumb a:hover { color: var(--color-navy); }
+.breadcrumb a:hover { color: var(--c-navy); }
 .breadcrumb-sep { color: #9ca3af; font-size: 12px; }
-.breadcrumb-current { color: var(--color-navy); font-weight: 500; }
+.breadcrumb-current { color: var(--c-navy); font-weight: 500; }
 
 /* =========================================================
-   EVENT HERO
+   HERO
    ========================================================= */
 .event-hero {
-  background: linear-gradient(135deg, #1B2A4E 0%, #2d4a8a 100%);
-  color: #fff; padding: 80px 0 72px;
-  text-align: center; position: relative; overflow: hidden;
+  background: var(--c-navy-dark);
+  position: relative;
+  overflow: hidden;
+  padding: 88px 0 80px;
+  text-align: center;
 }
-.event-hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
+
+/* Decorative paw prints */
+.hero-paws { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.hero-paw { position: absolute; color: var(--c-amber); }
+.hero-paw svg { fill: currentColor; width: 100%; height: 100%; }
+
+.hero-badge {
+  display: inline-block;
+  background: var(--c-amber); color: var(--c-navy);
+  font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .12em;
+  padding: 7px 22px; border-radius: var(--r-pill);
+  margin-bottom: 28px;
 }
-.event-hero .container { position: relative; z-index: 1; }
-.event-badge {
-  display: inline-block; background: var(--color-primary); color: #fff;
-  font-size: 12px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .08em; padding: 6px 18px; border-radius: var(--radius-pill);
-  margin-bottom: 20px;
+
+.hero-free-wrap { margin: 0 0 6px; line-height: 1; }
+.hero-free {
+  font-family: var(--f-body);
+  font-size: clamp(5.5rem, 20vw, 10.5rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -.04em;
+  line-height: 0.88;
+  display: block;
 }
-.event-hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700; line-height: 1.15; color: #fff;
-  margin: 0 auto 20px; max-width: 700px;
+
+.hero-service {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 4vw, 2.1rem);
+  color: var(--c-amber);
+  font-weight: 400;
+  margin: 14px 0 8px;
 }
-.event-hero .hero-sub {
-  font-size: 17px; line-height: 1.7;
-  max-width: 620px; margin: 0 auto 32px;
-  color: rgba(255,255,255,0.88);
+
+.hero-tagline {
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: .02em;
+  margin: 0 auto 40px;
+  max-width: 340px;
 }
-.event-info-bar {
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 32px; margin-top: 40px; padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.15);
+
+/* Countdown */
+.hero-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 40px;
 }
-.event-info-item {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 4px;
+.cd-unit {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0 14px;
 }
-.event-info-label {
-  font-size: 11px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .08em; color: rgba(255,255,255,0.55);
+.cd-num {
+  font-family: var(--f-body);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -.03em;
+  min-width: 48px;
+  display: block;
+  text-align: center;
 }
-.event-info-value { font-size: 15px; font-weight: 600; color: #fff; }
+.cd-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: rgba(255,255,255,0.4);
+  margin-top: 5px;
+}
+.cd-dot {
+  font-size: 1.6rem;
+  color: rgba(255,255,255,0.2);
+  font-weight: 300;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
 
 /* =========================================================
-   EVENT CARDS SECTION
+   FACT STRIP
    ========================================================= */
-.event-cards-section {
-  padding: 64px 0; background: #fff;
+.fact-strip {
+  background: #fff;
+  border-bottom: 1px solid var(--c-border-warm);
 }
-.section-title-wrap { margin-bottom: 40px; }
-.section-title-wrap .section-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  font-weight: 700; color: var(--color-navy);
-  margin: 0 0 10px;
+.fact-strip-row {
+  display: flex;
+  flex-wrap: wrap;
 }
-.section-title-wrap .section-sub {
-  font-size: 16px; color: var(--color-text-muted); margin: 0;
+.fact-item {
+  flex: 1 1 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24px 16px;
+  text-align: center;
+  border-right: 1px solid #ede8e2;
+  border-bottom: 1px solid #ede8e2;
 }
-.event-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+.fact-item:nth-child(2),
+.fact-item:nth-child(4) { border-right: none; }
+@media (min-width: 640px) {
+  .fact-item { flex: 1 1 25%; border-bottom: none; }
+  .fact-item:nth-child(2) { border-right: 1px solid #ede8e2; }
+  .fact-item:last-child { border-right: none; }
 }
-.event-card {
-  background: #f8f5f0; border-radius: var(--radius-lg);
-  padding: 32px 28px; border: 1px solid #e8e0d8;
+.fact-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--c-muted); margin-bottom: 5px;
 }
-.event-card-icon { font-size: 32px; margin-bottom: 12px; }
-.event-card h3 {
-  font-family: var(--font-display); font-size: 1.1rem;
-  font-weight: 700; margin: 0 0 8px; color: var(--color-navy);
+.fact-val {
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+  font-weight: 800; color: var(--c-navy); line-height: 1.2;
 }
-.event-card p { font-size: 14px; color: #4b5563; line-height: 1.6; margin: 0; }
-.event-card strong { color: var(--color-navy); }
+.fact-val.is-free { color: var(--c-red); font-size: clamp(1.1rem, 3vw, 1.35rem); }
 
 /* =========================================================
-   WHAT TO EXPECT SECTION
+   ABOUT + STEPS SECTION
    ========================================================= */
-.expect-section { padding: 64px 0; background: #f8f5f0; }
-.expect-steps {
-  display: flex; flex-direction: column; gap: 20px;
-  max-width: 680px;
+.about-section { padding: 80px 0; background: var(--c-cream); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 60px; align-items: start;
 }
-.expect-step {
-  display: flex; align-items: flex-start; gap: 20px;
+@media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1fr; gap: 80px; } }
+
+.about-eyebrow {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .14em;
+  color: var(--c-amber-dark); margin-bottom: 14px;
 }
+.about-headline {
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700; color: var(--c-navy);
+  line-height: 1.2; margin: 0 0 20px;
+}
+.about-body {
+  font-size: 16px; color: #4b5563;
+  line-height: 1.8; margin-bottom: 20px;
+}
+.about-loc {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--c-navy); font-weight: 600;
+  margin-top: 8px;
+}
+.about-loc svg {
+  width: 18px; height: 18px; color: var(--c-amber);
+  flex-shrink: 0;
+}
+
+/* Steps */
+.steps-eyebrow {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .14em;
+  color: var(--c-amber-dark); margin-bottom: 16px;
+}
+.steps-list { list-style: none; padding: 0; margin: 0; }
+.step-item {
+  display: flex; gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--c-border-warm);
+}
+.step-item:last-child { border-bottom: 1px solid var(--c-border-warm); }
 .step-num {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--color-navy); color: #fff;
-  font-size: 14px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 2px;
+  font-family: var(--f-body);
+  font-size: 2.2rem; font-weight: 900;
+  color: var(--c-amber); line-height: 1;
+  width: 40px; flex-shrink: 0;
 }
-.step-body h4 {
-  font-family: var(--font-body); font-size: 15px; font-weight: 700;
-  color: var(--color-navy); margin: 0 0 4px;
+.step-content h4 {
+  font-size: 15px; font-weight: 700;
+  color: var(--c-navy); margin: 0 0 4px; line-height: 1.4;
 }
-.step-body p { font-size: 14px; color: #4b5563; margin: 0; line-height: 1.6; }
-.expect-note {
-  margin-top: 28px; padding: 16px 20px;
-  background: #fff3cd; border-left: 4px solid #f59e0b;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 14px; color: #78350f; line-height: 1.6;
+.step-content p {
+  font-size: 14px; color: #6b7280;
+  margin: 0; line-height: 1.65;
 }
-.expect-note strong { color: #78350f; }
 
-/* =========================================================
-   WHAT TO BRING SECTION
-   ========================================================= */
-.bring-section { padding: 64px 0; background: #fff; }
-.bring-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; max-width: 600px; }
-.bring-list li { display: flex; align-items: flex-start; gap: 16px; font-size: 15px; line-height: 1.6; color: #374151; }
-.bring-check {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: #dcfce7; display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 1px;
+.cap-note {
+  margin-top: 20px;
+  background: var(--c-amber-lt);
+  border: 1px solid #f0d88a;
+  border-radius: var(--r-md);
+  padding: 14px 18px;
+  font-size: 13px; color: #7a5217; line-height: 1.65;
 }
-.bring-check svg { width: 14px; height: 14px; }
-.bring-required {
-  font-size: 11px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .06em; color: var(--color-primary);
-  background: #fef2f2; padding: 2px 8px; border-radius: 4px;
-  margin-left: 8px; vertical-align: middle;
-}
-.bring-note {
-  margin-top: 28px; padding: 16px 20px;
-  background: #eff6ff; border-left: 4px solid var(--color-sky);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 14px; color: #1e40af; line-height: 1.6;
-}
-.bring-note a { color: var(--color-navy); font-weight: 600; }
-.bring-note a:hover { color: var(--color-primary); }
 
 /* =========================================================
    RSVP SECTION
    ========================================================= */
-.rsvp-section { background: var(--color-navy); padding: 80px 0; }
-.rsvp-inner {
+.rsvp-section { background: var(--c-navy); padding: 80px 0; }
+.rsvp-grid {
   display: grid; grid-template-columns: 1fr;
   gap: 48px; align-items: start;
 }
-@media (min-width: 900px) { .rsvp-inner { grid-template-columns: 1fr 1.1fr; } }
-.rsvp-copy .section-title { color: #fff; margin-bottom: 12px; }
-.rsvp-copy .section-sub { color: rgba(255,255,255,0.72); font-size: 16px; margin-bottom: 28px; line-height: 1.7; }
-.rsvp-trust { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
-.rsvp-trust li {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; color: rgba(255,255,255,0.82);
+@media (min-width: 900px) { .rsvp-grid { grid-template-columns: 1fr 1.15fr; gap: 64px; } }
+
+/* Left side copy */
+.rsvp-eyebrow {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .14em;
+  color: var(--c-amber); margin-bottom: 12px;
 }
-.rsvp-trust .trust-icon-sm {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(255,255,255,0.12);
+.rsvp-title {
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700; color: #fff; line-height: 1.2; margin: 0 0 16px;
+}
+.rsvp-body {
+  font-size: 16px; color: rgba(255,255,255,0.72);
+  line-height: 1.75; margin-bottom: 32px;
+}
+.rsvp-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.rsvp-bullet { display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.85); }
+.bullet-icon {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(244,165,53,0.2);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-.rsvp-trust .trust-icon-sm svg { width: 12px; height: 12px; color: #fff; }
+.bullet-icon svg { width: 12px; height: 12px; color: var(--c-amber); }
 
-.rsvp-form-wrap {
-  background: #fff; border-radius: var(--radius-xl);
-  padding: 40px; box-shadow: var(--shadow-lg);
+/* Right: form card */
+.rsvp-form-card {
+  background: #fff;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-lg);
 }
-.rsvp-form-wrap h3 {
-  font-family: var(--font-display); font-size: 1.25rem;
-  font-weight: 700; color: var(--color-navy); margin: 0 0 24px;
+.rsvp-form-header {
+  background: var(--c-amber);
+  padding: 22px 32px;
 }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.rsvp-form-header h3 {
+  font-family: var(--f-body);
+  font-size: 1rem; font-weight: 800;
+  color: var(--c-navy); margin: 0;
+}
+.rsvp-form-header p {
+  font-size: 13px; color: rgba(27,42,78,0.7);
+  margin: 4px 0 0;
+}
+.rsvp-form-inner { padding: 32px; }
+@media (max-width: 480px) {
+  .rsvp-form-header { padding: 18px 20px; }
+  .rsvp-form-inner { padding: 20px; }
+}
+
+/* Form fields */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
-.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+.field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
 .field:last-of-type { margin-bottom: 0; }
-.field label { font-size: 13px; font-weight: 600; color: #374151; }
+.field label {
+  font-size: 11px; font-weight: 700;
+  color: #374151; text-transform: uppercase; letter-spacing: .06em;
+}
 .optional-badge {
-  font-size: 11px; font-weight: 500; color: #9ca3af; margin-left: 4px;
+  font-size: 10px; font-weight: 500;
+  color: #9ca3af; margin-left: 4px;
+  text-transform: none; letter-spacing: 0;
 }
 .field input[type="text"],
 .field input[type="email"],
 .field input[type="tel"] {
-  width: 100%; padding: 12px 16px;
-  border: 1.5px solid #d1d5db; border-radius: var(--radius-sm);
+  width: 100%; padding: 12px 14px;
+  border: 1.5px solid #d1d5db; border-radius: var(--r-sm);
   font-size: 15px; font-family: inherit;
-  color: var(--color-navy); background: #f9fafb;
+  color: var(--c-navy); background: #f9fafb;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .field input:focus {
-  outline: none; border-color: var(--color-navy);
+  outline: none; border-color: var(--c-navy);
   box-shadow: 0 0 0 3px rgba(27,42,78,0.1); background: #fff;
 }
 .field input.field-error {
-  border-color: var(--color-primary) !important;
-  box-shadow: 0 0 0 3px rgba(230,57,70,0.12) !important;
+  border-color: var(--c-error) !important;
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.12) !important;
 }
-.field-msg { font-size: 12px; color: var(--color-primary); font-weight: 500; min-height: 16px; }
-.checkbox-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+.field-msg { font-size: 12px; color: var(--c-error); font-weight: 500; min-height: 16px; }
+.checkbox-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
 .checkbox-label {
   display: flex; align-items: flex-start; gap: 12px;
   cursor: pointer; font-size: 14px; color: #374151; line-height: 1.5;
 }
 .checkbox-label input[type="checkbox"] {
   width: 18px; height: 18px; flex-shrink: 0;
-  margin-top: 2px; cursor: pointer; accent-color: var(--color-navy);
+  margin-top: 2px; cursor: pointer; accent-color: var(--c-navy);
 }
-.checkbox-label input[type="checkbox"].field-error { outline: 2px solid var(--color-primary); border-radius: 3px; }
-.form-divider { border: 0; border-top: 1px solid #e5e7eb; margin: 20px 0; }
-.form-submit-wrap { margin-top: 24px; }
-.form-submit-wrap .btn { width: 100%; }
+.checkbox-label input[type="checkbox"].field-error { outline: 2px solid var(--c-error); border-radius: 3px; }
+.form-divider { border: 0; border-top: 1px solid #e5e7eb; margin: 16px 0; }
+.form-submit { margin-top: 20px; }
+.form-submit .btn { width: 100%; }
 
-.form-success { display: none; text-align: center; padding: 32px 16px; }
+.form-success { display: none; text-align: center; padding: 48px 24px; }
 .form-success .success-icon { font-size: 52px; margin-bottom: 16px; }
-.form-success h3 { font-family: var(--font-display); font-size: 1.4rem; margin: 0 0 10px; color: var(--color-navy); }
-.form-success p { font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0; }
+.form-success h3 { font-family: var(--f-display); font-size: 1.5rem; color: var(--c-navy); margin: 0 0 10px; }
+.form-success p { font-size: 15px; color: #4b5563; line-height: 1.65; margin: 0; }
+
+/* =========================================================
+   REQUIREMENTS SECTION
+   ========================================================= */
+.req-section { padding: 72px 0; background: #fff; }
+.req-eyebrow {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .14em;
+  color: var(--c-muted); margin-bottom: 16px;
+}
+.req-heading {
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700; color: var(--c-navy); margin: 0 0 32px;
+}
+.req-cards {
+  display: grid; grid-template-columns: 1fr;
+  gap: 20px; max-width: 800px;
+}
+@media (min-width: 640px) { .req-cards { grid-template-columns: 1fr 1fr; } }
+.req-card {
+  background: var(--c-cream);
+  border: 1px solid var(--c-border-warm);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+}
+.req-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.req-icon {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px; flex-shrink: 0;
+}
+.req-icon.red-bg { background: #fef2f2; }
+.req-icon.green-bg { background: #f0fdf4; }
+.req-card h4 {
+  font-size: 15px; font-weight: 700; color: var(--c-navy);
+  margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.req-tag {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; padding: 2px 8px; border-radius: 4px;
+  background: #fef2f2; color: var(--c-red);
+}
+.req-card p { font-size: 14px; color: #4b5563; line-height: 1.7; margin: 0; }
+
+.req-note {
+  max-width: 800px; margin-top: 24px;
+  padding: 16px 20px;
+  background: #eff6ff; border: 1px solid #dbeafe;
+  border-radius: var(--r-md);
+  font-size: 14px; color: #1e40af; line-height: 1.65;
+}
+.req-note a { color: var(--c-navy); font-weight: 600; }
+.req-note a:hover { color: var(--c-red); }
 
 /* =========================================================
    FAQ SECTION
    ========================================================= */
-.faq-section { padding: 64px 0; background: #f8f5f0; }
-.faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
+.faq-section { padding: 72px 0; background: var(--c-cream); }
+.faq-head { margin-bottom: 32px; max-width: 600px; }
+.faq-head h2 {
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700; color: var(--c-navy); margin: 0 0 8px;
+}
+.faq-head p { font-size: 15px; color: var(--c-muted); margin: 0; }
+.faq-list { display: flex; flex-direction: column; gap: 8px; max-width: 760px; }
 .faq-item {
-  border: 1px solid #e5e7eb; border-radius: var(--radius-md);
-  overflow: hidden; background: #fff;
+  border: 1px solid var(--c-border-warm);
+  border-radius: var(--r-md); overflow: hidden; background: #fff;
 }
 .faq-item summary {
   padding: 18px 20px; font-weight: 600; font-size: 15px;
   cursor: pointer; list-style: none;
   display: flex; justify-content: space-between; align-items: center;
-  color: var(--color-navy);
+  color: var(--c-navy);
 }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after {
-  content: '+'; font-size: 22px; font-weight: 400;
-  color: #9ca3af; transition: transform 0.2s; flex-shrink: 0;
+  content: '+'; font-size: 22px; font-weight: 300;
+  color: #9ca3af; transition: transform 0.2s; flex-shrink: 0; margin-left: 12px;
 }
 .faq-item[open] summary::after { transform: rotate(45deg); }
-.faq-body {
-  padding: 0 20px 18px; font-size: 14px;
-  color: #4b5563; line-height: 1.7;
-}
+.faq-body { padding: 0 20px 18px; font-size: 14px; color: #4b5563; line-height: 1.75; }
 .faq-body p { margin: 0; }
 
 /* =========================================================
-   CTA BANNER
+   CTA BOTTOM
    ========================================================= */
-.cta-banner {
-  background: var(--color-primary); padding: 64px 0;
-  text-align: center; color: #fff;
+.cta-bottom {
+  background: var(--c-red); padding: 60px 0; text-align: center;
 }
-.cta-banner h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
-  color: #fff; margin: 0 0 12px;
+.cta-bottom h2 {
+  font-family: var(--f-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: #fff; margin: 0 0 10px;
 }
-.cta-banner p { font-size: 17px; opacity: 0.92; margin: 0 0 32px; }
-.cta-banner .btn-white { color: var(--color-primary); }
-.cta-banner .btn-white:hover { background: #f1f5f9; }
+.cta-bottom p { font-size: 16px; color: rgba(255,255,255,0.9); margin: 0 0 28px; }
+.cta-bottom .btn-white { color: var(--c-red); }
+.cta-bottom .btn-white:hover { background: #f1f5f9; }
 
 /* =========================================================
    FOOTER
@@ -549,22 +711,22 @@ p { margin: 0 0 var(--space-4); }
 }
 @media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(2,1fr); } }
 @media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1.3fr 1.3fr; } }
-.footer-brand .logo { color: var(--color-white); }
+.footer-brand .logo { color: #fff; }
 .footer-brand .logo img { height: 64px; }
 .footer-tagline {
-  font-family: var(--font-display); font-style: italic;
+  font-family: var(--f-display); font-style: italic;
   margin-top: 12px; color: rgba(255,255,255,0.7);
   font-size: 16px; line-height: 1.5;
 }
 .footer-col h4 {
-  color: #fff; font-family: var(--font-body); font-size: 14px; font-weight: 700;
+  color: #fff; font-family: var(--f-body); font-size: 14px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 16px;
 }
 .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .footer-col a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 15px; transition: color 0.15s; padding: 4px 0; display: inline-block; }
-.footer-col a:hover { color: var(--color-coral); }
+.footer-col a:hover { color: #FF6B6B; }
 .footer-col p { font-size: 15px; margin: 0 0 8px; color: rgba(255,255,255,0.75); display: flex; align-items: flex-start; gap: 10px; }
-.footer-col p svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--color-coral); margin-top: 3px; }
+.footer-col p svg { flex-shrink: 0; width: 18px; height: 18px; color: #FF6B6B; margin-top: 3px; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 24px; text-align: center;
@@ -581,32 +743,27 @@ p { margin: 0 0 var(--space-4); }
 }
 
 /* =========================================================
-   SECTION HELPERS
+   REVEAL ANIMATIONS
    ========================================================= */
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  font-weight: 700; color: var(--color-navy); margin: 0 0 10px;
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.section-sub { font-size: 16px; color: var(--color-text-muted); margin: 0 0 36px; line-height: 1.6; }
-
-/* Scroll reveal */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
 
-@media (max-width: 640px) {
-  .event-hero { padding: 56px 0 48px; }
-  .rsvp-form-wrap { padding: 28px 20px; }
-  .event-cards-section,
-  .expect-section,
-  .bring-section,
-  .faq-section { padding: 48px 0; }
-  .rsvp-section { padding: 56px 0; }
-  .cta-banner { padding: 48px 0; }
+/* =========================================================
+   MOBILE TWEAKS
+   ========================================================= */
+@media (max-width: 639px) {
+  .event-hero { padding: 60px 0 56px; }
+  .about-section, .req-section, .faq-section { padding: 56px 0; }
+  .rsvp-section { padding: 60px 0; }
+  .cta-bottom { padding: 48px 0; }
 }
 </style>
 </head>
@@ -664,258 +821,312 @@ p { margin: 0 0 var(--space-4); }
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
   <section class="event-hero" aria-labelledby="event-title">
-    <div class="container">
-      <div class="event-badge">National Dog Day, August 26, 2026</div>
-      <h1 id="event-title">Free Nail Trim for Your Dog.<br>Our Gift to Cape Cod.</h1>
-      <p class="hero-sub">To celebrate National Dog Day, Super Pet Grooming Salon in East Falmouth is offering a complimentary professional nail trim for every dog that visits us on August 26 between 1:00 PM and 3:00 PM. No cost. No catch. Just happy paws.</p>
-      <a href="#rsvp" class="btn btn-primary btn-large">RSVP. Reserve Your Spot.</a>
-      <div class="event-info-bar" role="list" aria-label="Event details">
-        <div class="event-info-item" role="listitem">
-          <span class="event-info-label">Date</span>
-          <span class="event-info-value">August 26, 2026</span>
+
+    <!-- Paw print decorations -->
+    <div class="hero-paws" aria-hidden="true">
+      <div class="hero-paw" style="width:200px;height:200px;top:-30px;left:-50px;transform:rotate(-22deg);opacity:.055">
+        <svg viewBox="0 0 80 80"><ellipse cx="40" cy="54" rx="18" ry="15"/><ellipse cx="16" cy="34" rx="9" ry="10"/><ellipse cx="32" cy="22" rx="9" ry="10"/><ellipse cx="50" cy="22" rx="9" ry="10"/><ellipse cx="66" cy="34" rx="9" ry="10"/></svg>
+      </div>
+      <div class="hero-paw" style="width:130px;height:130px;bottom:0;right:4%;transform:rotate(18deg);opacity:.06">
+        <svg viewBox="0 0 80 80"><ellipse cx="40" cy="54" rx="18" ry="15"/><ellipse cx="16" cy="34" rx="9" ry="10"/><ellipse cx="32" cy="22" rx="9" ry="10"/><ellipse cx="50" cy="22" rx="9" ry="10"/><ellipse cx="66" cy="34" rx="9" ry="10"/></svg>
+      </div>
+      <div class="hero-paw" style="width:90px;height:90px;top:28%;right:11%;transform:rotate(-8deg);opacity:.05">
+        <svg viewBox="0 0 80 80"><ellipse cx="40" cy="54" rx="18" ry="15"/><ellipse cx="16" cy="34" rx="9" ry="10"/><ellipse cx="32" cy="22" rx="9" ry="10"/><ellipse cx="50" cy="22" rx="9" ry="10"/><ellipse cx="66" cy="34" rx="9" ry="10"/></svg>
+      </div>
+      <div class="hero-paw" style="width:160px;height:160px;bottom:-24px;left:8%;transform:rotate(14deg);opacity:.045">
+        <svg viewBox="0 0 80 80"><ellipse cx="40" cy="54" rx="18" ry="15"/><ellipse cx="16" cy="34" rx="9" ry="10"/><ellipse cx="32" cy="22" rx="9" ry="10"/><ellipse cx="50" cy="22" rx="9" ry="10"/><ellipse cx="66" cy="34" rx="9" ry="10"/></svg>
+      </div>
+      <div class="hero-paw" style="width:75px;height:75px;top:14%;left:16%;transform:rotate(32deg);opacity:.04">
+        <svg viewBox="0 0 80 80"><ellipse cx="40" cy="54" rx="18" ry="15"/><ellipse cx="16" cy="34" rx="9" ry="10"/><ellipse cx="32" cy="22" rx="9" ry="10"/><ellipse cx="50" cy="22" rx="9" ry="10"/><ellipse cx="66" cy="34" rx="9" ry="10"/></svg>
+      </div>
+      <div class="hero-paw" style="width:60px;height:60px;top:55%;left:42%;transform:rotate(-5deg);opacity:.035">
+        <svg viewBox="0 0 80 80"><ellipse cx="40" cy="54" rx="18" ry="15"/><ellipse cx="16" cy="34" rx="9" ry="10"/><ellipse cx="32" cy="22" rx="9" ry="10"/><ellipse cx="50" cy="22" rx="9" ry="10"/><ellipse cx="66" cy="34" rx="9" ry="10"/></svg>
+      </div>
+    </div>
+
+    <div class="container" style="position:relative;z-index:1">
+      <span class="hero-badge">National Dog Day · August 26, 2026</span>
+
+      <div class="hero-free-wrap">
+        <span class="hero-free" id="event-title">FREE</span>
+      </div>
+      <p class="hero-service">Professional Nail Trim</p>
+      <p class="hero-tagline">Every dog. East Falmouth, MA. No catch.</p>
+
+      <!-- Live countdown -->
+      <div class="hero-countdown" id="countdown-wrap" aria-label="Time until event">
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-days">16</span>
+          <span class="cd-label">days</span>
         </div>
-        <div class="event-info-item" role="listitem">
-          <span class="event-info-label">Time</span>
-          <span class="event-info-value">1:00 PM to 3:00 PM</span>
+        <span class="cd-dot" aria-hidden="true">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-hours">00</span>
+          <span class="cd-label">hours</span>
         </div>
-        <div class="event-info-item" role="listitem">
-          <span class="event-info-label">Location</span>
-          <span class="event-info-value">122 Teaticket Hwy, East Falmouth</span>
-        </div>
-        <div class="event-info-item" role="listitem">
-          <span class="event-info-label">Cost</span>
-          <span class="event-info-value">Free</span>
+        <span class="cd-dot" aria-hidden="true">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-mins">00</span>
+          <span class="cd-label">min</span>
         </div>
       </div>
+
+      <a href="#rsvp" class="btn btn-amber btn-lg">Reserve My Free Spot</a>
     </div>
   </section>
 
-  <!-- EVENT DETAILS CARDS -->
-  <section class="event-cards-section" aria-labelledby="cards-title">
-    <div class="container">
-      <div class="section-title-wrap reveal">
-        <h2 id="cards-title" class="section-title">Event at a Glance</h2>
-        <p class="section-sub">Everything you need to know before you arrive.</p>
+  <!-- =====================================================
+       FACT STRIP
+  ====================================================== -->
+  <div class="fact-strip" role="list" aria-label="Event key facts">
+    <div class="fact-strip-row container">
+      <div class="fact-item" role="listitem">
+        <span class="fact-label">Date</span>
+        <span class="fact-val">Wed, August 26</span>
       </div>
-      <div class="event-cards">
-        <div class="event-card reveal">
-          <div class="event-card-icon" aria-hidden="true">📅</div>
-          <h3>When</h3>
-          <p><strong>Wednesday, August 26, 2026</strong><br>1:00 PM to 3:00 PM<br>Drop in any time during the event window.</p>
-        </div>
-        <div class="event-card reveal">
-          <div class="event-card-icon" aria-hidden="true">📍</div>
-          <h3>Where</h3>
-          <p><strong>Super Pet Grooming Salon</strong><br>122 Teaticket Hwy, East Falmouth, MA<br>Route 28, easy parking on site.</p>
-        </div>
-        <div class="event-card reveal">
-          <div class="event-card-icon" aria-hidden="true">✂️</div>
-          <h3>What You Get</h3>
-          <p><strong>Professional Nail Trim</strong><br>By certified groomer Sabina and team.<br>No charge. All breeds welcome.</p>
-        </div>
+      <div class="fact-item" role="listitem">
+        <span class="fact-label">Time</span>
+        <span class="fact-val">1:00 PM to 3:00 PM</span>
+      </div>
+      <div class="fact-item" role="listitem">
+        <span class="fact-label">Location</span>
+        <span class="fact-val">122 Teaticket Hwy, East Falmouth</span>
+      </div>
+      <div class="fact-item" role="listitem">
+        <span class="fact-label">Cost</span>
+        <span class="fact-val is-free">$0.00</span>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- WHAT TO EXPECT -->
-  <section class="expect-section" aria-labelledby="expect-title">
+  <!-- =====================================================
+       ABOUT + HOW IT WORKS
+  ====================================================== -->
+  <section class="about-section" aria-labelledby="about-title">
     <div class="container">
-      <div style="max-width: 760px;">
-        <h2 id="expect-title" class="section-title reveal">What Happens at the Event</h2>
-        <p class="section-sub reveal">No rigid appointment slots. Drop by, check in, and let us take care of the rest.</p>
-        <ol class="expect-steps" aria-label="Event process steps">
-          <li class="expect-step reveal">
-            <div class="step-num" aria-hidden="true">1</div>
-            <div class="step-body">
-              <h4>Arrive any time between 1 PM and 3 PM</h4>
-              <p>There are no fixed appointment slots within the event window. Come when it is convenient for you and your dog.</p>
-            </div>
-          </li>
-          <li class="expect-step reveal">
-            <div class="step-num" aria-hidden="true">2</div>
-            <div class="step-body">
-              <h4>Quick check-in at the front desk</h4>
-              <p>Our team greets you, confirms your RSVP, and gets you set up. New clients do a brief registration at this point: name, dog info, and rabies confirmation.</p>
-            </div>
-          </li>
-          <li class="expect-step reveal">
-            <div class="step-num" aria-hidden="true">3</div>
-            <div class="step-body">
-              <h4>Professional nail trim by Sabina or the team</h4>
-              <p>A gentle, thorough nail trim performed by certified groomers. The service typically takes 15 to 20 minutes. No cage waiting. Individual attention for every pet.</p>
-            </div>
-          </li>
-          <li class="expect-step reveal">
-            <div class="step-num" aria-hidden="true">4</div>
-            <div class="step-body">
-              <h4>Your dog leaves with happy, trimmed paws</h4>
-              <p>That is it. Completely free, no obligation to book future services. We just love dogs and want to celebrate National Dog Day with the Cape Cod community.</p>
-            </div>
-          </li>
-        </ol>
-        <div class="expect-note reveal" role="note">
-          <strong>Heads up:</strong> We are capping capacity to keep the experience calm and stress-free for every pet. An RSVP is the best way to secure your spot. Walk-ins are welcome but cannot be guaranteed.
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="about-grid">
 
-  <!-- WHAT TO BRING -->
-  <section class="bring-section" aria-labelledby="bring-title">
-    <div class="container">
-      <h2 id="bring-title" class="section-title reveal">What to Bring</h2>
-      <p class="section-sub reveal">Keep it simple. You really do not need much.</p>
-      <ul class="bring-list" aria-label="What to bring to the event">
-        <li class="reveal">
-          <div class="bring-check" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        <!-- Left: About -->
+        <div>
+          <p class="about-eyebrow reveal">About the Event</p>
+          <h2 id="about-title" class="about-headline reveal">One dog. One nail trim. Completely free.</h2>
+          <p class="about-body reveal">
+            To celebrate National Dog Day, Super Pet Grooming Salon in East Falmouth is opening its doors for two hours of complimentary professional nail trims. Certified groomer Sabina and the team take care of everything. You just show up with a happy dog.
+          </p>
+          <p class="about-body reveal">
+            All breeds welcome. Drop in any time between 1 and 3 PM. No fixed time slots. The only requirement: rabies vaccination up to date.
+          </p>
+          <div class="about-loc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s-7-7.6-7-13a7 7 0 0114 0c0 5.4-7 13-7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            122 Teaticket Hwy, East Falmouth, MA · Route 28, easy parking on site
           </div>
-          <span>
-            <strong>Rabies vaccination up to date</strong>
-            <span class="bring-required">Required</span><br>
-            Required for entry. Bring proof if this is your first visit to Super Pet. A printed copy or a screenshot from your vet's portal works perfectly.
-          </span>
-        </li>
-        <li class="reveal">
-          <div class="bring-check" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+
+        <!-- Right: How it works -->
+        <div>
+          <p class="steps-eyebrow reveal">How it works</p>
+          <ol class="steps-list" aria-label="Event process steps">
+            <li class="step-item reveal">
+              <span class="step-num" aria-hidden="true">1</span>
+              <div class="step-content">
+                <h4>Arrive any time between 1 PM and 3 PM</h4>
+                <p>No fixed slots within the window. Come when it works for you and your dog.</p>
+              </div>
+            </li>
+            <li class="step-item reveal">
+              <span class="step-num" aria-hidden="true">2</span>
+              <div class="step-content">
+                <h4>Quick check-in at the front desk</h4>
+                <p>Confirm your RSVP. New clients do a brief registration: name, dog info, and rabies confirmation. Takes two minutes.</p>
+              </div>
+            </li>
+            <li class="step-item reveal">
+              <span class="step-num" aria-hidden="true">3</span>
+              <div class="step-content">
+                <h4>Nail trim by Sabina or the team</h4>
+                <p>Gentle, professional, about 15 to 20 minutes. Individual attention for every pet. No cage waiting.</p>
+              </div>
+            </li>
+            <li class="step-item reveal">
+              <span class="step-num" aria-hidden="true">4</span>
+              <div class="step-content">
+                <h4>Happy paws. That is it.</h4>
+                <p>No obligation to book future services. Just our way of celebrating Cape Cod's dogs on their day.</p>
+              </div>
+            </li>
+          </ol>
+          <div class="cap-note reveal">
+            <strong>Heads up:</strong> We are capping capacity to keep the experience calm and stress-free for every pet. An RSVP secures your spot. Walk-ins are welcome but not guaranteed.
           </div>
-          <span>
-            <strong>Your dog on a leash</strong>
-            <span class="bring-required">Required</span><br>
-            Keep your pet leashed in the waiting area and upon arrival. It keeps everyone safe and comfortable.
-          </span>
-        </li>
-        <li class="reveal">
-          <div class="bring-check" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          </div>
-          <span>
-            <strong>That is all.</strong><br>
-            No shampoo, no brushes, no special equipment needed. Just you and your dog.
-          </span>
-        </li>
-      </ul>
-      <div class="bring-note reveal" role="note">
-        <strong>Unsure about your dog's vaccination status?</strong> Call us ahead of the event at <a href="tel:+15085243489">(508) 524-3489</a> and we can help you figure it out before you make the trip.
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- RSVP FORM -->
+  <!-- =====================================================
+       RSVP FORM
+  ====================================================== -->
   <section class="rsvp-section" id="rsvp" aria-labelledby="rsvp-title">
     <div class="container">
-      <div class="rsvp-inner">
-        <div class="rsvp-copy reveal">
-          <h2 id="rsvp-title" class="section-title">Reserve Your Spot</h2>
-          <p class="section-sub">Space is limited to keep the experience calm and stress-free for every pet. RSVP takes 30 seconds.</p>
-          <ul class="rsvp-trust" aria-label="Event assurances">
-            <li>
-              <div class="trust-icon-sm" aria-hidden="true">
+      <div class="rsvp-grid">
+
+        <!-- Left: copy -->
+        <div class="reveal">
+          <p class="rsvp-eyebrow">Reserve Your Spot</p>
+          <h2 id="rsvp-title" class="rsvp-title">30 seconds and you are in.</h2>
+          <p class="rsvp-body">Space is limited to keep the experience calm for every pet. RSVP takes under a minute and guarantees your dog a spot. Walk-ins welcome, but RSVPs get priority.</p>
+          <ul class="rsvp-bullets" aria-label="Event assurances">
+            <li class="rsvp-bullet">
+              <div class="bullet-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
               </div>
-              100% free, no credit card required
+              100% free. No credit card, no catch.
             </li>
-            <li>
-              <div class="trust-icon-sm" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              </div>
-              Walk-ins welcome, RSVP gets priority
-            </li>
-            <li>
-              <div class="trust-icon-sm" aria-hidden="true">
+            <li class="rsvp-bullet">
+              <div class="bullet-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
               </div>
               All breeds and sizes welcome
             </li>
-            <li>
-              <div class="trust-icon-sm" aria-hidden="true">
+            <li class="rsvp-bullet">
+              <div class="bullet-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
               </div>
-              No cage waiting, individual attention
+              Individual attention, no cage waiting
+            </li>
+            <li class="rsvp-bullet">
+              <div class="bullet-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              RSVPs get priority entry at the door
             </li>
           </ul>
         </div>
 
-        <div class="rsvp-form-wrap reveal">
-          <h3>RSVP for August 26</h3>
+        <!-- Right: form -->
+        <div class="rsvp-form-card reveal">
+          <div class="rsvp-form-header">
+            <h3>RSVP for August 26</h3>
+            <p>Free nail trim for your dog. No payment info needed.</p>
+          </div>
+          <div class="rsvp-form-inner">
 
-          <form id="rsvp-form" novalidate aria-label="RSVP form for National Dog Day event">
-            <div class="form-row">
-              <div class="field">
-                <label for="ownerName">Owner's Full Name <span aria-hidden="true">*</span></label>
-                <input type="text" id="ownerName" name="ownerName" autocomplete="name" required placeholder="Jane Smith" aria-required="true" aria-describedby="err-ownerName" />
-                <span class="field-msg" id="err-ownerName" role="alert" aria-live="polite"></span>
+            <form id="rsvp-form" novalidate aria-label="RSVP form for National Dog Day event">
+              <div class="form-row">
+                <div class="field">
+                  <label for="ownerName">Owner's Name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="ownerName" name="ownerName" autocomplete="name" required placeholder="Jane Smith" aria-required="true" aria-describedby="err-ownerName" />
+                  <span class="field-msg" id="err-ownerName" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="field">
+                  <label for="dogName">Dog's Name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="dogName" name="dogName" required placeholder="Buddy" aria-required="true" aria-describedby="err-dogName" />
+                  <span class="field-msg" id="err-dogName" role="alert" aria-live="polite"></span>
+                </div>
               </div>
-              <div class="field">
-                <label for="dogName">Dog's Name <span aria-hidden="true">*</span></label>
-                <input type="text" id="dogName" name="dogName" required placeholder="Buddy" aria-required="true" aria-describedby="err-dogName" />
-                <span class="field-msg" id="err-dogName" role="alert" aria-live="polite"></span>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="email">Email <span aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@email.com" aria-required="true" aria-describedby="err-email" />
+                  <span class="field-msg" id="err-email" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="field">
+                  <label for="phone">Phone <span aria-hidden="true">*</span></label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="(508) 555-0100" aria-required="true" aria-describedby="err-phone" />
+                  <span class="field-msg" id="err-phone" role="alert" aria-live="polite"></span>
+                </div>
               </div>
-            </div>
 
-            <div class="form-row">
               <div class="field">
-                <label for="email">Email Address <span aria-hidden="true">*</span></label>
-                <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@email.com" aria-required="true" aria-describedby="err-email" />
-                <span class="field-msg" id="err-email" role="alert" aria-live="polite"></span>
+                <label for="breed">Breed <span class="optional-badge">(optional)</span></label>
+                <input type="text" id="breed" name="breed" placeholder="e.g. Goldendoodle, Lab, Mixed" />
               </div>
-              <div class="field">
-                <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="(508) 555-0100" aria-required="true" aria-describedby="err-phone" />
-                <span class="field-msg" id="err-phone" role="alert" aria-live="polite"></span>
+
+              <hr class="form-divider" aria-hidden="true" />
+
+              <div class="checkbox-field">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="newClient" name="newClient" />
+                  <span>This is my first visit to Super Pet Grooming Salon</span>
+                </label>
               </div>
+
+              <div class="checkbox-field">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="rabiesConfirmed" name="rabiesConfirmed" required aria-required="true" aria-describedby="err-rabies" />
+                  <span>My dog's rabies vaccination is up to date <span aria-hidden="true">*</span></span>
+                </label>
+                <span class="field-msg" id="err-rabies" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="form-submit">
+                <button type="submit" id="rsvp-submit" class="btn btn-primary">Reserve My Spot</button>
+              </div>
+            </form>
+
+            <div class="form-success" id="rsvp-success" aria-live="polite" role="status">
+              <div class="success-icon" aria-hidden="true">🐾</div>
+              <h3>You're on the list!</h3>
+              <p>We will see you and <strong id="success-dog-name">your dog</strong> on August 26. Questions? Call us at <a href="tel:+15085243489" style="color:var(--c-navy);font-weight:600;">(508) 524-3489</a>.</p>
             </div>
 
-            <div class="field">
-              <label for="breed">Breed <span class="optional-badge">(optional)</span></label>
-              <input type="text" id="breed" name="breed" placeholder="e.g. Goldendoodle, Lab, Mixed" />
-            </div>
-
-            <hr class="form-divider" aria-hidden="true" />
-
-            <div class="checkbox-field">
-              <label class="checkbox-label">
-                <input type="checkbox" id="newClient" name="newClient" />
-                <span>This is my first visit to Super Pet Grooming Salon</span>
-              </label>
-            </div>
-
-            <div class="checkbox-field">
-              <label class="checkbox-label">
-                <input type="checkbox" id="rabiesConfirmed" name="rabiesConfirmed" required aria-required="true" aria-describedby="err-rabies" />
-                <span>My dog's rabies vaccination is up to date <span aria-hidden="true">*</span></span>
-              </label>
-              <span class="field-msg" id="err-rabies" role="alert" aria-live="polite"></span>
-            </div>
-
-            <div class="form-submit-wrap">
-              <button type="submit" id="rsvp-submit" class="btn btn-primary">Reserve My Spot</button>
-            </div>
-          </form>
-
-          <div class="form-success" id="rsvp-success" aria-live="polite" role="status">
-            <div class="success-icon" aria-hidden="true">🐾</div>
-            <h3>You're on the list!</h3>
-            <p>We'll see you and <strong id="success-dog-name">your dog</strong> on August 26. If you have questions, call us at <a href="tel:+15085243489" style="color:var(--color-navy);font-weight:600;">(508) 524-3489</a>.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- =====================================================
+       REQUIREMENTS
+  ====================================================== -->
+  <section class="req-section" aria-labelledby="req-title">
+    <div class="container">
+      <p class="req-eyebrow reveal">Before You Arrive</p>
+      <h2 id="req-title" class="req-heading reveal">Two things to know.</h2>
+      <div class="req-cards">
+        <div class="req-card reveal">
+          <div class="req-card-top">
+            <div class="req-icon red-bg" aria-hidden="true">💉</div>
+            <h4>Rabies Vaccination <span class="req-tag">Required</span></h4>
+          </div>
+          <p>Your dog must have a current rabies vaccination to participate. Bring proof (printed or a screenshot from your vet's portal) if this is your first visit. Returning clients on file are all set.</p>
+        </div>
+        <div class="req-card reveal">
+          <div class="req-card-top">
+            <div class="req-icon green-bg" aria-hidden="true">🐕</div>
+            <h4>Dog on a Leash <span class="req-tag">Required</span></h4>
+          </div>
+          <p>Keep your dog leashed upon arrival and in the waiting area. It keeps everyone safe and comfortable, especially during a busy event with multiple dogs visiting at once.</p>
+        </div>
+      </div>
+      <div class="req-note reveal">
+        <strong>Not sure about vaccination status?</strong> Call us at <a href="tel:+15085243489">(508) 524-3489</a> and we can help you check before you make the trip.
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FAQ
+  ====================================================== -->
   <section class="faq-section" aria-labelledby="faq-title">
     <div class="container">
-      <h2 id="faq-title" class="section-title reveal">Questions About the Event</h2>
+      <div class="faq-head">
+        <h2 id="faq-title" class="reveal">Common Questions</h2>
+        <p class="reveal">Anything we did not cover above.</p>
+      </div>
       <div class="faq-list" role="list">
 
         <details class="faq-item reveal" role="listitem">
           <summary>Is the nail trim really free?</summary>
           <div class="faq-body">
-            <p>Yes. On National Dog Day, August 26, 2026 between 1:00 PM and 3:00 PM, Super Pet offers one complimentary professional nail trim per dog. No hidden fees, no obligation to book future services.</p>
+            <p>Yes. On National Dog Day, August 26, 2026, between 1:00 PM and 3:00 PM, Super Pet offers one complimentary professional nail trim per dog. No hidden fees, no obligation to book future services.</p>
           </div>
         </details>
 
@@ -929,7 +1140,7 @@ p { margin: 0 0 var(--space-4); }
         <details class="faq-item reveal" role="listitem">
           <summary>What vaccinations does my dog need?</summary>
           <div class="faq-body">
-            <p>Your dog must have a current Rabies vaccination to participate. Bring proof of vaccination (printed copy or screenshot from your vet's portal) if it is your first visit to Super Pet. Returning clients on file are all set.</p>
+            <p>Your dog must have a current Rabies vaccination to participate. Bring proof of vaccination if it is your first visit to Super Pet. Returning clients on file are all set.</p>
           </div>
         </details>
 
@@ -943,7 +1154,7 @@ p { margin: 0 0 var(--space-4); }
         <details class="faq-item reveal" role="listitem">
           <summary>What if my dog is anxious or reactive?</summary>
           <div class="faq-body">
-            <p>Sabina, Super Pet's lead certified groomer, is experienced with nervous and reactive dogs. The nail trim is a quick, gentle service. If your dog has had difficult experiences with nail trims before, let the team know at check-in and we will work with your pet at their pace.</p>
+            <p>Sabina, Super Pet's lead certified groomer, is experienced with nervous and reactive dogs. The nail trim is a quick, gentle service. If your dog has had difficult experiences before, let the team know at check-in and they will work with your pet at their pace.</p>
           </div>
         </details>
 
@@ -951,12 +1162,14 @@ p { margin: 0 0 var(--space-4); }
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="cta-banner" aria-labelledby="cta-banner-title">
+  <!-- =====================================================
+       CTA BOTTOM
+  ====================================================== -->
+  <section class="cta-bottom" aria-labelledby="cta-title">
     <div class="container">
-      <h2 id="cta-banner-title">Ready to celebrate National Dog Day?</h2>
+      <h2 id="cta-title">Ready to celebrate National Dog Day?</h2>
       <p>August 26, 1:00 PM to 3:00 PM at Super Pet in East Falmouth. Free for every dog.</p>
-      <a href="#rsvp" class="btn btn-white btn-large">RSVP Now. It Is Free.</a>
+      <a href="#rsvp" class="btn btn-white btn-lg">RSVP Now</a>
     </div>
   </section>
 
@@ -1017,7 +1230,7 @@ p { margin: 0 0 var(--space-4); }
 (function () {
   'use strict';
 
-  // ---- Mobile menu toggle ----
+  /* ---- Mobile menu ---- */
   var toggle = document.querySelector('.nav-toggle');
   var drawer = document.getElementById('mobile-drawer');
   function closeDrawer() {
@@ -1042,17 +1255,41 @@ p { margin: 0 0 var(--space-4); }
     });
   }
 
-  // ---- Scroll: header shadow + reveal ----
+  /* ---- Header shadow on scroll ---- */
   var header = document.querySelector('.site-header');
-  var reveals = document.querySelectorAll('.reveal');
-
   function onScroll() {
-    if (header) {
-      if (window.scrollY > 10) { header.classList.add('scrolled'); }
-      else { header.classList.remove('scrolled'); }
-    }
+    if (!header) return;
+    if (window.scrollY > 10) { header.classList.add('scrolled'); }
+    else { header.classList.remove('scrolled'); }
   }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
+  /* ---- Countdown ---- */
+  function updateCountdown() {
+    var target = new Date('2026-08-26T13:00:00-04:00').getTime();
+    var now = Date.now();
+    var diff = target - now;
+    var wrap = document.getElementById('countdown-wrap');
+    if (diff <= 0) {
+      if (wrap) wrap.style.display = 'none';
+      return;
+    }
+    var days  = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var mins  = Math.floor((diff % 3600000) / 60000);
+    var dEl = document.getElementById('cd-days');
+    var hEl = document.getElementById('cd-hours');
+    var mEl = document.getElementById('cd-mins');
+    if (dEl) dEl.textContent = days;
+    if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+    if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 30000);
+
+  /* ---- Scroll reveal ---- */
+  var reveals = document.querySelectorAll('.reveal');
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -1060,19 +1297,15 @@ p { margin: 0 0 var(--space-4); }
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
-
+  }, { threshold: 0.1 });
   reveals.forEach(function (el) { observer.observe(el); });
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
-  // ---- RSVP Form ----
-  var form = document.getElementById('rsvp-form');
+  /* ---- RSVP Form ---- */
+  var form      = document.getElementById('rsvp-form');
   var successEl = document.getElementById('rsvp-success');
   var submitBtn = document.getElementById('rsvp-submit');
-  var rabiesEl = document.getElementById('rabiesConfirmed');
+  var rabiesEl  = document.getElementById('rabiesConfirmed');
 
-  // Clear errors on input
   ['ownerName', 'dogName', 'email', 'phone'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
@@ -1098,7 +1331,7 @@ p { margin: 0 0 var(--space-4); }
       var errors = [];
 
       function validateText(id, msgId, message) {
-        var el = document.getElementById(id);
+        var el  = document.getElementById(id);
         var msg = document.getElementById(msgId);
         var val = el ? el.value.trim() : '';
         if (!val) {
@@ -1122,16 +1355,19 @@ p { margin: 0 0 var(--space-4); }
 
       if (errors.length > 0) {
         var first = errors[0];
-        if (first) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); first.focus(); }
+        if (first) {
+          first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          first.focus();
+        }
         return;
       }
 
-      submitBtn.disabled = true;
+      submitBtn.disabled   = true;
       submitBtn.textContent = 'Sending...';
 
-      var dogNameVal = document.getElementById('dogName').value.trim();
-      var newClientEl = document.getElementById('newClient');
-      var breedEl = document.getElementById('breed');
+      var dogNameVal    = document.getElementById('dogName').value.trim();
+      var newClientEl   = document.getElementById('newClient');
+      var breedEl       = document.getElementById('breed');
 
       fetch('/api/event', {
         method: 'POST',
@@ -1158,7 +1394,7 @@ p { margin: 0 0 var(--space-4); }
         }
       })
       .catch(function () {
-        submitBtn.disabled = false;
+        submitBtn.disabled   = false;
         submitBtn.textContent = 'Reserve My Spot';
         alert('Something went wrong. Please try again or call us at (508) 524-3489.');
       });

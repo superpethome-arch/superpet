@@ -1813,7 +1813,7 @@ main > section {
           "name": "Where is Super Pet Grooming Salon located?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Super Pet Grooming Salon is located at 122 Teaticket Hwy, East Falmouth, MA 02536 on Cape Cod. We are open Monday through Friday from 9:00 AM to 5:00 PM. You can reach us at (508) 524-3489 or superpethome@gmail.com."
+            "text": "Super Pet Grooming Salon is located at 122 Teaticket Hwy, East Falmouth, MA 02536 on Cape Cod. We are open Tuesday through Friday from 9:00 AM to 5:00 PM, and Saturday from 9:00 AM to 1:00 PM. We are closed Sunday and Monday. You can reach us at (508) 524-3489 or superpethome@gmail.com."
           }
         },
         {
@@ -2128,7 +2128,7 @@ main > section {
         </article>
       </div>
 
-      <p class="services-note reveal"><strong>Note:</strong> Pricing may vary based on breed, coat condition, and dog size. Final price confirmed at booking.</p>
+      <p class="services-note reveal"><strong>Note:</strong> Final pricing depends on your pet's size, coat condition, and handling needs. Services such as dematting, de-shedding, and special handling may be added after our groomer evaluates your pet. We always confirm with you before doing anything extra.</p>
     </div>
   </section>
 
@@ -2444,8 +2444,8 @@ main > section {
 
             <div class="form-row two">
               <div class="field">
-                <label for="breed">Breed &amp; Approximate Weight <span class="req" aria-hidden="true">*</span></label>
-                <input id="breed" name="Breed &amp; Weight" type="text" required placeholder="Goldendoodle, ~45 lbs" aria-required="true" aria-describedby="err-breed" />
+                <label for="breed">Breed <span class="req" aria-hidden="true">*</span></label>
+                <input id="breed" name="Breed" type="text" required placeholder="Goldendoodle" aria-required="true" aria-describedby="err-breed" />
                 <span class="field-msg" id="err-breed" role="alert"></span>
               </div>
               <div class="field">
@@ -2457,6 +2457,20 @@ main > section {
                   <option value="Long">Long</option>
                   <option value="Curly">Curly</option>
                   <option value="Matted">Matted</option>
+                  <option value="Not sure">Not sure</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row two">
+              <div class="field">
+                <label for="pet-weight">Approximate Weight</label>
+                <select id="pet-weight" name="Pet Weight">
+                  <option value="">Select…</option>
+                  <option value="Under 20 lbs">Under 20 lbs</option>
+                  <option value="20–40 lbs">20–40 lbs</option>
+                  <option value="41–70 lbs">41–70 lbs</option>
+                  <option value="Over 70 lbs">Over 70 lbs</option>
                   <option value="Not sure">Not sure</option>
                 </select>
               </div>
@@ -2493,7 +2507,7 @@ main > section {
                 <label for="time">Preferred Time</label>
                 <select id="time" name="Preferred Time">
                   <option value="">Select…</option>
-                  <option value="Morning (8am–12pm)">Morning (8am–12pm)</option>
+                  <option value="Morning (9am–12pm)">Morning (9am–12pm)</option>
                   <option value="Afternoon (12pm–4pm)">Afternoon (12pm–4pm)</option>
                   <option value="Flexible">Flexible</option>
                 </select>
@@ -2524,6 +2538,10 @@ main > section {
           </label>
           <span class="field-msg" id="err-vaccinations" role="alert"></span>
 
+          <div id="large-dog-notice" style="display:none;background:#FFF8EC;border:1.5px solid #F4A535;border-radius:12px;padding:16px 20px;margin-bottom:16px">
+            <p style="margin:0;font-size:15px;color:#111d36"><strong>Heads up:</strong> For large dogs on their first visit, our groomer reviews the appointment personally before the deposit is charged. Submit your request and we will reach out within one business day to confirm the service, timing, and final price.</p>
+          </div>
+
           <div class="form-submit">
             <button type="submit" class="btn btn-gradient">Request Appointment</button>
             <p class="booking-trust"><span class="stars" aria-hidden="true">★★★★★</span> Trusted by 500+ pet families in Cape Cod</p>
@@ -2546,7 +2564,7 @@ main > section {
       <div class="faq-list">
         <details class="faq-item reveal">
           <summary>Do you groom cats?</summary>
-          <div class="faq-body">Yes! We offer full cat grooming services in a calm space, separate from dogs. Our groomers are experienced with feline clients and handle them with extra patience and care.</div>
+          <div class="faq-body">Yes, we do groom cats, with extra care and in a calm space separate from dogs. Because cat grooming requires special handling, every cat is confirmed with our lead groomer before the appointment is booked. Just reach out and we will let you know right away.</div>
         </details>
         <details class="faq-item reveal">
           <summary>What breeds do you groom?</summary>
@@ -2643,9 +2661,9 @@ main > section {
 
       <div class="footer-col">
         <h4>Hours</h4>
-        <p style="display:block">Mon – Fri: 9:00 AM – 5:00 PM</p>
-        <p style="display:block">Saturday: Closed</p>
-        <p style="display:block">Sunday: Closed</p>
+        <p style="display:block">Tue – Fri: 9:00 AM – 5:00 PM</p>
+        <p style="display:block">Saturday: 9:00 AM – 1:00 PM</p>
+        <p style="display:block">Sunday &amp; Monday: Closed</p>
       </div>
     </div>
 
@@ -2751,6 +2769,39 @@ main > section {
       else phone.value = '';
     });
   }
+
+  // ---- Block Sunday (0) and Monday (1) in date picker ----
+  var dateInput = document.getElementById('date');
+  if (dateInput) {
+    dateInput.addEventListener('change', function () {
+      if (!this.value) return;
+      var day = new Date(this.value + 'T12:00:00').getDay();
+      if (day === 0 || day === 1) {
+        this.setCustomValidity('We are closed on Sundays and Mondays. Please choose Tuesday through Saturday.');
+        this.reportValidity();
+        this.value = '';
+      } else {
+        this.setCustomValidity('');
+      }
+    });
+  }
+
+  // ---- Large dog first-visit notice (dynamic) ----
+  (function () {
+    var weightEl = document.getElementById('pet-weight');
+    var notice = document.getElementById('large-dog-notice');
+    var bf = document.getElementById('booking-form');
+    if (!weightEl || !notice || !bf) return;
+    function checkLargeDog() {
+      var isLarge = weightEl.value === 'Over 70 lbs';
+      var r = bf.querySelector('[name="First Visit"][value="Yes"]');
+      notice.style.display = (isLarge && r && r.checked) ? 'block' : 'none';
+    }
+    weightEl.addEventListener('change', checkLargeDog);
+    bf.querySelectorAll('[name="First Visit"]').forEach(function (r) {
+      r.addEventListener('change', checkLargeDog);
+    });
+  })();
 
   // ---- Form submit: save data and redirect to /payment.html ----
   // The Web3Forms `action`/hidden fields remain as a graceful fallback if JS
@@ -2908,6 +2959,26 @@ main > section {
         // Storage blocked (private mode, full disk, etc.) proceed anyway;
         // payment.html will redirect back if it finds no data.
         console.error('sessionStorage write failed:', err);
+      }
+
+      // Large dog + first visit: send as evaluation lead, skip payment redirect
+      var wEl = document.getElementById('pet-weight');
+      var fvYes = form.querySelector('[name="First Visit"][value="Yes"]');
+      if (wEl && wEl.value === 'Over 70 lbs' && fvYes && fvYes.checked) {
+        if (!payload['Notes']) payload['Notes'] = '';
+        payload['Notes'] = '[LARGE DOG EVALUATION] ' + payload['Notes'];
+        fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(function () {});
+        var bookingSection = document.getElementById('booking');
+        if (bookingSection) {
+          bookingSection.scrollIntoView({ behavior: 'smooth' });
+          var inner = bookingSection.querySelector('.container');
+          if (inner) inner.innerHTML = '<div style="text-align:center;padding:48px 24px;max-width:600px;margin:0 auto"><div style="font-size:56px;margin-bottom:16px">🐾</div><h2 style="color:#111d36;margin-bottom:12px">We\'ll be in touch!</h2><p style="font-size:16px;color:#555;line-height:1.6;margin-bottom:16px">For large dogs visiting us for the first time, our groomer reviews the appointment before any deposit is charged. We will reach out within one business day to confirm your pet\'s service, timing, and final price.</p><p style="font-size:15px;color:#555">Or call us directly at <a href="tel:+15085243489" style="color:#1B2A4E;font-weight:600">(508) 524-3489</a>.</p></div>';
+        }
+        return;
       }
 
       window.location.href = '/payment.html';

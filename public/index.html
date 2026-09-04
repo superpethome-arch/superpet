@@ -3078,5 +3078,281 @@ main > section {
 })();
 </script>
 
+<!-- ========== FLOATING CHAT BOOKING WIDGET ========== -->
+<style>
+  #spcw{position:fixed;bottom:24px;right:24px;z-index:9999;font-family:'Inter',sans-serif}
+  #spcw-btn{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#1B2A4E 0%,#c0392b 100%);border:none;cursor:pointer;box-shadow:0 4px 24px rgba(27,42,78,.45);display:flex;align-items:center;justify-content:center;color:#fff;transition:transform .2s,box-shadow .2s;position:relative}
+  #spcw-btn:hover{transform:scale(1.09);box-shadow:0 6px 32px rgba(27,42,78,.55)}
+  #spcw-btn svg{width:26px;height:26px;flex-shrink:0}
+  #spcw-badge{position:absolute;top:-3px;right:-3px;background:#e63946;color:#fff;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #fff;animation:spcw-pulse 2s infinite}
+  @keyframes spcw-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+  #spcw-tip{position:absolute;bottom:68px;right:0;background:#1B2A4E;color:#fff;font-size:12px;font-weight:600;padding:7px 12px;border-radius:20px;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,.2);pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
+  #spcw-btn:hover #spcw-tip,#spcw-btn:focus #spcw-tip{opacity:1;transform:none}
+  #spcw-panel{position:absolute;bottom:72px;right:0;width:340px;max-height:580px;background:#fff;border-radius:20px;box-shadow:0 10px 56px rgba(0,0,0,.18);display:flex;flex-direction:column;overflow:hidden;transform-origin:bottom right;animation:spcw-pop .28s cubic-bezier(.34,1.56,.64,1)}
+  #spcw-panel[hidden]{display:none!important}
+  @keyframes spcw-pop{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
+  #spcw-hdr{background:linear-gradient(135deg,#1B2A4E,#253b6d);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px;border-radius:20px 20px 0 0;flex-shrink:0}
+  #spcw-av{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  #spcw-info{flex:1}
+  #spcw-name{font-weight:700;font-size:14px}
+  #spcw-sub{font-size:11px;opacity:.75;margin-top:1px}
+  #spcw-cls{background:none;border:none;color:#fff;cursor:pointer;font-size:20px;line-height:1;opacity:.65;padding:4px 6px;border-radius:50%;transition:opacity .2s}
+  #spcw-cls:hover{opacity:1}
+  #spcw-prog{height:3px;background:rgba(27,42,78,.1);flex-shrink:0}
+  #spcw-bar{height:100%;background:#e63946;transition:width .4s ease;width:0%}
+  #spcw-msgs{flex:1;overflow-y:auto;padding:14px 14px 8px;display:flex;flex-direction:column;gap:9px;scroll-behavior:smooth}
+  .spcw-bot,.spcw-usr{max-width:88%;padding:10px 14px;border-radius:16px;font-size:13.5px;line-height:1.5;animation:spcw-msg .2s ease}
+  @keyframes spcw-msg{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+  .spcw-bot{background:#f0f4fb;color:#1B2A4E;align-self:flex-start;border-bottom-left-radius:4px}
+  .spcw-usr{background:#1B2A4E;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+  .spcw-dots{display:flex;gap:4px;align-items:center;padding:11px 14px;background:#f0f4fb;border-radius:16px;border-bottom-left-radius:4px;align-self:flex-start}
+  .spcw-dots span{width:7px;height:7px;border-radius:50%;background:#9ab;animation:spcw-bounce 1.1s infinite}
+  .spcw-dots span:nth-child(2){animation-delay:.18s}
+  .spcw-dots span:nth-child(3){animation-delay:.36s}
+  @keyframes spcw-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  #spcw-inp{padding:10px 12px;border-top:1px solid #eef0f4;flex-shrink:0}
+  .spcw-row{display:flex;gap:7px}
+  .spcw-field{flex:1;border:1.5px solid #dde3f0;border-radius:12px;padding:9px 13px;font-size:13.5px;outline:none;font-family:inherit;transition:border-color .2s;color:#111d36}
+  .spcw-field:focus{border-color:#1B2A4E}
+  .spcw-go{background:#1B2A4E;color:#fff;border:none;border-radius:12px;padding:9px 16px;cursor:pointer;font-size:14px;font-weight:700;transition:background .2s;white-space:nowrap;font-family:inherit}
+  .spcw-go:hover{background:#243a6d}
+  .spcw-grid{display:flex;flex-wrap:wrap;gap:7px}
+  .spcw-opt{background:#f0f4fb;color:#1B2A4E;border:1.5px solid #d0daf0;border-radius:20px;padding:7px 13px;cursor:pointer;font-size:13px;font-weight:500;font-family:inherit;transition:all .15s;line-height:1.3}
+  .spcw-opt:hover{background:#1B2A4E;color:#fff;border-color:#1B2A4E}
+  .spcw-err{color:#c0392b;font-size:11.5px;margin-top:5px}
+  .spcw-done{text-align:center;padding:22px 16px;color:#1B2A4E;line-height:1.6}
+  .spcw-done h3{margin:8px 0 6px;font-size:17px}
+  .spcw-done p{font-size:13px;margin:4px 0}
+  .spcw-done a{color:#1B2A4E;font-weight:700}
+  @media(max-width:400px){
+    #spcw-panel{width:calc(100vw - 32px);right:-8px}
+    #spcw{bottom:16px;right:16px}
+  }
+</style>
+<div id="spcw">
+  <div id="spcw-panel" hidden>
+    <div id="spcw-hdr">
+      <div id="spcw-av">🐾</div>
+      <div id="spcw-info">
+        <div id="spcw-name">Super Pet</div>
+        <div id="spcw-sub">Quick Booking</div>
+      </div>
+      <button id="spcw-cls" aria-label="Close">&#x2715;</button>
+    </div>
+    <div id="spcw-prog"><div id="spcw-bar"></div></div>
+    <div id="spcw-msgs"></div>
+    <div id="spcw-inp"></div>
+  </div>
+  <button id="spcw-btn" aria-label="Book an appointment">
+    <div id="spcw-tip">Book in 2 min</div>
+    <span id="spcw-badge">1</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  </button>
+</div>
+<script>
+(function(){
+  var data={}, step=0, openedAt=0, started=false;
+  var TOTAL=13;
+
+  var SERVICES=['Bath and Full Grooming','Gentle Grooming','Puppy Introduction','Nail Trim and Paw Care','De-Shedding Treatment','Not sure'];
+  var WEIGHTS=['Under 20 lbs','20 to 40 lbs','41 to 70 lbs','Over 70 lbs','Not sure'];
+  var TIMES=['Morning (9am to 12pm)','Afternoon (12pm to 4pm)','Flexible'];
+
+  var steps=[
+    {bot:function(){return'Hi! What is your name?';},type:'text',ph:'Your full name',field:'Owner Name',val:function(v){return v.trim().length>1?null:'Please enter your name.';}},
+    {bot:function(d){return'Nice to meet you, '+d['Owner Name'].split(' ')[0]+'! What is the best phone number to reach you?';},type:'tel',ph:'(508) 000-0000',field:'Phone',val:function(v){return v.replace(/\D/g,'').length>=10?null:'Please enter a valid phone number.';}},
+    {bot:function(){return'And your email address?';},type:'email',ph:'you@email.com',field:'Email',val:function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?null:'Please enter a valid email.';}},
+    {bot:function(){return'What is your pet\'s name?';},type:'text',ph:'Max, Bella, Luna...',field:'Pet Name',val:function(v){return v.trim().length>0?null:'Please enter your pet\'s name.';}},
+    {bot:function(d){return'Is '+d['Pet Name']+' a dog or a cat?';},type:'buttons',options:['Dog','Cat'],field:'Pet Type'},
+    {bot:function(d){return'What breed is '+d['Pet Name']+'?';},type:'text',ph:'Goldendoodle, Lab, Mixed...',field:'Breed',val:function(v){return v.trim().length>0?null:'Please enter the breed.';}},
+    {bot:function(d){return'About how much does '+d['Pet Name']+' weigh?';},type:'buttons',options:WEIGHTS,field:'Pet Weight'},
+    {bot:function(){return'What service are you looking for?';},type:'buttons',options:SERVICES,field:'Service Requested'},
+    {bot:function(){return'What date would you prefer?';},type:'date',field:'Preferred Date'},
+    {bot:function(){return'Morning or afternoon?';},type:'buttons',options:TIMES,field:'Preferred Time'},
+    {bot:function(d){return'Is this '+d['Pet Name']+'\'s first visit to Super Pet?';},type:'buttons',options:['Yes, first time!','No, returning client'],field:'First Visit',tf:function(v){return v==='Yes, first time!'?'Yes':'No';}},
+    {bot:function(d){return'Anything we should know about '+d['Pet Name']+'? (allergies, anxiety, special requests)';},type:'text-opt',ph:'Type here or tap Skip',field:'Notes'},
+    {bot:function(d){return'Last step: please confirm that '+d['Pet Name']+'\'s vaccinations (Rabies, DHPP, Bordetella) are current.';},type:'confirm',lbl:'Yes, vaccinations are up to date',field:'Vaccinations Confirmed',value:'Yes'}
+  ];
+
+  var panel=document.getElementById('spcw-panel');
+  var btn=document.getElementById('spcw-btn');
+  var badge=document.getElementById('spcw-badge');
+  var cls=document.getElementById('spcw-cls');
+  var msgs=document.getElementById('spcw-msgs');
+  var inp=document.getElementById('spcw-inp');
+  var bar=document.getElementById('spcw-bar');
+
+  btn.addEventListener('click',function(){panel.hidden?open():close();});
+  cls.addEventListener('click',close);
+
+  function open(){
+    panel.hidden=false;
+    if(badge)badge.style.display='none';
+    if(!started){started=true;openedAt=Date.now();setTimeout(showStep,350);}
+    else{msgs.scrollTop=msgs.scrollHeight;}
+  }
+  function close(){panel.hidden=true;}
+
+  function progress(){bar.style.width=Math.round((step/TOTAL)*100)+'%';}
+
+  function botMsg(txt){
+    return new Promise(function(res){
+      var d=document.createElement('div');
+      d.className='spcw-dots';
+      d.innerHTML='<span></span><span></span><span></span>';
+      msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
+      setTimeout(function(){
+        msgs.removeChild(d);
+        var m=document.createElement('div');
+        m.className='spcw-bot';m.textContent=txt;
+        msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;
+        res();
+      },580);
+    });
+  }
+  function usrMsg(txt){
+    var m=document.createElement('div');
+    m.className='spcw-usr';m.textContent=txt;
+    msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;
+  }
+
+  function showStep(){
+    if(step>=steps.length){submit();return;}
+    progress();
+    var s=steps[step];
+    botMsg(s.bot(data)).then(function(){renderInp(s);});
+  }
+
+  function renderInp(s){
+    inp.innerHTML='';
+
+    if(s.type==='text'||s.type==='email'||s.type==='tel'){
+      var row=document.createElement('div');row.className='spcw-row';
+      var fi=document.createElement('input');
+      fi.type=s.type==='tel'?'tel':s.type==='email'?'email':'text';
+      fi.className='spcw-field';fi.placeholder=s.ph||'';
+      if(s.type==='tel'){
+        fi.addEventListener('input',function(){
+          var v=this.value.replace(/\D/g,'');
+          if(v.length<=3)this.value=v;
+          else if(v.length<=6)this.value='('+v.slice(0,3)+') '+v.slice(3);
+          else this.value='('+v.slice(0,3)+') '+v.slice(3,6)+'-'+v.slice(6,10);
+        });
+      }
+      var gb=document.createElement('button');gb.className='spcw-go';gb.textContent='→';
+      row.appendChild(fi);row.appendChild(gb);inp.appendChild(row);
+      var er=document.createElement('div');er.className='spcw-err';inp.appendChild(er);
+      function go(){
+        var v=fi.value.trim();
+        if(s.val){var e=s.val(v);if(e){er.textContent=e;return;}}
+        er.textContent='';data[s.field]=s.tf?s.tf(v):v;
+        usrMsg(v);step++;setTimeout(showStep,200);
+      }
+      gb.addEventListener('click',go);
+      fi.addEventListener('keydown',function(e){if(e.key==='Enter')go();});
+      setTimeout(function(){fi.focus();},80);
+    }
+
+    else if(s.type==='text-opt'){
+      var row=document.createElement('div');row.className='spcw-row';
+      var fi=document.createElement('input');fi.type='text';fi.className='spcw-field';fi.placeholder=s.ph||'';
+      var gb=document.createElement('button');gb.className='spcw-go';gb.textContent='→';
+      row.appendChild(fi);row.appendChild(gb);inp.appendChild(row);
+      var sk=document.createElement('button');sk.className='spcw-opt';sk.textContent='Skip';sk.style.marginTop='7px';
+      inp.appendChild(sk);
+      sk.addEventListener('click',function(){data[s.field]='';usrMsg('(none)');step++;setTimeout(showStep,200);});
+      function go(){var v=fi.value.trim();data[s.field]=v;usrMsg(v||'(none)');step++;setTimeout(showStep,200);}
+      gb.addEventListener('click',go);
+      fi.addEventListener('keydown',function(e){if(e.key==='Enter')go();});
+      setTimeout(function(){fi.focus();},80);
+    }
+
+    else if(s.type==='date'){
+      var row=document.createElement('div');row.className='spcw-row';
+      var fi=document.createElement('input');fi.type='date';fi.className='spcw-field';
+      var tm=new Date();tm.setDate(tm.getDate()+1);
+      fi.min=tm.toISOString().split('T')[0];
+      var gb=document.createElement('button');gb.className='spcw-go';gb.textContent='→';
+      row.appendChild(fi);row.appendChild(gb);inp.appendChild(row);
+      var er=document.createElement('div');er.className='spcw-err';inp.appendChild(er);
+      function go(){
+        var v=fi.value;
+        if(!v){er.textContent='Please pick a date.';return;}
+        var day=new Date(v+'T12:00:00').getDay();
+        if(day===0||day===1){er.textContent='We are closed Sunday and Monday. Please pick Tuesday through Saturday.';fi.value='';return;}
+        er.textContent='';data[s.field]=v;
+        var dp=new Date(v+'T12:00:00');
+        var disp=dp.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+        usrMsg(disp);step++;setTimeout(showStep,200);
+      }
+      gb.addEventListener('click',go);
+    }
+
+    else if(s.type==='buttons'){
+      var g=document.createElement('div');g.className='spcw-grid';
+      s.options.forEach(function(opt){
+        var b=document.createElement('button');b.className='spcw-opt';b.textContent=opt;
+        b.addEventListener('click',function(){
+          var v=s.tf?s.tf(opt):opt;
+          data[s.field]=v;
+          if(s.field==='Pet Type'&&opt==='Cat')data._cat=true;
+          usrMsg(opt);step++;setTimeout(showStep,200);
+        });
+        g.appendChild(b);
+      });
+      inp.appendChild(g);
+    }
+
+    else if(s.type==='confirm'){
+      var b=document.createElement('button');b.className='spcw-go';b.style.width='100%';b.style.borderRadius='12px';b.style.padding='11px';b.textContent=s.lbl||'Confirm';
+      b.addEventListener('click',function(){
+        data[s.field]=s.value||'Yes';
+        usrMsg(s.lbl||'Confirmed');step++;setTimeout(showStep,200);
+      });
+      inp.appendChild(b);
+    }
+  }
+
+  function submit(){
+    inp.innerHTML='';progress();
+    var elapsed=Date.now()-openedAt;
+    if(elapsed<3000){showDone('err');return;}
+
+    var bigDog=data['Pet Weight']==='Over 70 lbs'&&data['First Visit']==='Yes';
+    var isCat=!!data._cat;
+
+    if(bigDog||isCat){
+      var note=bigDog
+        ?'Got it! For large dogs on their first visit, our groomer reviews the request before the deposit is charged. We will reach out within one business day to confirm everything.'
+        :'For cats, our lead groomer confirms each appointment before booking. We will reach out within one business day to confirm.';
+      data['Notes']=(bigDog?'[LARGE DOG EVALUATION] ':'[CAT EVALUATION] ')+(data['Notes']||'');
+      botMsg(note).then(function(){
+        fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+        showDone('eval');
+      });
+      return;
+    }
+
+    botMsg('You are all set! Taking you to confirm your $25 deposit...').then(function(){
+      try{sessionStorage.setItem('superpet:booking',JSON.stringify(data));}catch(e){}
+      window.location.href='/payment.html';
+    });
+  }
+
+  function showDone(type){
+    var div=document.createElement('div');div.className='spcw-done';
+    if(type==='eval'){
+      div.innerHTML='<div style="font-size:36px">🐾</div><h3>Request received!</h3><p>Our team will be in touch within one business day to confirm your appointment.</p><p style="margin-top:10px">Or call us: <a href="tel:+15085243489">(508) 524-3489</a></p>';
+    } else {
+      div.innerHTML='<div style="font-size:36px">🐾</div><h3>All done!</h3><p>Redirecting to payment...</p>';
+    }
+    msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;
+  }
+})();
+</script>
+<!-- ========== END CHAT WIDGET ========== -->
+
 </body>
 </html>

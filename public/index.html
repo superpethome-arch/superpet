@@ -3185,7 +3185,21 @@ main > section {
   var bar=document.getElementById('spcw-bar');
 
   btn.addEventListener('click',function(){panel.hidden?open():close();});
-  cls.addEventListener('click',close);
+  cls.addEventListener('click',function(){close();autoOpened=true;});
+
+  // Auto-open on scroll (once per page load, after 40% scroll)
+  var autoOpened=false;
+  function onScroll(){
+    if(autoOpened)return;
+    var scrolled=window.scrollY||document.documentElement.scrollTop;
+    var total=document.documentElement.scrollHeight-window.innerHeight;
+    if(total>0&&scrolled/total>=0.40){
+      autoOpened=true;
+      window.removeEventListener('scroll',onScroll);
+      setTimeout(function(){if(panel.hidden)open();},600);
+    }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
 
   function open(){
     panel.hidden=false;

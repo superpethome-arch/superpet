@@ -72,6 +72,9 @@
     }
   ],
   "redirects": [
+    { "source": "/2022/05/04/everything-you-need-to-know-about-loving-a-senior-dog", "destination": "/blog", "permanent": true },
+    { "source": "/2022/05/04/everything-you-need-to-know-about-loving-a-senior-dog/", "destination": "/blog", "permanent": true },
+    { "source": "/:y(\\d{4})/:m(\\d{2})/:d(\\d{2})/:slug", "destination": "/blog", "permanent": true },
     {
       "source": "/services",
       "destination": "/#services",

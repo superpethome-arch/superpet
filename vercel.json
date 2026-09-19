@@ -85,6 +85,15 @@
     { "source": "/blog", "destination": "/blog.html" },
     { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
     { "source": "/event", "destination": "/event.html" },
-    { "source": "/national-dog-day", "destination": "/event.html" }
+    { "source": "/national-dog-day", "destination": "/event.html" },
+    { "source": "/dog-grooming-falmouth-ma", "destination": "/services/dog-grooming-falmouth-ma.html" },
+    { "source": "/cat-grooming-falmouth-ma", "destination": "/services/cat-grooming-falmouth-ma.html" },
+    { "source": "/gentle-dog-grooming", "destination": "/services/gentle-dog-grooming.html" },
+    { "source": "/puppy-grooming-falmouth", "destination": "/services/puppy-grooming-falmouth.html" },
+    { "source": "/dog-nail-trim-falmouth", "destination": "/services/dog-nail-trim-falmouth.html" },
+    { "source": "/dog-deshedding-treatment", "destination": "/services/dog-deshedding-treatment.html" },
+    { "source": "/dog-spa-falmouth-ma", "destination": "/services/dog-spa-falmouth-ma.html" },
+    { "source": "/goldendoodle-grooming", "destination": "/services/goldendoodle-grooming.html" },
+    { "source": "/large-dog-grooming", "destination": "/services/large-dog-grooming.html" }
   ]
 }

@@ -7,22 +7,27 @@
 - [Home](https://www.superpethome.com/) - Services, booking form, gallery, reviews
 - [About Us](https://www.superpethome.com/about) - Team, certifications, values, history
 - [FAQ](https://www.superpethome.com/faq) - Pricing, booking, vaccinations, policies, location
+- [Services and Prices](https://www.superpethome.com/services) - All grooming services with starting prices
 - [Blog](https://www.superpethome.com/blog) - Pet grooming articles, tips and guides
 
 ## Service Pages
 
 - [Dog Grooming in Falmouth, MA](https://www.superpethome.com/dog-grooming-falmouth-ma) - Full dog grooming services in East Falmouth. Bath, full groom, nail trim, de-shedding. Starting at $75. Google Guaranteed.
-- [Cat Grooming in Falmouth, MA](https://www.superpethome.com/cat-grooming-falmouth-ma) - Professional cat grooming in a dedicated dog-free space. Every appointment confirmed with lead groomer. Starting at $85.
+- [Cat Grooming in Falmouth, MA](https://www.superpethome.com/cat-grooming-falmouth-ma) - Professional cat grooming in a dedicated dog-free space. Every appointment confirmed with lead groomer. Price confirmed after evaluation.
 - [Gentle Dog Grooming for Anxious Dogs](https://www.superpethome.com/gentle-dog-grooming) - Specialized low-stress grooming for anxious, fearful, or sensitive dogs. Positive reinforcement, no rush. Starting at $85.
 - [Puppy Grooming in Falmouth, MA](https://www.superpethome.com/puppy-grooming-falmouth) - Positive first grooming experience for puppies. Builds trust early for stress-free future visits. Starting at $85.
 - [Dog Nail Trim in Falmouth, MA](https://www.superpethome.com/dog-nail-trim-falmouth) - Fast, professional nail trimming and paw care for all breeds in East Falmouth. Starting at $20.
 - [Dog De-Shedding Treatment on Cape Cod](https://www.superpethome.com/dog-deshedding-treatment) - Professional de-shedding treatment that dramatically reduces shedding. Starting at $30 as add-on.
-- [Dog Spa Treatment in Falmouth, MA](https://www.superpethome.com/dog-spa-falmouth-ma) - Luxury dog spa with deep hydration, skin conditioning, and aromatherapy finishing. Starting at $50.
+- [Dog Spa Treatment in Falmouth, MA](https://www.superpethome.com/dog-spa-falmouth-ma) - Luxury dog spa with deep hydration and skin conditioning. Starting at $50.
 - [Goldendoodle Grooming in Falmouth, MA](https://www.superpethome.com/goldendoodle-grooming) - Expert Goldendoodle and doodle coat grooming. All sizes. Teddy bear cuts, custom cuts. Starting at $75.
 - [Large Dog Grooming on Cape Cod](https://www.superpethome.com/large-dog-grooming) - Professional large and giant breed grooming. Bernese, Husky, Shepherd, Lab, and more. Starting at $75+.
 
 ## Blog Articles
 
+- [Fall Dog Grooming on Cape Cod: How to Prepare Your Dog's Coat for Winter](https://www.superpethome.com/blog/fall-dog-grooming-cape-cod)
+- [Thanksgiving Dog Grooming in Falmouth, MA: Book Before the Holiday Rush](https://www.superpethome.com/blog/thanksgiving-dog-grooming-falmouth-ma)
+- [Christmas Dog Grooming in Falmouth, MA: Holiday Appointments at Super Pet](https://www.superpethome.com/blog/christmas-dog-grooming-falmouth-ma)
+- [Winter Dog Grooming on Cape Cod: Coat, Paw and Skin Care Guide](https://www.superpethome.com/blog/winter-dog-grooming-cape-cod)
 - [How to Groom a Goldendoodle: Complete Cape Cod Guide](https://www.superpethome.com/blog/goldendoodle-grooming-guide)
 - [Grooming an Anxious Dog: What Works and What Doesn't](https://www.superpethome.com/blog/anxious-dog-grooming-tips)
 - [Puppy's First Grooming Appointment: When to Start and What to Expect](https://www.superpethome.com/blog/puppy-first-grooming)
@@ -117,7 +122,7 @@ Located on Route 28 (Teaticket Highway) in East Falmouth on Cape Cod. Super Pet 
 ## Frequently Asked Questions
 
 **Q: Does Super Pet groom cats?**
-A: Yes. Super Pet offers full cat grooming in a calm, dedicated space separate from dogs.
+A: Yes, in a calm space separate from dogs. Every cat is reviewed by our lead groomer before the appointment is confirmed.
 
 **Q: What breeds does Super Pet groom?**
 A: All breeds and sizes are welcome, including large and mixed breeds.

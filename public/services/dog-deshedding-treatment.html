@@ -19,61 +19,125 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://www.superpethome.com/#business",
-        "name": "Super Pet Grooming Salon",
-        "url": "https://www.superpethome.com",
-        "telephone": "+15085243489",
-        "email": "superpethome@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "122 Teaticket Hwy",
-          "addressLocality": "East Falmouth",
-          "addressRegion": "MA",
-          "postalCode": "02536",
-          "addressCountry": "US"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.superpethome.com/#business",
+      "name": "Super Pet Grooming Salon",
+      "url": "https://www.superpethome.com",
+      "telephone": "+15085243489",
+      "email": "superpethome@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "122 Teaticket Hwy",
+        "addressLocality": "East Falmouth",
+        "addressRegion": "MA",
+        "postalCode": "02536",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
         },
-        "openingHoursSpecification": [
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
-        ],
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "47" },
-        "image": "https://www.superpethome.com/team-photo.jpeg",
-        "priceRange": "$$"
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.superpethome.com/dog-deshedding-treatment",
-        "url": "https://www.superpethome.com/dog-deshedding-treatment",
-        "name": "Dog De-Shedding Treatment on Cape Cod | Super Pet Grooming Salon",
-        "description": "Professional dog de-shedding treatment in East Falmouth, MA. Dramatically reduces shedding and improves coat health.",
-        "isPartOf": { "@id": "https://www.superpethome.com/#business" }
-      },
-      {
-        "@type": "Service",
-        "name": "Dog De-Shedding Treatment",
-        "provider": { "@id": "https://www.superpethome.com/#business" },
-        "areaServed": { "@type": "City", "name": "Falmouth, MA" },
-        "description": "Professional de-shedding treatment for double-coated dogs. Reduces shedding significantly, improves coat health. Starting at $30 as an add-on.",
-        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "30", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "30" } }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "What is a de-shedding treatment for dogs?", "acceptedAnswer": { "@type": "Answer", "text": "A de-shedding treatment is a professional grooming service that removes loose undercoat fur from double-coated dogs using specialized shampoos, conditioners, and blow-dry techniques. It significantly reduces the amount of fur your dog sheds at home." } },
-          { "@type": "Question", "name": "How much does a de-shedding treatment cost?", "acceptedAnswer": { "@type": "Answer", "text": "De-shedding treatment at Super Pet starts at $30 when added to a full grooming appointment. As a standalone service, pricing varies by breed, coat volume, and session length. Call us for a quote." } },
-          { "@type": "Question", "name": "How long does a de-shedding treatment take?", "acceptedAnswer": { "@type": "Answer", "text": "A de-shedding treatment typically adds 30 to 60 minutes to a standard grooming appointment, depending on your dog's breed, coat density, and the amount of loose fur. For very heavy-coated breeds like Huskies or Bernese Mountain Dogs, it may take longer." } },
-          { "@type": "Question", "name": "How often should I get a de-shedding treatment for my dog?", "acceptedAnswer": { "@type": "Answer", "text": "Most double-coated dogs benefit from a de-shedding treatment every 4 to 8 weeks. More frequent treatments help maintain a cleaner home and a healthier coat. During heavy shedding seasons (spring and fall), more frequent treatments are especially helpful." } },
-          { "@type": "Question", "name": "Does de-shedding hurt my dog?", "acceptedAnswer": { "@type": "Answer", "text": "No. A professional de-shedding treatment at Super Pet is comfortable for your dog. We use gentle deshedding shampoos, a high-velocity blow-dry to loosen fur, and careful brush-out techniques. We never aggressively pull or damage the coat." } }
-        ]
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "image": "https://www.superpethome.com/team-photo.jpeg",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.superpethome.com/dog-deshedding-treatment",
+      "url": "https://www.superpethome.com/dog-deshedding-treatment",
+      "name": "Dog De-Shedding Treatment on Cape Cod | Super Pet Grooming Salon",
+      "description": "Professional dog de-shedding treatment in East Falmouth, MA. Dramatically reduces shedding and improves coat health.",
+      "isPartOf": {
+        "@id": "https://www.superpethome.com/#business"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Service",
+      "name": "Dog De-Shedding Treatment",
+      "provider": {
+        "@id": "https://www.superpethome.com/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Falmouth, MA"
+      },
+      "description": "Professional de-shedding treatment for double-coated dogs. Reduces shedding significantly, improves coat health. Starting at $30 as an add-on.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "30",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "30"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a de-shedding treatment for dogs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A de-shedding treatment is a professional grooming service that removes loose undercoat fur from double-coated dogs using specialized shampoos, conditioners, and blow-dry techniques. It significantly reduces the amount of fur your dog sheds at home."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a de-shedding treatment cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De-shedding treatment at Super Pet starts at $30 when added to a full grooming appointment. As a standalone service, pricing varies by breed, coat volume, and session length. Call us for a quote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a de-shedding treatment take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A de-shedding treatment typically adds 30 to 60 minutes to a standard grooming appointment, depending on your dog's breed, coat density, and the amount of loose fur. For very heavy-coated breeds like Huskies or Bernese Mountain Dogs, it may take longer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I get a de-shedding treatment for my dog?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most double-coated dogs benefit from a de-shedding treatment every 4 to 8 weeks. More frequent treatments help maintain a cleaner home and a healthier coat. During heavy shedding seasons (spring and fall), more frequent treatments are especially helpful."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does de-shedding hurt my dog?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A professional de-shedding treatment at Super Pet is comfortable for your dog. We use gentle deshedding shampoos, a high-velocity blow-dry to loosen fur, and careful brush-out techniques. We never aggressively pull or damage the coat."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
   <style>
 :root {
   --color-primary: #E63946;
@@ -213,7 +277,7 @@ p { margin: 0 0 1rem; }
       </a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
+        <li><a href="/services">Services</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/#gallery">Gallery</a></li>
         <li><a href="/faq">FAQ</a></li>
@@ -229,7 +293,7 @@ p { margin: 0 0 1rem; }
     <div class="container">
       <a href="/">Home</a>
       <span aria-hidden="true">/</span>
-      <a href="/#services">Services</a>
+      <a href="/services">Services</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">Dog De-Shedding Treatment</span>
     </div>
@@ -242,7 +306,7 @@ p { margin: 0 0 1rem; }
         <p class="subtitle">Dramatically reduce shedding and improve your dog's coat health with a professional de-shedding treatment at Super Pet in East Falmouth, MA.</p>
         <a href="/#booking" class="btn btn-primary">Book a De-Shedding Treatment</a>
         <div class="hero-badges">
-          <span class="hero-badge">Reduces Shedding 70-80%</span>
+          <span class="hero-badge">Less Fur at Home</span>
           <span class="hero-badge">All Double-Coat Breeds</span>
           <span class="hero-badge">Cape Cod</span>
         </div>
@@ -324,7 +388,7 @@ p { margin: 0 0 1rem; }
           <div class="fact-item"><div class="fact-bullet"></div><p><strong>Starting Price:</strong> From $30 as an add-on. Standalone pricing varies by breed and coat volume.</p></div>
           <div class="fact-item"><div class="fact-bullet"></div><p><strong>Best For:</strong> Double-coated breeds that shed heavily, including Huskies, Shepherds, and Retrievers.</p></div>
           <div class="fact-item"><div class="fact-bullet"></div><p><strong>Frequency:</strong> Every 4 to 8 weeks for best results. More often during spring and fall shedding seasons.</p></div>
-          <div class="fact-item"><div class="fact-bullet"></div><p><strong>Result:</strong> A professional de-shedding treatment can reduce shedding by 70 to 80% for several weeks.</p></div>
+          <div class="fact-item"><div class="fact-bullet"></div><p><strong>Result:</strong> A professional de-shedding treatment can noticeably reduce shedding for several weeks.</p></div>
           <div class="fact-item"><div class="fact-bullet"></div><p><strong>Location:</strong> 122 Teaticket Hwy, East Falmouth, MA. Open Tue-Fri 9am-5pm, Sat 9am-1pm.</p></div>
           <div class="fact-item"><div class="fact-bullet"></div><p><strong>Deposit:</strong> A $25 deposit confirms your online booking.</p></div>
         </div>
@@ -365,7 +429,7 @@ p { margin: 0 0 1rem; }
     <section class="cta-banner">
       <div class="container">
         <h2>Book a De-Shedding Treatment in East Falmouth, MA</h2>
-        <p>Tired of dog fur everywhere? A professional de-shedding treatment at Super Pet can reduce shedding by up to 80% for weeks. Book online or call us on Cape Cod.</p>
+        <p>Tired of dog fur everywhere? A professional de-shedding treatment at Super Pet can noticeably reduce shedding for weeks. Book online or call us on Cape Cod.</p>
         <div class="cta-btns">
           <a href="/#booking" class="btn btn-primary">Book a De-Shedding Treatment</a>
           <a href="tel:+15085243489" class="btn btn-secondary" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call (508) 524-3489</a>
@@ -386,7 +450,7 @@ p { margin: 0 0 1rem; }
         <h4>Quick Links</h4>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/#services">Services</a></li>
+          <li><a href="/services">Services</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/blog">Blog</a></li>

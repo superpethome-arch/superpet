@@ -1502,9 +1502,11 @@ main > section {
 {
   "@context": "https://schema.org",
   "@graph": [
-
     {
-      "@type": ["LocalBusiness", "PetStore"],
+      "@type": [
+        "LocalBusiness",
+        "PetStore"
+      ],
       "@id": "https://www.superpethome.com/#business",
       "name": "Super Pet Grooming Salon",
       "alternateName": "Super Pet",
@@ -1518,6 +1520,9 @@ main > section {
         "height": 200
       },
       "image": [
+        "https://www.superpethome.com/super-pet-grooming-team-east-falmouth-ma.webp",
+        "https://www.superpethome.com/goldendoodle-heart-bandana-full-groom-super-pet.webp",
+        "https://www.superpethome.com/groomer-cuddling-bernese-mountain-dog-super-pet.webp",
         "https://www.superpethome.com/team-photo.jpeg",
         "https://www.superpethome.com/logo.png"
       ],
@@ -1536,35 +1541,79 @@ main > section {
         "latitude": 41.5584,
         "longitude": -70.5673
       },
-      "hasMap": "https://maps.app.goo.gl/superpetfalmouth",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Super+Pet+Grooming+Salon+122+Teaticket+Hwy+East+Falmouth+MA+02536",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
           "opens": "09:00",
           "closes": "17:00"
         },
         {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": "Saturday",
-          "opens": "00:00",
-          "closes": "00:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Sunday",
-          "opens": "00:00",
-          "closes": "00:00"
+          "opens": "09:00",
+          "closes": "13:00"
         }
       ],
       "areaServed": [
-        {"@type": "City", "name": "East Falmouth", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
-        {"@type": "City", "name": "Falmouth", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
-        {"@type": "City", "name": "Mashpee", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
-        {"@type": "City", "name": "Sandwich", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
-        {"@type": "City", "name": "Bourne", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
-        {"@type": "City", "name": "Barnstable", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
-        {"@type": "AdministrativeArea", "name": "Cape Cod, Massachusetts"}
+        {
+          "@type": "City",
+          "name": "East Falmouth",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Massachusetts"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Falmouth",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Massachusetts"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Mashpee",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Massachusetts"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Sandwich",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Massachusetts"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Bourne",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Massachusetts"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Barnstable",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Massachusetts"
+          }
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Cape Cod, Massachusetts"
+        }
       ],
       "serviceArea": {
         "@type": "GeoCircle",
@@ -1580,13 +1629,29 @@ main > section {
         "telephone": "+15085243489",
         "contactType": "reservations",
         "email": "superpethome@gmail.com",
-        "availableLanguage": ["English", "Portuguese"],
-        "hoursAvailable": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "09:00",
-          "closes": "17:00"
-        }
+        "availableLanguage": [
+          "English",
+          "Portuguese"
+        ],
+        "hoursAvailable": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "17:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "13:00"
+          }
+        ]
       },
       "paymentAccepted": "Cash, Credit Card, Debit Card",
       "currenciesAccepted": "USD",
@@ -1601,10 +1666,16 @@ main > section {
               "@type": "Service",
               "name": "Bath and Full Grooming",
               "description": "Complete bath and grooming tailored to your dog or cat's individual breed and coat needs. Includes shampoo, blow-dry, brush-out, haircut, and finishing.",
-              "provider": {"@id": "https://www.superpethome.com/#business"},
+              "provider": {
+                "@id": "https://www.superpethome.com/#business"
+              },
               "areaServed": "East Falmouth, MA"
             },
-            "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "75"}
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "USD",
+              "minPrice": "75"
+            }
           },
           {
             "@type": "Offer",
@@ -1612,9 +1683,15 @@ main > section {
               "@type": "Service",
               "name": "Gentle Grooming",
               "description": "Low-stress, patient grooming for anxious or sensitive pets. Uses calming techniques and positive reinforcement.",
-              "provider": {"@id": "https://www.superpethome.com/#business"}
+              "provider": {
+                "@id": "https://www.superpethome.com/#business"
+              }
             },
-            "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "85"}
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "USD",
+              "minPrice": "85"
+            }
           },
           {
             "@type": "Offer",
@@ -1622,9 +1699,15 @@ main > section {
               "@type": "Service",
               "name": "Puppy Introduction Grooming",
               "description": "Positive first grooming experience designed for puppies to build trust and confidence with the grooming process.",
-              "provider": {"@id": "https://www.superpethome.com/#business"}
+              "provider": {
+                "@id": "https://www.superpethome.com/#business"
+              }
             },
-            "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "85"}
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "USD",
+              "minPrice": "85"
+            }
           },
           {
             "@type": "Offer",
@@ -1632,9 +1715,15 @@ main > section {
               "@type": "Service",
               "name": "Nail Trim and Paw Care",
               "description": "Essential nail trimming and paw maintenance for healthy movement and comfort.",
-              "provider": {"@id": "https://www.superpethome.com/#business"}
+              "provider": {
+                "@id": "https://www.superpethome.com/#business"
+              }
             },
-            "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "20"}
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "USD",
+              "minPrice": "20"
+            }
           },
           {
             "@type": "Offer",
@@ -1642,9 +1731,15 @@ main > section {
               "@type": "Service",
               "name": "De-Shedding Treatment",
               "description": "Professional coat treatment to significantly reduce shedding and support skin and coat health.",
-              "provider": {"@id": "https://www.superpethome.com/#business"}
+              "provider": {
+                "@id": "https://www.superpethome.com/#business"
+              }
             },
-            "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "30"}
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "USD",
+              "minPrice": "30"
+            }
           },
           {
             "@type": "Offer",
@@ -1652,72 +1747,33 @@ main > section {
               "@type": "Service",
               "name": "Spa and Hydration Treatment",
               "description": "Luxury pet spa treatment including deep hydration, softening, and coat shine treatments.",
-              "provider": {"@id": "https://www.superpethome.com/#business"}
+              "provider": {
+                "@id": "https://www.superpethome.com/#business"
+              }
             },
-            "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "50"}
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "USD",
+              "minPrice": "50"
+            }
           }
         ]
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "47",
-        "reviewCount": "47"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Gabrielle Bottcher"},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-          "reviewBody": "I took my mom's dog to get a nice bath and a blow out at Super Pet Grooming. We had the best experience especially with the staff. It was the first time that he looked amazing the way he did. We will definitely be taking him back there again."
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Michael Bartlett"},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-          "reviewBody": "First experience with Super Pet. Sabina listened carefully to my concern over Tanner's past experience with another local groomer. She quickly realized that the way to his heart was through his stomach and gained his trust with treats. I will definitely bring him back when it's time for another nail trimming."
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Dedete Simoes"},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-          "reviewBody": "The best service and pet shop care I've found here in Massachusetts. They know every breed, and the appropriate and correct grooming for each one of them. I have 4 dogs that are their clients and I recommend them 100%."
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Anita Hodges"},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-          "reviewBody": "The people at Super Pet are caring and very professional. Ziggy is petrified of grooming and I hadn't been able to get him professionally groomed in years. The staff at Super Pet got the job done, they cleaned up my own attempts at grooming him, and he looks great."
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Steve Rafferty"},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-          "reviewBody": "Super Pet treated our goldendoodle Bogie like a member of the family. We were in town for a vacation and needed to give him a summer haircut and they did an awesome job! Very nice staff and calming spa atmosphere for dogs."
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Alyssa Lewis"},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-          "reviewBody": "My first time there I brought my pup Chanel everyone was so nice and the place is adorable! My girl got a massage, nail trim, and a bath. She smelled amazing. Definitely recommend!"
-        }
-      ],
       "sameAs": [
         "https://www.instagram.com/superpetfalmouth/",
         "https://www.facebook.com/superpetfalmouth"
       ],
       "keywords": "pet grooming Falmouth MA, dog grooming Cape Cod, cat grooming East Falmouth, grooming salon Falmouth, pet spa Cape Cod, nail trim dogs Falmouth, puppy grooming Cape Cod, gentle grooming anxious dogs, de-shedding treatment dogs"
     },
-
     {
       "@type": "WebSite",
       "@id": "https://www.superpethome.com/#website",
       "url": "https://www.superpethome.com/",
       "name": "Super Pet Grooming Salon",
       "description": "Official website of Super Pet Grooming Salon in East Falmouth, MA.",
-      "publisher": {"@id": "https://www.superpethome.com/#business"},
+      "publisher": {
+        "@id": "https://www.superpethome.com/#business"
+      },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
@@ -1727,27 +1783,41 @@ main > section {
         "query-input": "required name=search_term_string"
       }
     },
-
     {
       "@type": "WebPage",
       "@id": "https://www.superpethome.com/#webpage",
       "url": "https://www.superpethome.com/",
       "name": "Dog Grooming in Falmouth, MA | Super Pet Grooming Salon",
       "description": "Professional dog and cat grooming in East Falmouth, MA. Bath, full groom, nail trim, spa and gentle grooming. 5-star rated on Cape Cod. Call (508) 524-3489.",
-      "isPartOf": {"@id": "https://www.superpethome.com/#website"},
-      "about": {"@id": "https://www.superpethome.com/#business"},
+      "isPartOf": {
+        "@id": "https://www.superpethome.com/#website"
+      },
+      "about": {
+        "@id": "https://www.superpethome.com/#business"
+      },
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": ["#hero-title", "#about-title", "#services-title", "#faq-title", ".hero-sub", ".footer-col"]
+        "cssSelector": [
+          "#hero-title",
+          "#about-title",
+          "#services-title",
+          "#faq-title",
+          ".hero-sub",
+          ".footer-col"
+        ]
       },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.superpethome.com/"}
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.superpethome.com/"
+          }
         ]
       }
     },
-
     {
       "@type": "FAQPage",
       "@id": "https://www.superpethome.com/#faqpage",
@@ -1797,7 +1867,7 @@ main > section {
           "name": "How do I book an appointment at Super Pet Grooming Salon?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can book online through the booking form at superpethome.com, call us at (508) 524-3489, or send us a message on Instagram at @superpetfalmouth. We are located at 122 Teaticket Hwy, East Falmouth, MA 02536, open Monday through Friday 9am to 5pm."
+            "text": "You can book online through the booking form at superpethome.com, call us at (508) 524-3489, or send us a message on Instagram at @superpetfalmouth. We are located at 122 Teaticket Hwy, East Falmouth, MA 02536, open Tuesday through Friday 9am to 5pm and Saturday 9am to 1pm. Closed Sunday and Monday."
           }
         },
         {
@@ -1834,7 +1904,6 @@ main > section {
         }
       ]
     },
-
     {
       "@type": "HowTo",
       "@id": "https://www.superpethome.com/#howto-booking",
@@ -1842,8 +1911,14 @@ main > section {
       "description": "Step-by-step guide to booking a grooming appointment for your dog or cat at Super Pet Grooming Salon in East Falmouth, MA.",
       "totalTime": "PT2M",
       "supply": [
-        {"@type": "HowToSupply", "name": "Pet vaccination records (Rabies, DHPP, Bordetella)"},
-        {"@type": "HowToSupply", "name": "Your pet"}
+        {
+          "@type": "HowToSupply",
+          "name": "Pet vaccination records (Rabies, DHPP, Bordetella)"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Your pet"
+        }
       ],
       "step": [
         {
@@ -1873,7 +1948,6 @@ main > section {
         }
       ]
     }
-
   ]
 }
 </script>
@@ -1947,8 +2021,8 @@ main > section {
       <div class="hero-grid">
         <div class="hero-content reveal">
           <span class="hero-eyebrow"><span aria-hidden="true">📍</span> Falmouth, MA &middot; Cape Cod</span>
-          <h1 id="hero-title"><span class="h1-kw">Dog &amp; Cat Grooming in East Falmouth, MA</span><span class="h1-tag">Where Every Pet Gets the <span class="accent">Royal Treatment</span></span></h1>
-          <p class="hero-sub">Premium grooming services for dogs and cats in Falmouth, MA. Stress-free, loving, and tailored to your pet's unique needs.</p>
+          <h1 id="hero-title">Dog &amp; Cat Grooming in East Falmouth, MA</h1>
+          <p class="hero-sub">Gentle, professional grooming for dogs and cats across Falmouth and Cape Cod, with one-on-one care and no cage drying.</p>
           <div class="hero-actions">
             <a href="#booking" class="btn btn-primary">Book an Appointment</a>
             <a href="#services" class="btn btn-secondary">See Our Services</a>
@@ -2054,60 +2128,66 @@ main > section {
           <span class="service-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M5 8c0 4 3 7 7 7s7-3 7-7"/><path d="M5 22c2-4 4-6 7-6s5 2 7 6"/></svg>
           </span>
-          <h3>Bath &amp; Full Grooming</h3>
+          <h3><a href="/dog-grooming-falmouth-ma" style="text-decoration:none;color:inherit">Bath &amp; Full Grooming</a></h3>
           <p>Complete bath and grooming services tailored to your pet's individual needs.</p>
           <span class="service-price">Starting at $75</span>
           <a href="#booking" class="btn-link">Book this service →</a>
+          <a href="/dog-grooming-falmouth-ma" class="btn-link" style="margin-left:16px;opacity:.8">Details →</a>
         </article>
 
         <article class="service-card reveal">
           <span class="service-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 10-7 10z" transform="translate(-2 0)"/></svg>
           </span>
-          <h3>Gentle Grooming</h3>
+          <h3><a href="/gentle-dog-grooming" style="text-decoration:none;color:inherit">Gentle Grooming</a></h3>
           <p>Low-stress grooming focused on patience, comfort, and positive handling.</p>
           <span class="service-price">Starting at $85</span>
           <a href="#booking" class="btn-link">Book this service →</a>
+          <a href="/gentle-dog-grooming" class="btn-link" style="margin-left:16px;opacity:.8">Details →</a>
         </article>
 
         <article class="service-card reveal">
           <span class="service-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="9" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="9" r="2"/><circle cx="9" cy="14" r="1.6"/><circle cx="15" cy="14" r="1.6"/><path d="M12 11.5c-3 0-5 2.2-5 4.7 0 1.5 1.1 2.5 2.6 2.5 1 0 1.5-.5 2.4-.5s1.4.5 2.4.5c1.5 0 2.6-1 2.6-2.5 0-2.5-2-4.7-5-4.7z"/></svg>
           </span>
-          <h3>Puppy Introduction</h3>
+          <h3><a href="/puppy-grooming-falmouth" style="text-decoration:none;color:inherit">Puppy Introduction</a></h3>
           <p>Positive first grooming experiences designed to build trust and confidence.</p>
           <span class="service-price">Starting at $85</span>
           <a href="#booking" class="btn-link">Book this service →</a>
+          <a href="/puppy-grooming-falmouth" class="btn-link" style="margin-left:16px;opacity:.8">Details →</a>
         </article>
 
         <article class="service-card reveal">
           <span class="service-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6" cy="10" rx="2" ry="2.6"/><ellipse cx="12" cy="7" rx="2.2" ry="2.8"/><ellipse cx="18" cy="10" rx="2" ry="2.6"/><ellipse cx="12" cy="16" rx="4.2" ry="3.6"/></svg>
           </span>
-          <h3>Nail Trim &amp; Paw Care</h3>
+          <h3><a href="/dog-nail-trim-falmouth" style="text-decoration:none;color:inherit">Nail Trim &amp; Paw Care</a></h3>
           <p>Essential paw maintenance for comfort, balance, and healthy movement.</p>
           <span class="service-price">Starting at $20</span>
           <a href="#booking" class="btn-link">Book this service →</a>
+          <a href="/dog-nail-trim-falmouth" class="btn-link" style="margin-left:16px;opacity:.8">Details →</a>
         </article>
 
         <article class="service-card reveal">
           <span class="service-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7c4-2 8 2 16 0"/><path d="M4 12c4-2 8 2 16 0"/><path d="M4 17c4-2 8 2 16 0"/></svg>
           </span>
-          <h3>De-Shedding Treatment</h3>
+          <h3><a href="/dog-deshedding-treatment" style="text-decoration:none;color:inherit">De-Shedding Treatment</a></h3>
           <p>Coat maintenance designed to reduce shedding and support skin health.</p>
           <span class="service-price">Starting at $30</span>
           <a href="#booking" class="btn-link">Book this service →</a>
+          <a href="/dog-deshedding-treatment" class="btn-link" style="margin-left:16px;opacity:.8">Details →</a>
         </article>
 
         <article class="service-card reveal">
           <span class="service-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 4 5 4 8a4 4 0 1 1-8 0c0-3 2-5 4-8z"/><path d="M9 17c1 2 5 2 6 0"/></svg>
           </span>
-          <h3>Spa &amp; Hydration Treatments</h3>
+          <h3><a href="/dog-spa-falmouth-ma" style="text-decoration:none;color:inherit">Spa &amp; Hydration Treatments</a></h3>
           <p>Luxury skin and coat treatments for hydration, softness, and shine.</p>
           <span class="service-price">Starting at $50</span>
           <a href="#booking" class="btn-link">Book this service →</a>
+          <a href="/dog-spa-falmouth-ma" class="btn-link" style="margin-left:16px;opacity:.8">Details →</a>
         </article>
 
         <article class="service-card reveal" style="grid-column: 1 / -1; background: linear-gradient(135deg, var(--color-cream), #fff);">
@@ -2127,6 +2207,8 @@ main > section {
           </ul>
         </article>
       </div>
+
+      <p class="services-note reveal" style="margin-bottom:12px"><strong>Specialty grooming:</strong> <a href="/cat-grooming-falmouth-ma">Cat Grooming</a> &middot; <a href="/goldendoodle-grooming">Goldendoodle Grooming</a> &middot; <a href="/large-dog-grooming">Large Dog Grooming</a> &middot; <a href="/services">View all services</a></p>
 
       <p class="services-note reveal"><strong>Note:</strong> Final pricing depends on your pet's size, coat condition, and handling needs. Services such as dematting, de-shedding, and special handling may be added after our groomer evaluates your pet. We always confirm with you before doing anything extra.</p>
     </div>

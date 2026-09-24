@@ -19,61 +19,125 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://www.superpethome.com/#business",
-        "name": "Super Pet Grooming Salon",
-        "url": "https://www.superpethome.com",
-        "telephone": "+15085243489",
-        "email": "superpethome@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "122 Teaticket Hwy",
-          "addressLocality": "East Falmouth",
-          "addressRegion": "MA",
-          "postalCode": "02536",
-          "addressCountry": "US"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.superpethome.com/#business",
+      "name": "Super Pet Grooming Salon",
+      "url": "https://www.superpethome.com",
+      "telephone": "+15085243489",
+      "email": "superpethome@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "122 Teaticket Hwy",
+        "addressLocality": "East Falmouth",
+        "addressRegion": "MA",
+        "postalCode": "02536",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
         },
-        "openingHoursSpecification": [
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
-        ],
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "47" },
-        "image": "https://www.superpethome.com/team-photo.jpeg",
-        "priceRange": "$$"
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.superpethome.com/large-dog-grooming",
-        "url": "https://www.superpethome.com/large-dog-grooming",
-        "name": "Large Dog Grooming on Cape Cod | Super Pet Grooming Salon",
-        "description": "Professional large and giant breed dog grooming in East Falmouth, MA. Bernese Mountain Dogs, Huskies, Labs, German Shepherds, and more.",
-        "isPartOf": { "@id": "https://www.superpethome.com/#business" }
-      },
-      {
-        "@type": "Service",
-        "name": "Large Dog Grooming",
-        "provider": { "@id": "https://www.superpethome.com/#business" },
-        "areaServed": { "@type": "City", "name": "Falmouth, MA" },
-        "description": "Professional large and giant breed grooming on Cape Cod. All large breeds welcome. Starting at $75+.",
-        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "75", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "75" } }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "Do you groom large dogs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Super Pet in East Falmouth, MA welcomes dogs of all sizes, including large and giant breeds. We have experience with Bernese Mountain Dogs, Huskies, German Shepherds, Labradors, Golden Retrievers, Standard Poodles, Rottweilers, Great Danes, and many other large breeds." } },
-          { "@type": "Question", "name": "How much does grooming a large dog cost?", "acceptedAnswer": { "@type": "Answer", "text": "Large dog grooming at Super Pet starts at $75 and increases based on size, breed, and coat condition. Exact pricing for large dogs varies significantly and is best discussed before the appointment. First-time large dogs over 70 lbs are reviewed by our groomer before the deposit is charged." } },
-          { "@type": "Question", "name": "How long does grooming a large dog take?", "acceptedAnswer": { "@type": "Answer", "text": "Grooming a large dog at Super Pet typically takes 2 to 3 hours depending on the breed, coat condition, and services requested. Double-coated large breeds like Huskies or Bernese Mountain Dogs may take longer, especially with a de-shedding treatment." } },
-          { "@type": "Question", "name": "What large breeds do you specialize in?", "acceptedAnswer": { "@type": "Answer", "text": "We groom all large and giant breeds at Super Pet including Bernese Mountain Dog, Siberian Husky, German Shepherd, Labrador Retriever, Golden Retriever, Standard Poodle, Irish Setter, Rottweiler, Great Dane, Belgian Malinois, and similar breeds." } },
-          { "@type": "Question", "name": "Why does my large dog need a groomer evaluation on the first visit?", "acceptedAnswer": { "@type": "Answer", "text": "For first-time large dogs over 70 lbs, our groomer personally reviews the dog before confirming the appointment. This allows us to understand the dog's temperament, coat needs, and any special handling requirements. We want to ensure the experience is right for both the dog and our team. No deposit is charged until the evaluation is complete." } }
-        ]
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "image": "https://www.superpethome.com/team-photo.jpeg",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.superpethome.com/large-dog-grooming",
+      "url": "https://www.superpethome.com/large-dog-grooming",
+      "name": "Large Dog Grooming on Cape Cod | Super Pet Grooming Salon",
+      "description": "Professional large and giant breed dog grooming in East Falmouth, MA. Bernese Mountain Dogs, Huskies, Labs, German Shepherds, and more.",
+      "isPartOf": {
+        "@id": "https://www.superpethome.com/#business"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Service",
+      "name": "Large Dog Grooming",
+      "provider": {
+        "@id": "https://www.superpethome.com/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Falmouth, MA"
+      },
+      "description": "Professional large and giant breed grooming on Cape Cod. All large breeds welcome. Starting at $75+.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "75",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "75"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you groom large dogs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Super Pet in East Falmouth, MA welcomes dogs of all sizes, including large and giant breeds. We have experience with Bernese Mountain Dogs, Huskies, German Shepherds, Labradors, Golden Retrievers, Standard Poodles, Rottweilers, Great Danes, and many other large breeds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does grooming a large dog cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Large dog grooming at Super Pet starts at $75 and increases based on size, breed, and coat condition. Exact pricing for large dogs varies significantly and is best discussed before the appointment. First-time large dogs over 70 lbs are reviewed by our groomer before the deposit is charged."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does grooming a large dog take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Grooming a large dog at Super Pet typically takes 2 to 3 hours depending on the breed, coat condition, and services requested. Double-coated large breeds like Huskies or Bernese Mountain Dogs may take longer, especially with a de-shedding treatment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What large breeds do you specialize in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We groom all large and giant breeds at Super Pet including Bernese Mountain Dog, Siberian Husky, German Shepherd, Labrador Retriever, Golden Retriever, Standard Poodle, Irish Setter, Rottweiler, Great Dane, Belgian Malinois, and similar breeds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my large dog need a groomer evaluation on the first visit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For first-time large dogs over 70 lbs, our groomer personally reviews the dog before confirming the appointment. This allows us to understand the dog's temperament, coat needs, and any special handling requirements. We want to ensure the experience is right for both the dog and our team. No deposit is charged until the evaluation is complete."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
   <style>
 :root {
   --color-primary: #E63946;
@@ -213,7 +277,7 @@ p { margin: 0 0 1rem; }
       </a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
+        <li><a href="/services">Services</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/#gallery">Gallery</a></li>
         <li><a href="/faq">FAQ</a></li>
@@ -229,7 +293,7 @@ p { margin: 0 0 1rem; }
     <div class="container">
       <a href="/">Home</a>
       <span aria-hidden="true">/</span>
-      <a href="/#services">Services</a>
+      <a href="/services">Services</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">Large Dog Grooming on Cape Cod</span>
     </div>
@@ -389,7 +453,7 @@ p { margin: 0 0 1rem; }
         <h4>Quick Links</h4>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/#services">Services</a></li>
+          <li><a href="/services">Services</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/blog">Blog</a></li>

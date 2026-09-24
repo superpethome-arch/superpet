@@ -19,61 +19,125 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://www.superpethome.com/#business",
-        "name": "Super Pet Grooming Salon",
-        "url": "https://www.superpethome.com",
-        "telephone": "+15085243489",
-        "email": "superpethome@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "122 Teaticket Hwy",
-          "addressLocality": "East Falmouth",
-          "addressRegion": "MA",
-          "postalCode": "02536",
-          "addressCountry": "US"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.superpethome.com/#business",
+      "name": "Super Pet Grooming Salon",
+      "url": "https://www.superpethome.com",
+      "telephone": "+15085243489",
+      "email": "superpethome@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "122 Teaticket Hwy",
+        "addressLocality": "East Falmouth",
+        "addressRegion": "MA",
+        "postalCode": "02536",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
         },
-        "openingHoursSpecification": [
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
-        ],
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "47" },
-        "image": "https://www.superpethome.com/team-photo.jpeg",
-        "priceRange": "$$"
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.superpethome.com/puppy-grooming-falmouth",
-        "url": "https://www.superpethome.com/puppy-grooming-falmouth",
-        "name": "Puppy Grooming in Falmouth, MA | Super Pet Grooming Salon",
-        "description": "Positive first grooming experience for puppies in East Falmouth, MA. Builds trust early and makes future grooming visits easier.",
-        "isPartOf": { "@id": "https://www.superpethome.com/#business" }
-      },
-      {
-        "@type": "Service",
-        "name": "Puppy Introduction Grooming",
-        "provider": { "@id": "https://www.superpethome.com/#business" },
-        "areaServed": { "@type": "City", "name": "Falmouth, MA" },
-        "description": "Positive first grooming experience for puppies designed to build trust and make future visits stress-free. Starting at $85.",
-        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "85", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "85" } }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "When should I start grooming my puppy?", "acceptedAnswer": { "@type": "Answer", "text": "Most puppies are ready for their first grooming appointment between 10 and 16 weeks of age, once they have had their initial vaccinations. Starting early helps puppies learn that grooming is a safe, positive experience." } },
-          { "@type": "Question", "name": "What happens at a puppy introduction grooming?", "acceptedAnswer": { "@type": "Answer", "text": "A puppy introduction at Super Pet is a short, positive grooming session designed to familiarize your puppy with the grooming environment. It includes a gentle bath, light brush-out, nail trim, ear check, and a bandana. We adapt the session to your puppy's comfort level throughout." } },
-          { "@type": "Question", "name": "What vaccinations does my puppy need for grooming?", "acceptedAnswer": { "@type": "Answer", "text": "Puppies must have current Rabies, DHPP, and Bordetella vaccinations before their first grooming appointment. Most puppies have their initial rounds by 10 to 16 weeks. Ask your vet when your puppy will be ready." } },
-          { "@type": "Question", "name": "How long does a puppy grooming appointment take?", "acceptedAnswer": { "@type": "Answer", "text": "Puppy introduction appointments are shorter than standard adult grooms, typically 45 minutes to 1.5 hours. We go at your puppy's pace and stop for breaks when needed." } },
-          { "@type": "Question", "name": "How often should puppies be groomed?", "acceptedAnswer": { "@type": "Answer", "text": "Once a puppy has had their introduction, we recommend monthly grooming visits to maintain their coat and build positive associations. Consistent early grooming sets the foundation for a stress-free adult grooming life." } }
-        ]
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "image": "https://www.superpethome.com/team-photo.jpeg",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.superpethome.com/puppy-grooming-falmouth",
+      "url": "https://www.superpethome.com/puppy-grooming-falmouth",
+      "name": "Puppy Grooming in Falmouth, MA | Super Pet Grooming Salon",
+      "description": "Positive first grooming experience for puppies in East Falmouth, MA. Builds trust early and makes future grooming visits easier.",
+      "isPartOf": {
+        "@id": "https://www.superpethome.com/#business"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Service",
+      "name": "Puppy Introduction Grooming",
+      "provider": {
+        "@id": "https://www.superpethome.com/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Falmouth, MA"
+      },
+      "description": "Positive first grooming experience for puppies designed to build trust and make future visits stress-free. Starting at $85.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "85",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "85"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "When should I start grooming my puppy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most puppies are ready for their first grooming appointment between 10 and 16 weeks of age, once they have had their initial vaccinations. Starting early helps puppies learn that grooming is a safe, positive experience."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens at a puppy introduction grooming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A puppy introduction at Super Pet is a short, positive grooming session designed to familiarize your puppy with the grooming environment. It includes a gentle bath, light brush-out, nail trim, ear check, and a bandana. We adapt the session to your puppy's comfort level throughout."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What vaccinations does my puppy need for grooming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puppies must have current Rabies, DHPP, and Bordetella vaccinations before their first grooming appointment. Most puppies have their initial rounds by 10 to 16 weeks. Ask your vet when your puppy will be ready."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a puppy grooming appointment take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puppy introduction appointments are shorter than standard adult grooms, typically 45 minutes to 1.5 hours. We go at your puppy's pace and stop for breaks when needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should puppies be groomed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Once a puppy has had their introduction, we recommend monthly grooming visits to maintain their coat and build positive associations. Consistent early grooming sets the foundation for a stress-free adult grooming life."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
   <style>
 :root {
   --color-primary: #E63946;
@@ -213,7 +277,7 @@ p { margin: 0 0 1rem; }
       </a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
+        <li><a href="/services">Services</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/#gallery">Gallery</a></li>
         <li><a href="/faq">FAQ</a></li>
@@ -229,7 +293,7 @@ p { margin: 0 0 1rem; }
     <div class="container">
       <a href="/">Home</a>
       <span aria-hidden="true">/</span>
-      <a href="/#services">Services</a>
+      <a href="/services">Services</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">Puppy Grooming in Falmouth, MA</span>
     </div>
@@ -385,7 +449,7 @@ p { margin: 0 0 1rem; }
         <h4>Quick Links</h4>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/#services">Services</a></li>
+          <li><a href="/services">Services</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/blog">Blog</a></li>

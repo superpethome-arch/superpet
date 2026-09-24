@@ -42,12 +42,6 @@
         "@type": "GeoCoordinates",
         "latitude": 41.5584,
         "longitude": -70.5673
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "bestRating": "5",
-        "ratingCount": "47"
       }
     },
     {
@@ -56,13 +50,27 @@
       "url": "https://www.superpethome.com/about",
       "name": "About Us | Super Pet Grooming Salon | East Falmouth, MA",
       "description": "Meet the certified grooming team at Super Pet Grooming Salon in East Falmouth, MA. Passionate groomers serving Falmouth and Cape Cod since 2014.",
-      "isPartOf": {"@id": "https://www.superpethome.com/#website"},
-      "about": {"@id": "https://www.superpethome.com/#business"},
+      "isPartOf": {
+        "@id": "https://www.superpethome.com/#website"
+      },
+      "about": {
+        "@id": "https://www.superpethome.com/#business"
+      },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.superpethome.com/"},
-          {"@type": "ListItem", "position": 2, "name": "About", "item": "https://www.superpethome.com/about"}
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.superpethome.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://www.superpethome.com/about"
+          }
         ]
       }
     },
@@ -71,9 +79,18 @@
       "@id": "https://www.superpethome.com/about#groomer-sabina",
       "name": "Sabina",
       "jobTitle": "Lead Certified Groomer",
-      "worksFor": {"@id": "https://www.superpethome.com/#business"},
+      "worksFor": {
+        "@id": "https://www.superpethome.com/#business"
+      },
       "description": "Certified professional groomer specializing in low-stress and gentle grooming techniques for dogs and cats of all breeds. Known for patience, care, and building trust with anxious pets.",
-      "knowsAbout": ["dog grooming", "cat grooming", "gentle grooming", "breed-specific cuts", "de-shedding treatment", "puppy introduction grooming"]
+      "knowsAbout": [
+        "dog grooming",
+        "cat grooming",
+        "gentle grooming",
+        "breed-specific cuts",
+        "de-shedding treatment",
+        "puppy introduction grooming"
+      ]
     }
   ]
 }
@@ -244,7 +261,7 @@ p { margin: 0 0 1rem; }
       </a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
+        <li><a href="/services">Services</a></li>
         <li><a href="/about" aria-current="page">About</a></li>
         <li><a href="/#gallery">Gallery</a></li>
         <li><a href="/faq">FAQ</a></li>
@@ -497,7 +514,7 @@ p { margin: 0 0 1rem; }
         <h4>Quick Links</h4>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/#services">Services</a></li>
+          <li><a href="/services">Services</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/blog">Blog</a></li>

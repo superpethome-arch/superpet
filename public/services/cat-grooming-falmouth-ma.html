@@ -19,61 +19,116 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://www.superpethome.com/#business",
-        "name": "Super Pet Grooming Salon",
-        "url": "https://www.superpethome.com",
-        "telephone": "+15085243489",
-        "email": "superpethome@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "122 Teaticket Hwy",
-          "addressLocality": "East Falmouth",
-          "addressRegion": "MA",
-          "postalCode": "02536",
-          "addressCountry": "US"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.superpethome.com/#business",
+      "name": "Super Pet Grooming Salon",
+      "url": "https://www.superpethome.com",
+      "telephone": "+15085243489",
+      "email": "superpethome@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "122 Teaticket Hwy",
+        "addressLocality": "East Falmouth",
+        "addressRegion": "MA",
+        "postalCode": "02536",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
         },
-        "openingHoursSpecification": [
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
-        ],
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "47" },
-        "image": "https://www.superpethome.com/team-photo.jpeg",
-        "priceRange": "$$"
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.superpethome.com/cat-grooming-falmouth-ma",
-        "url": "https://www.superpethome.com/cat-grooming-falmouth-ma",
-        "name": "Cat Grooming in Falmouth, MA | Super Pet Grooming Salon",
-        "description": "Professional cat grooming in East Falmouth, MA. Calm, dedicated space separate from dogs. Every cat confirmed with our lead groomer before booking.",
-        "isPartOf": { "@id": "https://www.superpethome.com/#business" }
-      },
-      {
-        "@type": "Service",
-        "name": "Cat Grooming",
-        "provider": { "@id": "https://www.superpethome.com/#business" },
-        "areaServed": { "@type": "City", "name": "Falmouth, MA" },
-        "description": "Calm, professional cat grooming in a dedicated dog-free space. Every appointment reviewed by our lead groomer. Starting at $85.",
-        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "85", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "85" } }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "Do you groom cats?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Super Pet offers full cat grooming services in East Falmouth, MA. Every appointment is first reviewed by our lead groomer to ensure the best experience for your cat." } },
-          { "@type": "Question", "name": "What is included in cat grooming?", "acceptedAnswer": { "@type": "Answer", "text": "Cat grooming at Super Pet includes a bath, blow-dry, brush-out, lion cut or breed-appropriate trim, nail trim, ear cleaning, and a finishing touch." } },
-          { "@type": "Question", "name": "Why does my cat need a groomer evaluation?", "acceptedAnswer": { "@type": "Answer", "text": "Cat grooming requires special handling techniques. Our lead groomer evaluates each cat before confirming the appointment to ensure a safe, calm, and appropriate service for your cat's specific needs." } },
-          { "@type": "Question", "name": "How long does cat grooming take?", "acceptedAnswer": { "@type": "Answer", "text": "Most cat grooming sessions take approximately 1.5 to 2 hours. The time depends on your cat's breed, coat condition, and temperament." } },
-          { "@type": "Question", "name": "Are cats kept separate from dogs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide a dedicated, calm, dog-free space for all cat grooming appointments at Super Pet in East Falmouth, MA." } }
-        ]
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "image": "https://www.superpethome.com/team-photo.jpeg",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.superpethome.com/cat-grooming-falmouth-ma",
+      "url": "https://www.superpethome.com/cat-grooming-falmouth-ma",
+      "name": "Cat Grooming in Falmouth, MA | Super Pet Grooming Salon",
+      "description": "Professional cat grooming in East Falmouth, MA. Calm, dedicated space separate from dogs. Every cat confirmed with our lead groomer before booking.",
+      "isPartOf": {
+        "@id": "https://www.superpethome.com/#business"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Service",
+      "name": "Cat Grooming",
+      "provider": {
+        "@id": "https://www.superpethome.com/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Falmouth, MA"
+      },
+      "description": "Calm, professional cat grooming in a dedicated dog-free space. Every appointment reviewed by our lead groomer. Price confirmed after evaluation."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you groom cats?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Super Pet offers full cat grooming services in East Falmouth, MA. Every appointment is first reviewed by our lead groomer to ensure the best experience for your cat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in cat grooming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cat grooming at Super Pet includes a bath, blow-dry, brush-out, trim suited to your cat's coat, nail trim, ear cleaning, and a finishing touch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my cat need a groomer evaluation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cat grooming requires special handling techniques. Our lead groomer evaluates each cat before confirming the appointment to ensure a safe, calm, and appropriate service for your cat's specific needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does cat grooming take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most cat grooming sessions take approximately 1.5 to 2 hours. The time depends on your cat's breed, coat condition, and temperament."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are cats kept separate from dogs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We provide a dedicated, calm, dog-free space for all cat grooming appointments at Super Pet in East Falmouth, MA."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
   <style>
 :root {
   --color-primary: #E63946;
@@ -213,7 +268,7 @@ p { margin: 0 0 1rem; }
       </a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
+        <li><a href="/services">Services</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/#gallery">Gallery</a></li>
         <li><a href="/faq">FAQ</a></li>
@@ -229,7 +284,7 @@ p { margin: 0 0 1rem; }
     <div class="container">
       <a href="/">Home</a>
       <span aria-hidden="true">/</span>
-      <a href="/#services">Services</a>
+      <a href="/services">Services</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">Cat Grooming in Falmouth, MA</span>
     </div>
@@ -258,13 +313,13 @@ p { margin: 0 0 1rem; }
         <div class="price-cards">
           <div class="price-card featured" style="grid-column:span 1">
             <h3>Full Cat Groom</h3>
-            <div class="price"><span>from</span> $85</div>
+            <div class="price" style="font-size:24px">Quote after evaluation</div>
             <p>Complete cat grooming in a calm, dedicated space. Price varies by breed and coat condition.</p>
             <ul class="includes-list">
               <li>Full bath with gentle cat-safe shampoo</li>
               <li>Hand blow-dry - no cage drying</li>
               <li>Full brush-out to remove tangles and loose fur</li>
-              <li>Lion cut or breed-appropriate trim</li>
+              <li>Trim suited to your cat's coat</li>
               <li>Nail trim</li>
               <li>Ear cleaning and inspection</li>
               <li>Finishing touch</li>
@@ -327,7 +382,7 @@ p { margin: 0 0 1rem; }
           <div class="fact-item"><div class="fact-bullet"></div><p><strong>No Cage Drying:</strong> We hand dry every cat. No cage dryers, ever.</p></div>
           <div class="fact-item"><div class="fact-bullet"></div><p><strong>Duration:</strong> Cat grooming typically takes 1.5 to 2 hours depending on coat condition.</p></div>
           <div class="fact-item"><div class="fact-bullet"></div><p><strong>Vaccination:</strong> Current Rabies vaccination is required for all cats.</p></div>
-          <div class="fact-item"><div class="fact-bullet"></div><p><strong>Pricing:</strong> Starting at $85, varies by breed and coat. Call for an exact quote.</p></div>
+          <div class="fact-item"><div class="fact-bullet"></div><p><strong>Pricing:</strong> Confirmed by our lead groomer after evaluation, based on breed, coat, and temperament. Call for a quote.</p></div>
         </div>
       </div>
     </section>
@@ -345,7 +400,7 @@ p { margin: 0 0 1rem; }
           </details>
           <details class="faq-item">
             <summary>What's included in cat grooming? <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
-            <div class="faq-answer"><p>A full cat groom at Super Pet includes a bath with gentle shampoo, hand blow-dry, thorough brush-out, a lion cut or breed-appropriate trim, nail trim, ear cleaning, and a finishing touch. No cage drying - ever.</p></div>
+            <div class="faq-answer"><p>A full cat groom at Super Pet includes a bath with gentle shampoo, hand blow-dry, thorough brush-out, a trim suited to your cat's coat, nail trim, ear cleaning, and a finishing touch. No cage drying - ever.</p></div>
           </details>
           <details class="faq-item">
             <summary>Why does my cat need a groomer evaluation first? <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
@@ -387,7 +442,7 @@ p { margin: 0 0 1rem; }
         <h4>Quick Links</h4>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/#services">Services</a></li>
+          <li><a href="/services">Services</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/blog">Blog</a></li>

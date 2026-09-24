@@ -19,6 +19,9 @@ User-agent: Bingbot
 Allow: /
 
 # AI crawlers — explicitly allowed for GEO (Generative Engine Optimization)
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 

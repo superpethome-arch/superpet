@@ -19,61 +19,125 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://www.superpethome.com/#business",
-        "name": "Super Pet Grooming Salon",
-        "url": "https://www.superpethome.com",
-        "telephone": "+15085243489",
-        "email": "superpethome@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "122 Teaticket Hwy",
-          "addressLocality": "East Falmouth",
-          "addressRegion": "MA",
-          "postalCode": "02536",
-          "addressCountry": "US"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.superpethome.com/#business",
+      "name": "Super Pet Grooming Salon",
+      "url": "https://www.superpethome.com",
+      "telephone": "+15085243489",
+      "email": "superpethome@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "122 Teaticket Hwy",
+        "addressLocality": "East Falmouth",
+        "addressRegion": "MA",
+        "postalCode": "02536",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
         },
-        "openingHoursSpecification": [
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
-          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
-        ],
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "47" },
-        "image": "https://www.superpethome.com/team-photo.jpeg",
-        "priceRange": "$$"
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.superpethome.com/gentle-dog-grooming",
-        "url": "https://www.superpethome.com/gentle-dog-grooming",
-        "name": "Gentle Dog Grooming for Anxious Dogs | Super Pet in Falmouth, MA",
-        "description": "Specialized gentle grooming for anxious, fearful, or sensitive dogs in East Falmouth, MA. Calming techniques, positive reinforcement, no rush.",
-        "isPartOf": { "@id": "https://www.superpethome.com/#business" }
-      },
-      {
-        "@type": "Service",
-        "name": "Gentle Dog Grooming",
-        "provider": { "@id": "https://www.superpethome.com/#business" },
-        "areaServed": { "@type": "City", "name": "Falmouth, MA" },
-        "description": "Specialized low-stress grooming for anxious, fearful, or sensitive dogs. Positive reinforcement, calming approach, no rush. Starting at $85.",
-        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "85", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "85" } }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "What is gentle grooming?", "acceptedAnswer": { "@type": "Answer", "text": "Gentle grooming is a specialized low-stress approach designed for dogs with anxiety, fear, or sensitivity. Our groomers use positive reinforcement, calming techniques, and an unhurried pace to make the experience as comfortable as possible for your dog." } },
-          { "@type": "Question", "name": "Is gentle grooming more expensive than regular grooming?", "acceptedAnswer": { "@type": "Answer", "text": "Gentle grooming at Super Pet starts at $85, slightly above our standard full groom starting at $75. This reflects the additional time and care required. Final pricing may vary depending on the duration and complexity of the session." } },
-          { "@type": "Question", "name": "My dog has bitten groomers before - can you help?", "acceptedAnswer": { "@type": "Answer", "text": "We understand that some dogs have had negative experiences with grooming. Please mention this when booking so we can prepare properly. We assess each dog individually and will always prioritize safety for your dog and our team." } },
-          { "@type": "Question", "name": "How do you calm an anxious dog during grooming?", "acceptedAnswer": { "@type": "Answer", "text": "We use positive reinforcement, slow and deliberate movements, frequent breaks, calm reassurance, and an unhurried pace. We never use force or rush through the process. We adapt continuously based on how your dog is responding." } },
-          { "@type": "Question", "name": "How many visits before my dog is comfortable?", "acceptedAnswer": { "@type": "Answer", "text": "Every dog is different. Some dogs relax after just a couple of visits, while others need more time. We recommend consistent monthly grooming appointments to help your dog build positive associations with the grooming environment over time." } }
-        ]
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "image": "https://www.superpethome.com/team-photo.jpeg",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.superpethome.com/gentle-dog-grooming",
+      "url": "https://www.superpethome.com/gentle-dog-grooming",
+      "name": "Gentle Dog Grooming for Anxious Dogs | Super Pet in Falmouth, MA",
+      "description": "Specialized gentle grooming for anxious, fearful, or sensitive dogs in East Falmouth, MA. Calming techniques, positive reinforcement, no rush.",
+      "isPartOf": {
+        "@id": "https://www.superpethome.com/#business"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Service",
+      "name": "Gentle Dog Grooming",
+      "provider": {
+        "@id": "https://www.superpethome.com/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Falmouth, MA"
+      },
+      "description": "Specialized low-stress grooming for anxious, fearful, or sensitive dogs. Positive reinforcement, calming approach, no rush. Starting at $85.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "85",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "85"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is gentle grooming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gentle grooming is a specialized low-stress approach designed for dogs with anxiety, fear, or sensitivity. Our groomers use positive reinforcement, calming techniques, and an unhurried pace to make the experience as comfortable as possible for your dog."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is gentle grooming more expensive than regular grooming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gentle grooming at Super Pet starts at $85, slightly above our standard full groom starting at $75. This reflects the additional time and care required. Final pricing may vary depending on the duration and complexity of the session."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My dog has bitten groomers before - can you help?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We understand that some dogs have had negative experiences with grooming. Please mention this when booking so we can prepare properly. We assess each dog individually and will always prioritize safety for your dog and our team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you calm an anxious dog during grooming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We use positive reinforcement, slow and deliberate movements, frequent breaks, calm reassurance, and an unhurried pace. We never use force or rush through the process. We adapt continuously based on how your dog is responding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many visits before my dog is comfortable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every dog is different. Some dogs relax after just a couple of visits, while others need more time. We recommend consistent monthly grooming appointments to help your dog build positive associations with the grooming environment over time."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
   <style>
 :root {
   --color-primary: #E63946;
@@ -213,7 +277,7 @@ p { margin: 0 0 1rem; }
       </a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
+        <li><a href="/services">Services</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/#gallery">Gallery</a></li>
         <li><a href="/faq">FAQ</a></li>
@@ -229,7 +293,7 @@ p { margin: 0 0 1rem; }
     <div class="container">
       <a href="/">Home</a>
       <span aria-hidden="true">/</span>
-      <a href="/#services">Services</a>
+      <a href="/services">Services</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">Gentle Dog Grooming</span>
     </div>
@@ -387,7 +451,7 @@ p { margin: 0 0 1rem; }
         <h4>Quick Links</h4>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/#services">Services</a></li>
+          <li><a href="/services">Services</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/blog">Blog</a></li>

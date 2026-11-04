@@ -53,7 +53,7 @@ export default async function handler(req, res) {
           <div style="background:#f9fafb;padding:20px 24px;border:1px solid #e5e7eb;border-top:none">
             <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:12px 16px;margin-bottom:20px">
               <strong style="color:#92400e">Cliente na pagina de pagamento</strong><br/>
-              <span style="color:#92400e;font-size:13px">Aguardando deposito de $25.00. Se nao chegar email [PAID], o cliente abandonou.</span>
+              <span style="color:#92400e;font-size:13px">Aguardando deposito de $50.00. Se nao chegar email [PAID], o cliente abandonou.</span>
             </div>
             <table style="width:100%;border-collapse:collapse">
               <tr style="background:#e5e7eb"><td colspan="2" style="padding:8px 12px;font-weight:600;font-size:12px;text-transform:uppercase;color:#374151">Booking Details</td></tr>

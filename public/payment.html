@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Secure Your Spot — Super Pet Grooming</title>
-<meta name="description" content="Confirm your appointment by securing your spot with a $25 deposit." />
+<meta name="description" content="Confirm your appointment by securing your spot with a $50 deposit." />
 <meta name="robots" content="noindex,nofollow" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -352,7 +352,7 @@ h1.checkout-title {
 
   <section id="payment-state" hidden>
     <h1 class="checkout-title">One last step to secure your spot</h1>
-    <p class="checkout-subtitle">A small $25 deposit confirms your appointment. It's applied to your final bill on the day of grooming.</p>
+    <p class="checkout-subtitle">A $50 deposit confirms your appointment. It's applied to your final bill on the day of grooming.</p>
 
     <div class="summary-card" aria-labelledby="summary-heading">
       <h2 id="summary-heading">Your appointment</h2>
@@ -361,7 +361,7 @@ h1.checkout-title {
 
     <div class="deposit-explainer">
       <span class="icon" aria-hidden="true">$</span>
-      <p><strong>$25 deposit</strong> secures your spot and will be <strong>applied to your total</strong> on the day of your appointment. You'll pay only the remaining balance after grooming.</p>
+      <p><strong>$50 deposit</strong> secures your spot and will be <strong>applied to your total</strong> on the day of your appointment. You'll pay only the remaining balance after grooming.</p>
     </div>
 
     <div class="card-form-wrap">
@@ -370,7 +370,7 @@ h1.checkout-title {
       <div id="card-errors" role="alert" aria-live="polite"></div>
     </div>
 
-    <button type="button" id="pay-button" class="pay-button">Secure My Spot — $25</button>
+    <button type="button" id="pay-button" class="pay-button">Secure My Spot ($50)</button>
 
     <p class="cancel-policy">
       Cancellations with 24+ hours notice: refundable or reschedulable.
@@ -386,7 +386,7 @@ h1.checkout-title {
     <p id="success-msg">Payment confirmed! Our team will contact you within 24 hours to confirm the date and time of your appointment.</p>
 
     <div class="receipt-info">
-      <div><strong>Amount charged:</strong> $25.00 USD</div>
+      <div><strong>Amount charged:</strong> $50.00 USD</div>
       <div><strong>Payment ID:</strong> <span id="success-payment-id">—</span></div>
       <div id="success-receipt-row"><strong>Receipt:</strong> <a id="success-receipt-link" href="#" target="_blank" rel="noopener noreferrer">View on Square</a></div>
     </div>
@@ -442,7 +442,7 @@ h1.checkout-title {
 
   // ---- Square SDK init ----
   let card; // the Square Card payment method
-  let payButtonLabel = 'Secure My Spot — $25';
+  let payButtonLabel = 'Secure My Spot ($50)';
 
   initSquare().catch(function (err) {
     console.error('Square init failed:', err);

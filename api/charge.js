@@ -25,7 +25,7 @@ async function sendErrorEmail(resendKey, { customerName, petName, customerEmail,
           </div>
           <div style="background:#f9fafb;padding:20px 24px;border:1px solid #e5e7eb;border-top:none">
             <div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:12px 16px;margin-bottom:20px">
-              <strong style="color:#7f1d1d">Deposit of $25.00 was not processed</strong><br/>
+              <strong style="color:#7f1d1d">Deposit of $50.00 was not processed</strong><br/>
               <span style="color:#7f1d1d;font-size:13px">Reason: ${reason}</span>
             </div>
             <table style="width:100%;border-collapse:collapse">
@@ -49,7 +49,7 @@ async function sendErrorEmail(resendKey, { customerName, petName, customerEmail,
 const SANDBOX_BASE    = 'https://connect.squareupsandbox.com';
 const PRODUCTION_BASE = 'https://connect.squareup.com';
 const SQUARE_API_VERSION   = '2024-10-17';
-const DEPOSIT_AMOUNT_CENTS = 2500; // $25.00
+const DEPOSIT_AMOUNT_CENTS = 5000; // $50.00
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin':  '*',
@@ -166,7 +166,7 @@ export default async function handler(req, res) {
             </div>
             <div style="background:#f9fafb;padding:20px 24px;border:1px solid #e5e7eb;border-top:none">
               <div style="background:#dcfce7;border:1px solid #86efac;border-radius:8px;padding:12px 16px;margin-bottom:20px">
-                <strong style="color:#166534">Deposit of $25.00 received</strong><br/>
+                <strong style="color:#166534">Deposit of $50.00 received</strong><br/>
                 <span style="color:#166534;font-size:13px">Payment ID: ${payment.id}</span><br/>
                 ${payment.receipt_url ? `<a href="${payment.receipt_url}" style="color:#166534;font-size:13px">View Square Receipt</a>` : ''}
               </div>

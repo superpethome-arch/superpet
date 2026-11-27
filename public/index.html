@@ -2507,7 +2507,6 @@ main > section {
                 <select id="pet-type" name="Pet Type">
                   <option value="">Select…</option>
                   <option value="Dog">Dog</option>
-                  <option value="Cat">Cat</option>
                 </select>
               </div>
             </div>
@@ -3234,7 +3233,6 @@ main > section {
     {bot:function(d){return'Nice to meet you, '+d['Owner Name'].split(' ')[0]+'! What is the best phone number to reach you?';},type:'tel',ph:'(508) 000-0000',field:'Phone',val:function(v){return v.replace(/\D/g,'').length>=10?null:'Please enter a valid phone number.';}},
     {bot:function(){return'And your email address?';},type:'email',ph:'you@email.com',field:'Email',val:function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?null:'Please enter a valid email.';}},
     {bot:function(){return'What is your pet\'s name?';},type:'text',ph:'Max, Bella, Luna...',field:'Pet Name',val:function(v){return v.trim().length>0?null:'Please enter your pet\'s name.';}},
-    {bot:function(d){return'Is '+d['Pet Name']+' a dog or a cat?';},type:'buttons',options:['Dog','Cat'],field:'Pet Type'},
     {bot:function(d){return'What breed is '+d['Pet Name']+'?';},type:'text',ph:'Goldendoodle, Lab, Mixed...',field:'Breed',val:function(v){return v.trim().length>0?null:'Please enter the breed.';}},
     {bot:function(d){return'About how much does '+d['Pet Name']+' weigh?';},type:'buttons',options:WEIGHTS,field:'Pet Weight'},
     {bot:function(){return'What service are you looking for?';},type:'buttons',options:SERVICES,field:'Service Requested'},
@@ -3403,6 +3401,7 @@ main > section {
     var elapsed=Date.now()-openedAt;
     if(elapsed<3000){showDone('err');return;}
 
+    data['Pet Type']='Dog';
     var bigDog=data['Pet Weight']==='Over 70 lbs'&&data['First Visit']==='Yes';
     var isCat=!!data._cat;
 

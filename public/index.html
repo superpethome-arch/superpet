@@ -1553,12 +1553,6 @@ main > section {
           ],
           "opens": "09:00",
           "closes": "17:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "09:00",
-          "closes": "13:00"
         }
       ],
       "areaServed": [
@@ -1644,12 +1638,6 @@ main > section {
             ],
             "opens": "09:00",
             "closes": "17:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "09:00",
-            "closes": "13:00"
           }
         ]
       },
@@ -1867,7 +1855,7 @@ main > section {
           "name": "How do I book an appointment at Super Pet Grooming Salon?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can book online through the booking form at superpethome.com, call us at (508) 524-3489, or send us a message on Instagram at @superpetfalmouth. We are located at 122 Teaticket Hwy, East Falmouth, MA 02536, open Tuesday through Friday 9am to 5pm and Saturday 9am to 1pm. Closed Sunday and Monday."
+            "text": "You can book online through the booking form at superpethome.com, call us at (508) 524-3489, or send us a message on Instagram at @superpetfalmouth. We are located at 122 Teaticket Hwy, East Falmouth, MA 02536, open Tuesday through Friday 9am to 5pm. Closed Saturday, Sunday and Monday."
           }
         },
         {
@@ -1883,7 +1871,7 @@ main > section {
           "name": "Where is Super Pet Grooming Salon located?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Super Pet Grooming Salon is located at 122 Teaticket Hwy, East Falmouth, MA 02536 on Cape Cod. We are open Tuesday through Friday from 9:00 AM to 5:00 PM, and Saturday from 9:00 AM to 1:00 PM. We are closed Sunday and Monday. You can reach us at (508) 524-3489 or superpethome@gmail.com."
+            "text": "Super Pet Grooming Salon is located at 122 Teaticket Hwy, East Falmouth, MA 02536 on Cape Cod. We are open Tuesday through Friday from 9:00 AM to 5:00 PM. We are closed Saturday, Sunday and Monday. You can reach us at (508) 524-3489 or superpethome@gmail.com."
           }
         },
         {
@@ -2744,8 +2732,7 @@ main > section {
       <div class="footer-col">
         <h4>Hours</h4>
         <p style="display:block">Tue – Fri: 9:00 AM – 5:00 PM</p>
-        <p style="display:block">Saturday: 9:00 AM – 1:00 PM</p>
-        <p style="display:block">Sunday &amp; Monday: Closed</p>
+        <p style="display:block">Saturday – Monday: Closed</p>
       </div>
     </div>
 
@@ -2858,8 +2845,8 @@ main > section {
     dateInput.addEventListener('change', function () {
       if (!this.value) return;
       var day = new Date(this.value + 'T12:00:00').getDay();
-      if (day === 0 || day === 1) {
-        this.setCustomValidity('We are closed on Sundays and Mondays. Please choose Tuesday through Saturday.');
+      if (day === 0 || day === 1 || day === 6) {
+        this.setCustomValidity('We are closed on Saturdays, Sundays and Mondays. Please choose Tuesday through Friday.');
         this.reportValidity();
         this.value = '';
       } else {
@@ -3377,7 +3364,7 @@ main > section {
         var v=fi.value;
         if(!v){er.textContent='Please pick a date.';return;}
         var day=new Date(v+'T12:00:00').getDay();
-        if(day===0||day===1){er.textContent='We are closed Sunday and Monday. Please pick Tuesday through Saturday.';fi.value='';return;}
+        if(day===0||day===1||day===6){er.textContent='We are closed Saturday, Sunday and Monday. Please pick Tuesday through Friday.';fi.value='';return;}
         er.textContent='';data[s.field]=v;
         var dp=new Date(v+'T12:00:00');
         var disp=dp.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});

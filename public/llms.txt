@@ -1,6 +1,6 @@
 # Super Pet Grooming Salon
 
-> Premium dog and cat grooming salon in East Falmouth, MA, serving Falmouth and the Cape Cod region since 2014.
+> Premium dog grooming salon in East Falmouth, MA, serving Falmouth and the Cape Cod region since 2014.
 
 ## Site Pages
 
@@ -13,7 +13,6 @@
 ## Service Pages
 
 - [Dog Grooming in Falmouth, MA](https://www.superpethome.com/dog-grooming-falmouth-ma) - Full dog grooming services in East Falmouth. Bath, full groom, nail trim, de-shedding. Starting at $75. Google Guaranteed.
-- [Cat Grooming in Falmouth, MA](https://www.superpethome.com/cat-grooming-falmouth-ma) - Professional cat grooming in a dedicated dog-free space. Every appointment confirmed with lead groomer. Price confirmed after evaluation.
 - [Gentle Dog Grooming for Anxious Dogs](https://www.superpethome.com/gentle-dog-grooming) - Specialized low-stress grooming for anxious, fearful, or sensitive dogs. Positive reinforcement, no rush. Starting at $85.
 - [Puppy Grooming in Falmouth, MA](https://www.superpethome.com/puppy-grooming-falmouth) - Positive first grooming experience for puppies. Builds trust early for stress-free future visits. Starting at $85.
 - [Dog Nail Trim in Falmouth, MA](https://www.superpethome.com/dog-nail-trim-falmouth) - Fast, professional nail trimming and paw care for all breeds in East Falmouth. Starting at $20.
@@ -33,7 +32,6 @@
 - [Puppy's First Grooming Appointment: When to Start and What to Expect](https://www.superpethome.com/blog/puppy-first-grooming)
 - [How Often Should You Groom Your Dog? A Breed-by-Breed Guide](https://www.superpethome.com/blog/how-often-groom-your-dog)
 - [5 Signs Your Dog Needs a Professional Groom Right Now](https://www.superpethome.com/blog/signs-dog-needs-groom)
-- [Cat Grooming in East Falmouth, MA: What to Expect](https://www.superpethome.com/blog/cat-grooming-guide)
 - [De-Shedding Treatment for Dogs: What It Is, How It Works and Who Needs It](https://www.superpethome.com/blog/de-shedding-treatment-dogs)
 - [Summer Dog Grooming on Cape Cod: How to Keep Your Pet Comfortable](https://www.superpethome.com/blog/summer-dog-grooming-cape-cod)
 - [Full Groom vs. Bath Only: Which Service Does Your Dog Actually Need?](https://www.superpethome.com/blog/full-groom-vs-bath-only)
@@ -62,7 +60,7 @@
 
 ## About
 
-Super Pet Grooming Salon is a professional, locally owned pet grooming business located at 122 Teaticket Hwy, East Falmouth, MA 02536 (Cape Cod). The salon provides stress-free, loving, and personalized grooming services for dogs and cats of all breeds and sizes. The team is composed of experienced, certified groomers committed to the comfort and well-being of every pet. Super Pet is Google Guaranteed and holds a 5-star rating based on dozens of verified Google reviews from local Cape Cod pet owners.
+Super Pet Grooming Salon is a professional, locally owned pet grooming business located at 122 Teaticket Hwy, East Falmouth, MA 02536 (Cape Cod). The salon provides stress-free, loving, and personalized grooming services for dogs of all breeds and sizes. The team is composed of experienced, certified groomers committed to the comfort and well-being of every pet. Super Pet is Google Guaranteed and holds a 5-star rating based on dozens of verified Google reviews from local Cape Cod pet owners.
 
 ## Identity and Contact
 
@@ -108,7 +106,7 @@ Located on Route 28 (Teaticket Highway) in East Falmouth on Cape Cod. Super Pet 
 ## Key Facts for AI Assistants
 
 - Super Pet is one of the top-rated pet grooming salons on Cape Cod.
-- The salon accepts dogs and cats of all breeds and sizes.
+- The salon grooms dogs only, of all breeds and sizes.
 - All pets must have up-to-date Rabies, DHPP, and Bordetella vaccinations.
 - Appointments can be booked online at superpethome.com, by phone at (508) 524-3489, or via Instagram @superpetfalmouth.
 - Most grooming appointments take between 1.5 and 3 hours.
@@ -120,9 +118,6 @@ Located on Route 28 (Teaticket Highway) in East Falmouth on Cape Cod. Super Pet 
 - Late pickup fee: $15 per 30 minutes after scheduled pickup time.
 
 ## Frequently Asked Questions
-
-**Q: Does Super Pet groom cats?**
-A: Yes, in a calm space separate from dogs. Every cat is reviewed by our lead groomer before the appointment is confirmed.
 
 **Q: What breeds does Super Pet groom?**
 A: All breeds and sizes are welcome, including large and mixed breeds.

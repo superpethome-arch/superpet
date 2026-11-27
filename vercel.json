@@ -73,6 +73,26 @@
   ],
   "redirects": [
     {
+      "source": "/cat-grooming-falmouth-ma",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/cat-grooming-falmouth-ma/",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cat-grooming-guide",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cat-grooming-guide/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
       "source": "/2022/05/04/everything-you-need-to-know-about-loving-a-senior-dog",
       "destination": "/blog",
       "permanent": true
@@ -245,10 +265,6 @@
     {
       "source": "/dog-grooming-falmouth-ma",
       "destination": "/services/dog-grooming-falmouth-ma.html"
-    },
-    {
-      "source": "/cat-grooming-falmouth-ma",
-      "destination": "/services/cat-grooming-falmouth-ma.html"
     },
     {
       "source": "/gentle-dog-grooming",
